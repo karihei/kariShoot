@@ -2,17 +2,17 @@ define(['entity/entity'], function() {
     var IMAGE_PATH = '../../img/entity/player.png';
     core.preload(IMAGE_PATH);
 
-    kariGolf.Entity.Player = Class.create(kariGolf.Entity, {
+    kariShoot.Entity.Player = Class.create(kariShoot.Entity, {
         initialize: function() {
             var status = {
                 hp: 30000,
                 deffence: 1
             };
-            kariGolf.Entity.call(this, 32, 64, status, IMAGE_PATH);
+            kariShoot.Entity.call(this, 32, 64, status, IMAGE_PATH);
 
             /**
              * 自弾
-             * @type {kariGolf.Bullet}
+             * @type {kariShoot.Bullet}
              */
             this.bullet_;
 
@@ -90,7 +90,7 @@ define(['entity/entity'], function() {
                 this.bullet_.destroy();
                 this.bullet_ = null;
             }
-            this.bullet_ = new kariGolf.Bullet();
+            this.bullet_ = new kariShoot.Bullet();
             this.bullet_.position = {x: this.centerX + 30 , y: this.centerY - 10};
             core.rootScene.mainStage.addChild(this.bullet_);
             this.drawGideLine(e);

@@ -5,7 +5,7 @@ define([], function() {
      * 弾の基底クラス
      * @constructor
      */
-    kariGolf.Bullet = Class.create(PhyCircleSprite, {
+    kariShoot.Bullet = Class.create(PhyCircleSprite, {
         initialize: function() {
             PhyCircleSprite.call(this, GRID_SIZE/2, enchant.box2d.DYNAMIC_SPRITE, 0.9, 1.0, 0, true);
             // 自弾設定
@@ -57,7 +57,7 @@ define([], function() {
 
             /**
              * 弾を撃った人
-             * @type {kariGolf.Entity}
+             * @type {kariShoot.Entity}
              */
             this.shooter;
 
@@ -85,15 +85,12 @@ define([], function() {
         },
 
         handleMove: function() {
-            //if (this.movingFrame_ > 1) {
-                this.contact($.proxy(function() {
-                    this.movingFrame_ = 0;
-                    if (this.destroyCount_ < 0) {
-                       // this.destroyCount_ = this.multipleAtk;
-                    }
-                }, this));
-           // }
-           // this.movingFrame_++;
+            this.contact($.proxy(function() {
+                this.movingFrame_ = 0;
+                if (this.destroyCount_ < 0) {
+                    this.destroyCount_ = this.multipleAtk;
+                }
+            }, this));
 
             // 弾に合わせて画面をスクロール
 
@@ -119,7 +116,7 @@ define([], function() {
             }
 
             this.contact($.proxy(function(sprite) {
-                if (sprite instanceof kariGolf.Entity && sprite !== this.shooter) {
+                if (sprite instanceof kariShoot.Entity && sprite !== this.shooter) {
                     sprite.hit(this);
                 }
             }, this));

@@ -11,7 +11,7 @@ define([
              * ステージの構成要素
              * @enum {number}
              */
-            kariGolf.EntityType = {
+            kariShoot.EntityType = {
                 GROUND: 0,
                 BLOCK: 1,
                 AIR: -1,
@@ -23,20 +23,20 @@ define([
              * ステージを作って返す
              * @return {Array}
              */
-            kariGolf.prototype.buildStage = function() {
+            kariShoot.prototype.buildStage = function() {
                 var stage = [];
 
                 for (var i = 0;i < STAGE_GRID_HEIGHT;i++) {
                     var row = [];
                     for (var j = 0;j < STAGE_GRID_WIDTH;j++) {
                         if (i == 20 && j == 20) {
-                            row[j] = kariGolf.EntityType.SLIME;
+                            row[j] = kariShoot.EntityType.SLIME;
                         } else if (i == 20 && j == 30) {
-                            row[j] = kariGolf.EntityType.DRAGON;
+                            row[j] = kariShoot.EntityType.DRAGON;
                         } else if (i === STAGE_GRID_HEIGHT - 1) {
-                            row[j] = kariGolf.EntityType.GROUND;
+                            row[j] = kariShoot.EntityType.GROUND;
                         } else {
-                            row[j] = kariGolf.EntityType.AIR;
+                            row[j] = kariShoot.EntityType.AIR;
                         }
                     }
                     stage.push(row);
@@ -49,7 +49,7 @@ define([
              * てきとうに雲を並べる
              * @param {Group} stage
              */
-            kariGolf.prototype.setClouds = function(stage) {
+            kariShoot.prototype.setClouds = function(stage) {
                 var cloudSize = 5;
 
                 for(var i = 0;i < cloudSize;i++) {
@@ -67,7 +67,7 @@ define([
                 }
             };
 
-            kariGolf.prototype.run = function() {
+            kariShoot.prototype.run = function() {
                 core.onload = $.proxy(function() {
                     core.physicsWorld = new PhysicsWorld(0, 9.8);
                     var backGround = new Sprite(STAGE_WIDTH, STAGE_HEIGHT);
@@ -82,20 +82,20 @@ define([
                         for (var j = 0; j < tiles[i].length; j++) {
                             var tile;
                             switch(tiles[i][j]) {
-                                case kariGolf.EntityType.GROUND:
+                                case kariShoot.EntityType.GROUND:
                                     tile = new PhyBoxSprite(BLOCK_SIZE, BLOCK_SIZE, enchant.box2d.STATIC_SPRITE, 100, 1.0, 0, true);
                                     tile.image = core.assets[STAGE_IMG_PATH];
                                     tile.frame = 3; // 上草付きの土
                                     tile.position = {x: j * BLOCK_SIZE, y: i * GRID_SIZE + 105};
                                     stage.addChild(tile);
                                     break;
-                                case kariGolf.EntityType.SLIME:
-                                    tile = new kariGolf.Entity.Slime();
+                                case kariShoot.EntityType.SLIME:
+                                    tile = new kariShoot.Entity.Slime();
                                     tile.position = {x: j * GRID_SIZE + (GRID_SIZE / 2), y: i * GRID_SIZE + 105};
                                     stage.addChild(tile);
                                     break;
-                                case kariGolf.EntityType.DRAGON:
-                                    tile = new kariGolf.Entity.Dragon();
+                                case kariShoot.EntityType.DRAGON:
+                                    tile = new kariShoot.Entity.Dragon();
                                     tile.position = {x: j * GRID_SIZE + (GRID_SIZE / 2) + 100, y: i * GRID_SIZE + 105};
                                     stage.addChild(tile);
                                     break;
@@ -107,7 +107,7 @@ define([
 
                     // this.setClouds(stage);
                     stage.y = 0;
-                    var player = new kariGolf.Entity.Player();
+                    var player = new kariShoot.Entity.Player();
                     player.position = {x: 40, y: STAGE_HEIGHT - GRID_SIZE - player.height};
                     stage.addChild(player);
                     core.rootScene.player = player;
@@ -122,7 +122,7 @@ define([
                 core.start();
             };
 
-            var golf = new kariGolf();
+            var golf = new kariShoot();
             golf.run();
         });
     });

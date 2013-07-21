@@ -1,8 +1,8 @@
 define(['entity/entity'], function() {
 
-    kariGolf.Entity.Enemy = Class.create(kariGolf.Entity, {
+    kariShoot.Entity.Enemy = Class.create(kariShoot.Entity, {
         initialize: function(width, height, status, imagePath) {
-            kariGolf.Entity.call(this, width, height, status, imagePath);
+            kariShoot.Entity.call(this, width, height, status, imagePath);
 
             this.bullet_;
 
@@ -20,7 +20,7 @@ define(['entity/entity'], function() {
          * @param {Sprite} entity
          */
         attack: function(entity) {
-            var bullet = new kariGolf.Bullet();
+            var bullet = new kariShoot.Bullet();
             bullet.position = {x: this.centerX - 100 , y: this.centerY};
             core.rootScene.mainStage.addChild(bullet);
 

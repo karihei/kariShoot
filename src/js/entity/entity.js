@@ -6,11 +6,11 @@ define([], function() {
      * キャラクラス
      * @param {number} width
      * @param {number} height
-     * @param {kariGolf.Entity.Status=} opt_status
+     * @param {kariShoot.Entity.Status=} opt_status
      * @param {string=} opt_imagePath
      * @constructor
      */
-    kariGolf.Entity = Class.create(PhyBoxSprite, {
+    kariShoot.Entity = Class.create(PhyBoxSprite, {
         initialize: function(width, height, opt_status, opt_imagePath) {
             PhyBoxSprite.call(this, width, height, enchant.box2d.DYNAMIC_SPRITE, 1.0, 1, 0.6, true);
             var imagePath = opt_imagePath || IMAGE_PATH;
@@ -210,5 +210,5 @@ define([], function() {
      *     deffence: number // 防御力 min=1, max=100
      * }}
      */
-    kariGolf.Entity.Status;
+    kariShoot.Entity.Status;
 });

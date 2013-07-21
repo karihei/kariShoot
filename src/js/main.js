@@ -37,7 +37,7 @@ require(['jquery', 'enchant', 'box2dweb', 'box2d'], function() {
     /**
      * @constructor
      */
-    kariGolf = function() {
+    kariShoot = function() {
     };
 
     require(['game']);
