@@ -1,5 +1,5 @@
 define(['entity/enemy'], function() {
-    var IMAGE_PATH = '../../img/entity/dragon.png';
+    var IMAGE_PATH = 'img/entity/dragon.png';
     core.preload(IMAGE_PATH);
 
     kariShoot.Entity.Dragon = Class.create(kariShoot.Entity.Enemy, {

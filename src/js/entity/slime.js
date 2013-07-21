@@ -1,5 +1,5 @@
 define(['entity/enemy'], function() {
-    var IMAGE_PATH = '../../img/entity/slime.png';
+    var IMAGE_PATH = 'img/entity/slime.png';
     core.preload(IMAGE_PATH);
 
     kariShoot.Entity.Slime = Class.create(kariShoot.Entity, {

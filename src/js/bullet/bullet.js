@@ -1,5 +1,5 @@
 define([], function() {
-    var IMAGE_PATH = '../../img/bullet.png';
+    var IMAGE_PATH = 'img/bullet.png';
     core.preload(IMAGE_PATH);
     /**
      * 弾の基底クラス

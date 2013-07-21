@@ -14,8 +14,8 @@ requirejs.config({
 
 require(['jquery', 'enchant', 'box2dweb', 'box2d'], function() {
     // 各種定数
-    PLAYER_IMG_PATH = '../js/lib/enchant.js/images/chara1.png';
-    STAGE_IMG_PATH = '../../img/stage.png';
+    PLAYER_IMG_PATH = 'src/js/lib/enchant.js/images/chara1.png';
+    STAGE_IMG_PATH = 'img/stage.png';
     // CLOUD_MID_IMG_PATH = '../../img/cloud_middle.png';
     // CLOUD_SMALL_IMG_PATH = '../../img/cloud_small.png';
 

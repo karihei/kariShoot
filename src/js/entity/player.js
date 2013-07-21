@@ -1,5 +1,5 @@
 define(['entity/entity'], function() {
-    var IMAGE_PATH = '../../img/entity/player.png';
+    var IMAGE_PATH = 'img/entity/player.png';
     core.preload(IMAGE_PATH);
 
     kariShoot.Entity.Player = Class.create(kariShoot.Entity, {

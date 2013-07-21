@@ -1,6 +1,6 @@
 define([], function() {
-    var IMAGE_PATH = '../../img/entity/slime.png';
-    var HIT_EFFECT_PATH = '../../img/hiteffect.png';
+    var IMAGE_PATH = 'img/entity/slime.png';
+    var HIT_EFFECT_PATH = 'img/hiteffect.png';
     core.preload([IMAGE_PATH, HIT_EFFECT_PATH]);
     /**
      * キャラクラス
