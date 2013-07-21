@@ -1,0 +1,56 @@
+@import "compass/css3/images";
+
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#enchant-stage {
+  border: 1px solid;
+  background: linear-gradient(#66b6fc 0%,#fcfcfc 100%);
+
+}
+
+#status-window {
+  height: 64px;
+  width: 640px;
+  position: absolute;
+  z-index: 1;
+  padding: 5px;
+}
+
+.hp-label, .sp-label {
+  display: inline-block;
+  width: 20px;
+  padding: 10px 0;
+}
+
+.hp-label {
+  background: url('../../img/hp.png') no-repeat 50% 50%;
+}
+
+.sp-label {
+  background: url('../../img/sp.png') no-repeat 50% 50%;
+}
+
+_pos {
+  display: inline-block;
+  width: 200px;
+  height: 20px;
+}
+
+#hp-bar, #sp-bar {
+  border: 1px solid #000000;
+  @extend _pos;
+}
+
+#hp-bar-value {
+  background: linear-gradient(#f3c5bd 0%,#e86c57 50%,#ea2803 51%,#ff6600 75%,#c72200 100%);
+  @extend _pos;
+}
+
+#sp-bar-value {
+  background: linear-gradient(#e6f0a3 0%,#d2e638 50%,#c3d825 51%,#dbf043 100%);
+  @extend _pos;
+}
