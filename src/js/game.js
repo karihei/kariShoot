@@ -1,6 +1,8 @@
 define([
+    'manage/manage',
     'bullet/bullet',
     'bullet/gravity',
+    'bullet/arc',
     'entity/enemy',
     'entity/slime',
     'entity/dragon',
@@ -50,18 +52,19 @@ define([
              * @param {Group} stage
              */
             kariShoot.prototype.setClouds = function(stage) {
-                var cloudSize = 5;
+                var cloudSize = STAGE_GRID_WIDTH;
 
                 for(var i = 0;i < cloudSize;i++) {
                     var midCloud = new Sprite(64, 30);
                     var smallCloud = new Sprite(32, 15);
                     midCloud.image = core.assets[CLOUD_MID_IMG_PATH];
                     midCloud.x = i * 100 + (Math.random() * 50);
-                    midCloud.y = i * 2 + (Math.random() * 50);
+                    midCloud.y = i * 2 + (Math.random() * 120);
+                    midCloud.opacity = '0.5';
                     smallCloud.image = core.assets[CLOUD_SMALL_IMG_PATH];
                     smallCloud.x = i * 80 + (Math.random() * 50);
-                    smallCloud.y = i * 2 + (Math.random() * 100);
-
+                    smallCloud.y = i * 2 + (Math.random() * 200);
+                    smallCloud.opacity = '0.5';
                     stage.addChild(midCloud);
                     stage.addChild(smallCloud);
                 }
@@ -69,6 +72,7 @@ define([
 
             kariShoot.prototype.run = function() {
                 core.onload = $.proxy(function() {
+                    var turn = kariShoot.manage.Turn.getInstance();
                     core.physicsWorld = new PhysicsWorld(0, 9.8);
                     var backGround = new Sprite(STAGE_WIDTH, STAGE_HEIGHT);
                     backGround.backGroundColor = '#4ebafa';
@@ -93,11 +97,13 @@ define([
                                     tile = new kariShoot.Entity.Slime();
                                     tile.position = {x: j * GRID_SIZE + (GRID_SIZE / 2), y: i * GRID_SIZE + 105};
                                     stage.addChild(tile);
+                                    turn.addEntity(tile);
                                     break;
                                 case kariShoot.EntityType.DRAGON:
                                     tile = new kariShoot.Entity.Dragon();
-                                    tile.position = {x: j * GRID_SIZE + (GRID_SIZE / 2) + 100, y: i * GRID_SIZE + 105};
+                                    tile.position = {x: j * GRID_SIZE + (GRID_SIZE / 2) + 500, y: i * GRID_SIZE + 105};
                                     stage.addChild(tile);
+                                    turn.addEntity(tile);
                                     break;
                                 default:
                                     break;
@@ -105,18 +111,18 @@ define([
                         }
                     }
 
-                    // this.setClouds(stage);
+                    this.setClouds(stage);
                     stage.y = 0;
                     var player = new kariShoot.Entity.Player();
                     player.position = {x: 40, y: STAGE_HEIGHT - GRID_SIZE - player.height};
                     stage.addChild(player);
+                    turn.addEntity(player);
                     core.rootScene.player = player;
 
                     core.rootScene.addChild(stage);
                     core.rootScene.mainStage = stage;
                     core.rootScene.addEventListener('enterframe', function() {
                         core.physicsWorld.step(core.fps);
-
                     });
                 }, this);
                 core.start();

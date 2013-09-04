@@ -40,7 +40,7 @@ define([], function() {
              * 攻撃力 ( ダメージ計算 = 弾の速さ * attack )
              * @type {number}
              */
-            this.attack = 1;
+            this.attack = 20;
 
             /**
              * 弾を飛ばす方向
@@ -67,41 +67,75 @@ define([], function() {
              * @private
              */
             this.destroyCount_ = -1;
+
+            /**
+             * 弾を中心にスクロールするか
+             * @type {Boolean}
+             */
+            this.needScroll = false;
+
+            /**
+             * 軌跡のドット集合
+             * @type {Group}
+             */
+            this.lineGroup = new Group();
+            core.rootScene.mainStage.addChild(this.lineGroup);
             this.addEventListener('enterframe', $.proxy(this.handleEnterframe, this));
         },
 
         /**
          * 発射する時はこれを呼ぶ
+         * @param {number} x
+         * @param {number} y
+         * @param {Sprite} shooter 撃った人
+         * @param {boolean=} opt_needScroll
          */
-        shot: function(x, y, shooter) {
+        shot: function(x, y, shooter, opt_needScroll) {
             this.vX = x;
             this.vY = y;
             this.isShot_ = true;
             this.shooter = shooter;
+            this.needScroll = !!opt_needScroll;
         },
 
         isMove: function() {
             return this.isMove_;
         },
 
+        getLineGroup: function() {
+            return this.lineGroup;
+        },
+
         handleMove: function() {
-            this.contact($.proxy(function() {
-                this.movingFrame_ = 0;
-                if (this.destroyCount_ < 0) {
-                    this.destroyCount_ = this.multipleAtk;
+            this.contact($.proxy(function(sprite) {
+                if (sprite !== this.shooter) {
+                    this.movingFrame_ = 0;
+                    if (this.destroyCount_ < 0) {
+                        // 多段ヒット回数分contactしたら弾を消す
+                        this.destroyCount_ = this.multipleAtk;
+                    }
                 }
             }, this));
 
             // 弾に合わせて画面をスクロール
-
-            var x = Math.min((core.width / 2 - this.width) - this.x, 0);
-            core.rootScene.mainStage.x = x;
-            core.rootScene.mainStage.y = -1 * Math.min(this.y , 0);
+            // IIWAKE: 弾クラスが画面スクロールを管理するのは微妙
+            if (this.needScroll) {
+                var x = Math.min((core.width / 2 - this.width) - this.x, 0);
+                core.rootScene.mainStage.x = x;
+                core.rootScene.mainStage.y = -1 * Math.min(this.y , 0);
+            }
         },
 
+        /**
+         * 球の軌道を決める。
+         * 継承クラスはこれを実装する
+         */
+        handleShot: function(shooter) {
+            this.applyImpulse(this.calcVector(this.vX, this.vY, this.centerX, this.centerY));
+        },
 
         handleEnterframe: function(e) {
-            if (this.velocity.x < 5 && this.velocity.y < 5) {
+            if (this.velocity.x < 1 && this.velocity.y < 1) {
                 this.isMove_ = false;
             }
 
@@ -110,7 +144,7 @@ define([], function() {
             }
 
             if (this.isShot_ && !this.isMove_) {
-                this.applyImpulse(this.calcVector(this.vX, this.vY, this.centerX, this.centerY));
+                this.handleShot(this.shooter);
                 this.isShot_ = false;
                 this.isMove_ = true;
             }
@@ -122,13 +156,13 @@ define([], function() {
             }, this));
 
             if (this.x < -1 * this.width || this.x > WORLD_WIDTH + this.width) {
-                this.destroy()
+                this.handleDestroy()
             }
 
             if (this.destroyCount_ > 0) {
                 this.destroyCount_--;
                 if (this.destroyCount_ == 0) {
-                    this.destroyEffect();
+                    this.handleDestroy();
                 }
             }
 
@@ -169,7 +203,11 @@ define([], function() {
             return new b2Vec2(shotXv, shotYv);
         },
 
-        destroyEffect: function() {
+        handleDestroy: function() {
+            if (this.needScroll) {
+                var evt = new enchant.Event('scrollend');
+                this.dispatchEvent(evt);
+            }
             this.destroy();
         },
 
@@ -181,7 +219,6 @@ define([], function() {
             var dot = new Sprite(5, 5);
             var surface = new Surface(5, 5);
             surface.context.beginPath();
-            //surface.context.arc(5, 5, 5, 0, Math.PI*2, false);
             surface.context.fillStyle = 'rgba(252, 0, 0, 0.2)';
             surface.context.fillRect(0,0,5,5);
 
@@ -189,7 +226,7 @@ define([], function() {
             dot.image = surface;
             dot.x = this.centerX;
             dot.y = this.centerY;
-            core.rootScene.mainStage.addChild(dot);
+            this.lineGroup.addChild(dot);
         }
     });
 });

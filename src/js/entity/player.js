@@ -10,17 +10,21 @@ define(['entity/entity'], function() {
             };
             kariShoot.Entity.call(this, 32, 64, status, IMAGE_PATH);
 
+            this.name = 'プレイヤー';
+
             /**
-             * 自弾
-             * @type {kariShoot.Bullet}
+             * 自弾グループ
+             * @type {Array.<kariShoot.Bullet>}
              */
-            this.bullet_;
+            this.bullets_ = [];
 
             /**
              * スタミナ的なパラメータの最大値
              * @type {number}
              */
             this.maxSp = 1000;
+
+            this.agi = 10;
 
             /**
              * スタミナ的なパラメータ
@@ -51,7 +55,8 @@ define(['entity/entity'], function() {
         },
 
         handleEnterframe_: function() {
-            if (this.acount++ > (core.fps / 20)) {
+            // フレームアニメーション設定
+            if (this.acount++ > (core.fps / 7)) {
                 this.frame = this.frameCount++;
                 this.acount = 0;
             }
@@ -72,29 +77,58 @@ define(['entity/entity'], function() {
             }
 
             if (core.input.right && this.sp > 0) {
-                this.x += 1;
+                this.x += 10;
                 this.sp -= 10;
                 this.isHeal_ = false;
+                if (this.scaleX < 0) {
+                    this.scaleX *= -1;
+                }
             }
+
             if (core.input.left && this.sp > 0) {
                 this.x -= 1;
                 this.sp -= 10;
                 this.isHeal_ = false;
+                if (this.scaleX > 0) {
+                    this.scaleX *= -1;
+                }
             }
 
             this.showStatus();
         },
 
         handleTouchEnd: function(e) {
-            if (this.bullet_) {
-                this.bullet_.destroy();
-                this.bullet_ = null;
+            if (this.bullets_.length > 0) {
+                $.each(this.bullets_, function(index, bullet) {
+                    core.rootScene.mainStage.removeChild(bullet.getLineGroup());
+                    bullet.destroy();
+                });
+                this.bullets_ = [];
             }
-            this.bullet_ = new kariShoot.Bullet();
-            this.bullet_.position = {x: this.centerX + 30 , y: this.centerY - 10};
-            core.rootScene.mainStage.addChild(this.bullet_);
             this.drawGideLine(e);
-            this.bullet_.shot(e.localX, e.localY, this);
+
+            setTimeout($.proxy(function() {this.shot(e.localX, e.localY+10, true);}, this), 0);
+            setTimeout($.proxy(function() {this.shot(e.localX, e.localY);}, this), 300);
+            setTimeout($.proxy(function() {this.shot(e.localX, e.localY-10);}, this), 600);
+
+        },
+
+        shot: function(x, y, needScroll) {
+            var bullet = new kariShoot.Bullet();
+            bullet.position = {x: this.centerX + 30 , y: this.centerY - 10};
+            if (needScroll) {
+                bullet.on('scrollend', $.proxy(function() {
+                    setTimeout($.proxy(function() {
+                        var turn = kariShoot.manage.Turn.getInstance();
+                        turn.end();
+                    }, this), 1000);
+                }, this));
+            }
+
+            core.rootScene.mainStage.addChild(bullet);
+
+            bullet.shot(x, y, this, needScroll);
+            this.bullets_.push(bullet);
         },
 
         /**
@@ -109,7 +143,7 @@ define(['entity/entity'], function() {
 
             context.strokeStyle = 'rgb(255, 0, 0)';
             context.beginPath();
-            context.moveTo(this.centerX, this.centerY);
+            context.moveTo(this.centerX + 30, this.centerY - 10);
             context.lineTo(e.localX, e.localY);
 
             context.closePath();

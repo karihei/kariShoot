@@ -10,6 +10,7 @@ define(['entity/enemy'], function() {
             };
             kariShoot.Entity.call(this, 48, 48, status, IMAGE_PATH);
             this.account = 0;
+            this.name = 'スライム';
             this.addEventListener('enterframe', this.handleEnterframe_);
         },
 
@@ -18,6 +19,17 @@ define(['entity/enemy'], function() {
                 this.frame = this.frameCount++;
                 this.account = 0;
             }
+        },
+
+        /**
+         * @override
+         */
+        action: function() {
+            kariShoot.Entity.prototype.action.call(this);
+            this.nothingToDo();
+            setTimeout($.proxy(function() {
+                kariShoot.manage.Turn.getInstance().end();
+            }, this), 1000);
         }
     });
 });

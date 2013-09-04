@@ -16,8 +16,8 @@ require(['jquery', 'enchant', 'box2dweb', 'box2d'], function() {
     // 各種定数
     PLAYER_IMG_PATH = 'src/js/lib/enchant.js/images/chara1.png';
     STAGE_IMG_PATH = 'img/stage.png';
-    // CLOUD_MID_IMG_PATH = '../../img/cloud_middle.png';
-    // CLOUD_SMALL_IMG_PATH = '../../img/cloud_small.png';
+    CLOUD_MID_IMG_PATH = 'img/cloud_middle1.png';
+    CLOUD_SMALL_IMG_PATH = 'img/cloud_small.png';
 
     GRID_SIZE = 16;
     BLOCK_SIZE = 32; // 土とか
@@ -30,8 +30,8 @@ require(['jquery', 'enchant', 'box2dweb', 'box2d'], function() {
     // enchant.js 初期化
     enchant();
     core = new Core(STAGE_WIDTH, STAGE_HEIGHT);
-    core.fps = 64;
-    core.preload(PLAYER_IMG_PATH, STAGE_IMG_PATH);
+    core.fps = 32;
+    core.preload(PLAYER_IMG_PATH, STAGE_IMG_PATH, CLOUD_MID_IMG_PATH, CLOUD_SMALL_IMG_PATH);
 
 
     /**

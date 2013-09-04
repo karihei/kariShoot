@@ -17,6 +17,12 @@ define([], function() {
             this.image = core.assets[imagePath];
 
             /**
+             * 名前
+             * @type {String}
+             */
+            this.name = 'Entity';
+
+            /**
              * 最大体力
              * @type {number}
              */
@@ -33,6 +39,14 @@ define([], function() {
              * @type {number}
              */
             this.deffence = opt_status ? opt_status.deffence : 1;
+
+            /**
+             * すばやさ
+             * 大きいほどターン順が早く回ってくる
+             * 100 * N => N 回行動
+             * @type {number}
+             */
+            this.agi = 1;
 
             /**
              * HPバーの枠
@@ -129,6 +143,14 @@ define([], function() {
         },
 
         /**
+         * ターンが回ってきた時の行動を書く
+         * @protected
+         */
+        action: function() {
+            console.log(this.name + 'のターン');
+        },
+
+        /**
          * HPバーを表示
          * @private
          */
@@ -199,8 +221,58 @@ define([], function() {
         },
 
         destroyEffect_: function() {
-            this.tl.fadeOut(30).then(this.destroy);
+            kariShoot.manage.Turn.getInstance().removeEntity(this);
+            this.tl.fadeOut(30).then($.proxy(function() {
+                this.destroy();
+            }, this));
 
+        },
+
+        /**
+         * ようすをみる
+         */
+        nothingToDo: function() {
+            var consoleWindow = new Group();
+            var windowOuter =new Sprite(STAGE_WIDTH, STAGE_HEIGHT);
+            var outer = new Surface(STAGE_WIDTH, STAGE_HEIGHT);
+            var context = outer.context;
+            var windowWidth = 128;
+            var windowHeight = 35;
+            windowOuter.image = outer;
+
+            var windowRect = {
+                x: this.x - ((this.x + windowWidth / 2) - this.centerX),
+                y: this.y - windowHeight
+            };
+
+            context.strokeStyle = 'rgb(0, 0 ,0)';
+            context.beginPath();
+            context.fillRect(windowRect.x, windowRect.y, windowWidth, windowHeight);
+
+            var windowInner = new Sprite(STAGE_WIDTH, STAGE_HEIGHT);
+            var inner = new Surface(STAGE_WIDTH, STAGE_HEIGHT);
+            var innerContext = inner.context;
+            windowInner.image = inner;
+
+            innerContext.strokeStyle = 'rgb(255, 255, 255)';
+            innerContext.lineWidth = 2;
+            innerContext.beginPath();
+            innerContext.strokeRect(windowRect.x+5, windowRect.y+5, windowWidth-10, windowHeight-10);
+
+            var text = new Label('ようすをみている。');
+            var fontSize = 12;
+            text.font = fontSize + 'px';
+            text.color = 'white';
+            text.x = windowRect.x + 10;
+            text.y = windowRect.y + windowHeight / 2 - fontSize / 2 + 1;
+
+            consoleWindow.addChild(windowOuter);
+            consoleWindow.addChild(windowInner);
+            consoleWindow.addChild(text);
+            core.rootScene.mainStage.addChild(consoleWindow);
+            setTimeout(function() {
+                core.rootScene.mainStage.removeChild(consoleWindow);
+            }, 3000);
         }
     });
 
