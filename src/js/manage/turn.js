@@ -32,7 +32,6 @@ define(['manage/manage'], function() {
          */
         this.target_ = kariShoot.manage.Turn.TargetType.PLAYER;
 
-
         this.scrollTarget_ = null;
 
         core.rootScene.addEventListener('enterframe', $.proxy(function() {
@@ -41,6 +40,12 @@ define(['manage/manage'], function() {
             }
         }, this));
     };
+
+    /**
+     * 各EntityのActiveGaugeがこれ以上になったら行動開始
+     * @const {number}
+     */
+    kariShoot.manage.Turn.MAX_ACTIVE_GAUGE = 100;
 
     kariShoot.manage.Turn.TargetType = {
         PLAYER: 'player',
@@ -51,19 +56,7 @@ define(['manage/manage'], function() {
      * @param {Sprite} entity
      */
     kariShoot.manage.Turn.prototype.addEntity = function(entity) {
-        // 複数回行動 ( すばやさ100ごとに +1回行動)
-        var multipleTurn = Math.floor(entity.agi / 100) || 1;
-
-        for (var i = 0;i < multipleTurn;i++) {
-            this.entities_.push(entity);
-        }
-
-        // 素早さ順に並び替え
-        this.entities_.sort(function(a, b) {
-            return a.agi < b.agi;
-        });
-
-        this.cursor_ = 0;
+        this.entities_.push(entity);
     };
 
     /**

@@ -72,7 +72,6 @@ define([
 
             kariShoot.prototype.run = function() {
                 core.onload = $.proxy(function() {
-                    var turn = kariShoot.manage.Turn.getInstance();
                     core.physicsWorld = new PhysicsWorld(0, 9.8);
                     var backGround = new Sprite(STAGE_WIDTH, STAGE_HEIGHT);
                     backGround.backGroundColor = '#4ebafa';
@@ -97,13 +96,11 @@ define([
                                     tile = new kariShoot.Entity.Slime();
                                     tile.position = {x: j * GRID_SIZE + (GRID_SIZE / 2), y: i * GRID_SIZE + 105};
                                     stage.addChild(tile);
-                                    turn.addEntity(tile);
                                     break;
                                 case kariShoot.EntityType.DRAGON:
                                     tile = new kariShoot.Entity.Dragon();
                                     tile.position = {x: j * GRID_SIZE + (GRID_SIZE / 2) + 500, y: i * GRID_SIZE + 105};
                                     stage.addChild(tile);
-                                    turn.addEntity(tile);
                                     break;
                                 default:
                                     break;
@@ -116,7 +113,6 @@ define([
                     var player = new kariShoot.Entity.Player();
                     player.position = {x: 40, y: STAGE_HEIGHT - GRID_SIZE - player.height};
                     stage.addChild(player);
-                    turn.addEntity(player);
                     core.rootScene.player = player;
 
                     core.rootScene.addChild(stage);

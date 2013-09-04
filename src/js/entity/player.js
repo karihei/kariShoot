@@ -59,6 +59,7 @@ define(['entity/entity'], function() {
         },
 
         onenterframe: function() {
+            kariShoot.Entity.prototype.onenterframe.call(this);
             // フレームアニメーション設定
             if (this.acount++ > (core.fps / 7)) {
                 this.frame = this.frameCount++;

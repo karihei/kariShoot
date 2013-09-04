@@ -14,6 +14,7 @@ define(['entity/enemy'], function() {
         },
 
         onenterframe: function() {
+            kariShoot.Entity.Enemy.prototype.onenterframe.call(this);
             if (this.account++ > (core.fps / 9)) {
                 this.frame = this.frameCount++;
                 this.account = 0;

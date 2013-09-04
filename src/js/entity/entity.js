@@ -43,7 +43,6 @@ define([], function() {
             /**
              * すばやさ
              * 大きいほどターン順が早く回ってくる
-             * 100 * N => N 回行動
              * @type {number}
              */
             this.agi = 1;
