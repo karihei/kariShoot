@@ -80,7 +80,6 @@ define([], function() {
              */
             this.lineGroup = new Group();
             core.rootScene.mainStage.addChild(this.lineGroup);
-            this.addEventListener('enterframe', $.proxy(this.handleEnterframe, this));
         },
 
         /**
@@ -134,7 +133,7 @@ define([], function() {
             this.applyImpulse(this.calcVector(this.vX, this.vY, this.centerX, this.centerY));
         },
 
-        handleEnterframe: function(e) {
+        onenterframe: function(e) {
             if (this.velocity.x < 1 && this.velocity.y < 1) {
                 this.isMove_ = false;
             }

@@ -2,6 +2,11 @@ define(['entity/entity'], function() {
     var IMAGE_PATH = 'img/entity/player.png';
     core.preload(IMAGE_PATH);
 
+    /**
+     * 自機クラス
+     * SPが100％の時に行動できる「SP制」で行動する
+     * @constructor
+     */
     kariShoot.Entity.Player = Class.create(kariShoot.Entity, {
         initialize: function() {
             var status = {
@@ -50,11 +55,10 @@ define(['entity/entity'], function() {
              */
             this.isHeal_ = false;
 
-            this.addEventListener('enterframe', this.handleEnterframe_);
             core.rootScene.addEventListener('touchend', $.proxy(this.handleTouchEnd, this));
         },
 
-        handleEnterframe_: function() {
+        onenterframe: function() {
             // フレームアニメーション設定
             if (this.acount++ > (core.fps / 7)) {
                 this.frame = this.frameCount++;

@@ -11,10 +11,9 @@ define(['entity/enemy'], function() {
             kariShoot.Entity.call(this, 48, 48, status, IMAGE_PATH);
             this.account = 0;
             this.name = 'スライム';
-            this.addEventListener('enterframe', this.handleEnterframe_);
         },
 
-        handleEnterframe_: function() {
+        onenterframe: function() {
             if (this.account++ > (core.fps / 20)) {
                 this.frame = this.frameCount++;
                 this.account = 0;

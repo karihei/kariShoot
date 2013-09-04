@@ -1,16 +1,22 @@
-/**
- * @fileoverview 進行ターンを管理するクラス
- */
-
 define(['manage/manage'], function() {
+    /**
+     * ActiveTurnを管理するクラス
+     * @constructor
+     */
     kariShoot.manage.Turn = function() {
-
         /**
          * ステージに存在する（ターンが回ってくる可能性のある）Entityの一覧
-         * @type {Array.<Sprite>}
+         * @type {Array.<kariShoot.Entity>}
          * @private
          */
         this.entities_ = [];
+
+        /**
+         * ターン順のキュー
+         * @type {Array.<kariShoot.Entitiy>}
+         * @private
+         */
+        this.queue_ = [];
 
         /**
          * entitiesの何番目がターン番を持っているか

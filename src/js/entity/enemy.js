@@ -1,18 +1,23 @@
 define(['entity/entity'], function() {
 
+    /**
+     * 敵クラス
+     * ActiveTurn制で行動をする。いわゆるFFのATBのパクリ。
+     * @constructor
+     */
     kariShoot.Entity.Enemy = Class.create(kariShoot.Entity, {
         initialize: function(width, height, status, imagePath) {
             kariShoot.Entity.call(this, width, height, status, imagePath);
 
             this.bullet_;
-
             this.acount = 0;
-            this.addEventListener('enterframe', function() {
-                if (this.acount++ > core.fps) {
-                   // this.attack(core.rootScene.player);
-                    this.acount = 0;
-                }
-            });
+        },
+
+        onenterframe: function() {
+            if (this.acount++ > core.fps) {
+                // this.attack(core.rootScene.player);
+                this.acount = 0;
+            }
         },
 
         /**

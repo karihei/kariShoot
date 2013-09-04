@@ -91,11 +91,9 @@ define([], function() {
             this.frameCount = 0;
 
             this.account;
-
-            this.addEventListener('enterframe', this.handleEnterframe);
         },
 
-        handleEnterframe: function() {
+        onenterframe: function() {
             if (this.hp <= 0) {
                 this.destroyEffect_();
             }

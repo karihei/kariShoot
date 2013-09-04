@@ -37,8 +37,8 @@ define(['bullet/bullet'], function() {
         /**
          * @override
          */
-        handleEnterframe: function() {
-            kariShoot.Bullet.prototype.handleEnterframe.call(this);
+        onenterframe: function() {
+            kariShoot.Bullet.prototype.onenterframe.call(this);
             if (this.centerX > this.midX_) {
                 //this.applyForce(new b2Vec2(this.speed_, this.calcVec_(this.speed_) * -1));
             }
