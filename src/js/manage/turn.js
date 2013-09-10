@@ -5,13 +5,6 @@ define(['manage/manage'], function() {
      */
     kariShoot.manage.Turn = function() {
         /**
-         * ステージに存在する（ターンが回ってくる可能性のある）Entityの一覧
-         * @type {Array.<kariShoot.Entity>}
-         * @private
-         */
-        this.entities_ = [];
-
-        /**
          * ターン順のキュー
          * @type {Array.<kariShoot.Entitiy>}
          * @private
@@ -19,19 +12,17 @@ define(['manage/manage'], function() {
         this.queue_ = [];
 
         /**
-         * entitiesの何番目がターン番を持っているか
-         * @type {number}
+         * 行動中のEntity
+         * @type {kariShoot.Entity}
          * @private
          */
-        this.cursor_ = 0;
+        this.activeEntity_ = null;
 
         /**
-         * 誰のターンか
-         * @type {kariShoot.manage.Turn.TargetType
+         * このEntityが画面中央にくるようスクロールする
+         * @type {kariShoot.Entity}
          * @private
          */
-        this.target_ = kariShoot.manage.Turn.TargetType.PLAYER;
-
         this.scrollTarget_ = null;
 
         core.rootScene.addEventListener('enterframe', $.proxy(function() {
@@ -56,7 +47,7 @@ define(['manage/manage'], function() {
      * @param {Sprite} entity
      */
     kariShoot.manage.Turn.prototype.addEntity = function(entity) {
-        this.entities_.push(entity);
+        this.queue_.push(entity);
     };
 
     /**
@@ -64,30 +55,31 @@ define(['manage/manage'], function() {
      */
     kariShoot.manage.Turn.prototype.removeEntity = function(entity) {
         var newEntities = [];
-        $.each(this.entities_, $.proxy(function(index, e) {
+        $.each(this.queue_, $.proxy(function(index, e) {
             if (e != entity) {
                 newEntities.push(e);
             }
         }, this));
-        this.entities_ = newEntities;
+        this.queue_ = newEntities;
     };
+
+    /**
+     * ターンキューにつまれているやつを処理する
+     */
+    kariShoot.manage.Turn.prototype.tick = function() {
+        if (!this.activeEntity_ && this.queue_.length > 0) {
+            this.activeEntity_ = this.queue_.shift();
+            this.activeEntity_.action();
+            //this.scrollTo(this.activeEntity_);
+        }
+    },
 
     /**
      * ターンを終了する
      * ターンが終わったSpriteがこれを呼ぶイメージ。
      */
     kariShoot.manage.Turn.prototype.end = function() {
-        this.nextTurn();
-        var nextEntity = this.entities_[this.cursor_];
-        this.scrollTarget_ = nextEntity;
-    };
-
-    kariShoot.manage.Turn.prototype.nextTurn = function() {
-        if (this.cursor_ + 1 >= this.entities_.length) {
-            this.cursor_ = 0;
-        } else {
-            this.cursor_++;
-        }
+        this.activeEntity_ = null;
     };
 
     /**

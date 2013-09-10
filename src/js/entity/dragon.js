@@ -27,7 +27,7 @@ define(['entity/enemy'], function() {
         action: function() {
             kariShoot.Entity.prototype.action.call(this);
 
-            this.nothingToDo();
+            this.attack(core.rootScene.player);
             setTimeout($.proxy(function() {
                 kariShoot.manage.Turn.getInstance().end();
             }, this), 1000);

@@ -76,7 +76,7 @@ define([
                     var backGround = new Sprite(STAGE_WIDTH, STAGE_HEIGHT);
                     backGround.backGroundColor = '#4ebafa';
                     core.rootScene.addChild(backGround);
-
+                    var turn = kariShoot.manage.Turn.getInstance();
                     // ステージ設定
                     var tiles = this.buildStage();
                     var tilesWidth = tiles[0].length * GRID_SIZE;
@@ -118,6 +118,7 @@ define([
                     core.rootScene.addChild(stage);
                     core.rootScene.mainStage = stage;
                     core.rootScene.addEventListener('enterframe', function() {
+                        turn.tick();
                         core.physicsWorld.step(core.fps);
                     });
                 }, this);
