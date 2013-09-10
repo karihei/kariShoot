@@ -27,13 +27,18 @@ define(['entity/entity'], function() {
              * @private
              */
             this.activeGauge_ = Math.random() * 10;
+
+            /**
+             * 行動中か
+             * @type {boolean}
+             */
+            this.isAction = false;
         },
 
         onenterframe: function() {
             kariShoot.Entity.prototype.onenterframe.call(this);
             this.processActiveGauge_();
             if (this.acount++ > core.fps) {
-                // this.attack(core.rootScene.player);
                 this.acount = 0;
             }
         },
@@ -43,12 +48,22 @@ define(['entity/entity'], function() {
          * @private
          */
         processActiveGauge_: function() {
-            this.activeGauge_ += this.agi * 1;
+            if (!this.isAction) {
+                this.activeGauge_ += this.agi * 1;
+            }
+
             if (this.activeGauge_ > kariShoot.manage.Turn.MAX_ACTIVE_GAUGE) {
-                console.log('Active!')
                 this.activeGauge_ = 0;
                 this.turn_.addEntity(this);
             }
+        },
+
+        /**
+         * @override
+         */
+        action: function() {
+            kariShoot.Entity.prototype.action.call(this);
+            this.isAction = true;
         },
 
         /**

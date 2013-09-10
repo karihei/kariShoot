@@ -121,15 +121,7 @@ define(['entity/entity'], function() {
         shot: function(x, y, needScroll) {
             var bullet = new kariShoot.Bullet();
             bullet.position = {x: this.centerX + 30 , y: this.centerY - 10};
-            if (needScroll) {
-                bullet.on('scrollend', $.proxy(function() {
-                    setTimeout($.proxy(function() {
-                        var turn = kariShoot.manage.Turn.getInstance();
-                        turn.end();
-                    }, this), 1000);
-                }, this));
-            }
-
+            
             core.rootScene.mainStage.addChild(bullet);
 
             bullet.shot(x, y, this, needScroll);

@@ -79,6 +79,7 @@ define(['manage/manage'], function() {
      * ターンが終わったSpriteがこれを呼ぶイメージ。
      */
     kariShoot.manage.Turn.prototype.end = function() {
+        this.activeEntity_.isAction = false;
         this.activeEntity_ = null;
     };
 
