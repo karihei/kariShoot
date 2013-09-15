@@ -65,9 +65,10 @@ define(['entity/entity'], function() {
                 this.activeGauge += this.agi * 0.5;
             }
 
-            if (this.activeGauge > kariShoot.manage.Turn.MAX_ACTIVE_GAUGE) {
+            if (this.activeGauge >= kariShoot.manage.Turn.MAX_ACTIVE_GAUGE) {
                 this.activeGauge = 0;
                 this.turn_.addEntity(this);
+                this.isAction = true;
             }
 
             this.status.updateActiveGauge();
