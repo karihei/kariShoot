@@ -60,11 +60,11 @@ define([
                     var smallCloud = new Sprite(32, 15);
                     midCloud.image = core.assets[CLOUD_MID_IMG_PATH];
                     midCloud.x = i * 100 + (Math.random() * 50);
-                    midCloud.y = i * 2 + (Math.random() * 120);
+                    midCloud.y = i * 2 + (Math.random() * 60);
                     midCloud.opacity = '0.5';
                     smallCloud.image = core.assets[CLOUD_SMALL_IMG_PATH];
                     smallCloud.x = i * 80 + (Math.random() * 50);
-                    smallCloud.y = i * 2 + (Math.random() * 200);
+                    smallCloud.y = i * 2 + (Math.random() * 100);
                     smallCloud.opacity = '0.5';
                     stage.addChild(midCloud);
                     stage.addChild(smallCloud);
