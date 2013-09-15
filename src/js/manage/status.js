@@ -171,6 +171,13 @@ define(['manage/manage'], function() {
         },
 
         /**
+         * 吹出し的なサムシングを表示する
+         */
+        showBalloon: function(name) {
+
+        },
+
+        /**
          * @return {!kariShoot.Entity}
          */
         getEntity: function() {

@@ -7,6 +7,7 @@ requirejs.config({
     paths: {
         'jquery': 'lib/jquery-1.7.1.min',
         'enchant': 'lib/enchant.js/dev/enchant',
+        'ui': 'lib/enchant.js/dev/plugins/ui.enchant',
         'box2dweb': 'lib/enchant.js/libs/Box2dWeb-2.1.a.3',
         'box2d': 'lib/enchant.js/dev/plugins/box2d.enchant'
     }
@@ -40,5 +41,5 @@ require(['jquery', 'enchant', 'box2dweb', 'box2d'], function() {
     kariShoot = function() {
     };
 
-    require(['game']);
+    require(['ui', 'game']);
 });

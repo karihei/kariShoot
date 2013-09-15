@@ -101,7 +101,7 @@ define([
                                     break;
                                 case kariShoot.EntityType.DRAGON:
                                     tile = new kariShoot.Entity.Dragon();
-                                    tile.position = {x: j * GRID_SIZE + (GRID_SIZE / 2) + 500, y: i * GRID_SIZE + 105};
+                                    tile.position = {x: j * GRID_SIZE + (GRID_SIZE / 2) + 100, y: i * GRID_SIZE + 105};
                                     stage.addChild(tile);
                                     break;
                                 default:

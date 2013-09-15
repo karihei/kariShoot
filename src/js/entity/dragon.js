@@ -11,6 +11,7 @@ define(['entity/enemy'], function() {
             kariShoot.Entity.Enemy.call(this, 128, 128, status, IMAGE_PATH);
             this.account = 0;
             this.name = 'ドラゴン';
+            this.agi = 1;
         },
 
         onenterframe: function() {
@@ -27,8 +28,17 @@ define(['entity/enemy'], function() {
         action: function() {
             kariShoot.Entity.prototype.action.call(this);
 
-            this.attack(core.rootScene.player);
+            this.selectAction_();
             kariShoot.manage.Turn.getInstance().end();
+        },
+
+        selectAction_: function() {
+            var p = Math.floor(Math.random() * 100);
+            if (p > 50) {
+                this.attack(core.rootScene.player);
+            } else {
+                this.nothingToDo();
+            }
         }
     });
 });

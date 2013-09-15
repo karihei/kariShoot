@@ -11,6 +11,7 @@ define(['entity/enemy'], function() {
             kariShoot.Entity.Enemy.call(this, 48, 48, status, IMAGE_PATH);
             this.account = 0;
             this.name = 'スライム';
+            this.agi = 2;
         },
 
         onenterframe: function() {
@@ -27,9 +28,7 @@ define(['entity/enemy'], function() {
         action: function() {
             kariShoot.Entity.prototype.action.call(this);
             this.nothingToDo();
-            setTimeout($.proxy(function() {
-                kariShoot.manage.Turn.getInstance().end();
-            }, this), 1000);
+            kariShoot.manage.Turn.getInstance().end();
         }
     });
 });
