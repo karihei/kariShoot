@@ -15,7 +15,7 @@ define([], function() {
         var context = surface.context;
 
         var label = new Label(text);
-        label.font = '16pt';
+        label.font = '8px famania';
         label.x = 10;
         label.y = 7;
 

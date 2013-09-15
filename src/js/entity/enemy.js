@@ -131,6 +131,7 @@ define(['entity/entity'], function() {
             var fontSize = 12;
             text.font = fontSize + 'px';
             text.color = 'white';
+            text.font = '10px famania';
             text.x = windowRect.x + 10;
             text.y = windowRect.y + windowHeight / 2 - fontSize / 2 + 1;
 

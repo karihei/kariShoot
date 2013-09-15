@@ -113,7 +113,7 @@ define([], function() {
                 this.damageLabelY_ = this.damageLabelY_ ? this.damageLabelY_ - 16 : this.position.y - this.height;
                 label.moveTo(labelX, this.damageLabelY_);
                 label.color = 'red';
-                label.font = "16px 'Consolas', 'Monaco', 'MSゴシック'";
+                label.font = '8px famania';
                 core.rootScene.mainStage.addChild(label);
                 label.tl.moveTo(labelX, this.damageLabelY_ - 10, 10).fadeOut(30).then($.proxy(function() {
                     this.damageLabelY_ = this.position.y - this.height;
@@ -124,11 +124,11 @@ define([], function() {
                 this.totalDamage_ += damage;
                 this.totalDamageLabel_ && core.rootScene.mainStage.removeChild(this.totalDamageLabel_);
                 this.totalDamageLabel_ = new Label('Total: ' + this.totalDamage_ + ' Damage!');
-                this.totalDamageLabel_.moveTo(labelX + 50, this.position.y - this.height);
-                this.totalDamageLabel_.font = "23px 'Consolas', 'Monaco', 'MSゴシック'";
+                this.totalDamageLabel_.moveTo(labelX + 20, this.position.y-100);
+                this.totalDamageLabel_.font = '14px famania'
                 this.totalDamageLabel_.color = 'black';
                 core.rootScene.mainStage.addChild(this.totalDamageLabel_);
-                this.totalDamageLabel_.tl.fadeIn(10).wait(40).fadeOut(30);
+                this.totalDamageLabel_.tl.fadeIn(10).wait(40).fadeOut(30).then($.proxy(function() { this.totalDamage_ = 0;}, this));
 
                 this.showHpBar_();
 

@@ -187,7 +187,7 @@ define(['manage/manage'], function() {
                 this.removeBalloon();
             }
 
-            var width = 15 * text.length;
+            var width = 17 * text.length;
             this.balloon_ = kariShoot.util.canvas.makeBalloon(width, 30, text);
             this.balloon_.x = -1 * width - 10;
             this.addChild(this.balloon_);
