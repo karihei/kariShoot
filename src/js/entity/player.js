@@ -103,19 +103,23 @@ define(['entity/entity'], function() {
         },
 
         handleTouchEnd: function(e) {
-            if (this.bullets_.length > 0) {
-                $.each(this.bullets_, function(index, bullet) {
-                    core.rootScene.mainStage.removeChild(bullet.getLineGroup());
-                    bullet.destroy();
-                });
-                this.bullets_ = [];
+            if (this.sp < this.maxSp) {
+                this.ikigire();
+                return;
+            } else {
+                if (this.bullets_.length > 0) {
+                    $.each(this.bullets_, function(index, bullet) {
+                        core.rootScene.mainStage.removeChild(bullet.getLineGroup());
+                        bullet.destroy();
+                    });
+                    this.bullets_ = [];
+                }
+
+                this.drawGideLine(e);
+                setTimeout($.proxy(function() {this.shot(e.localX, e.localY+10, true);}, this), 0);
+                setTimeout($.proxy(function() {this.shot(e.localX, e.localY);}, this), 300);
+                setTimeout($.proxy(function() {this.shot(e.localX, e.localY-10);}, this), 600);
             }
-            this.drawGideLine(e);
-
-            setTimeout($.proxy(function() {this.shot(e.localX, e.localY+10, true);}, this), 0);
-            setTimeout($.proxy(function() {this.shot(e.localX, e.localY);}, this), 300);
-            setTimeout($.proxy(function() {this.shot(e.localX, e.localY-10);}, this), 600);
-
         },
 
         shot: function(x, y, needScroll) {
@@ -123,9 +127,9 @@ define(['entity/entity'], function() {
             bullet.position = {x: this.centerX + 30 , y: this.centerY - 10};
             bullet.lineDraw = true;
             core.rootScene.mainStage.addChild(bullet);
-
             bullet.shot(x, y, this, needScroll);
             this.bullets_.push(bullet);
+            this.sp -= bullet.sp;
             bullet.addEventListener('scrollend', $.proxy(function() {
                 setTimeout($.proxy(function() {
                     kariShoot.manage.Turn.getInstance().scrollTo(this);
@@ -176,6 +180,12 @@ define(['entity/entity'], function() {
                 spBar.width(spWidth * spRatio);
                 this.prevSp_ = this.sp;
             }
+        },
+
+        /**
+         * SPが足りない時とかに息切れしちゃう
+         */
+        ikigire: function() {
 
         }
     });

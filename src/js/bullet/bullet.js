@@ -43,6 +43,12 @@ define([], function() {
             this.attack = 20;
 
             /**
+             * 消費SP
+             * @type {number}
+             */
+            this.sp = 300;
+
+            /**
              * 弾を飛ばす方向
              * @type {number}
              */
