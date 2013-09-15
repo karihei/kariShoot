@@ -88,15 +88,16 @@ define(['manage/manage'], function() {
      * @param {Sprite} entity
      */
     kariShoot.manage.Turn.prototype.scrollTo = function(entity) {
+        this.scrollTarget_ = entity;
         var x = Math.min((core.width / 2 - entity.width) - entity.x, 0);
         var mainStageX = core.rootScene.mainStage.x;
         var mainStageY = core.rootScene.mainStage.y;
         var direction = 1;
-        if (mainStageX + core.width < entity.x) {
+        if (mainStageX + core.width > entity.x) {
             direction = -1;
         }
 
-        var dx = 100 * direction;
+        var dx = 50 * direction;
         var dy = 50;// * direction;
         if ((direction > 0 && (mainStageX + dx > x) || (direction < 0 && (mainStageX + dx < x)))) {
             core.rootScene.mainStage.x = x;
@@ -116,11 +117,6 @@ define(['manage/manage'], function() {
             this.scrollTarget_ = null;
             this.scrollFinishX_ = false;
             this.scrollFinishY_ = false;
-
-            // スクロール後はデフォで1秒くらい待ってから行動開始するようにする
-            setTimeout(function() {
-                entity.action();
-            }, 1000);
         }
     };
 

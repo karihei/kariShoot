@@ -126,6 +126,11 @@ define(['entity/entity'], function() {
 
             bullet.shot(x, y, this, needScroll);
             this.bullets_.push(bullet);
+            bullet.addEventListener('scrollend', $.proxy(function() {
+                setTimeout($.proxy(function() {
+                    kariShoot.manage.Turn.getInstance().scrollTo(this);
+                }, this), 1000);
+            }, this));
         },
 
         /**
