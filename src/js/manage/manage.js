@@ -7,5 +7,5 @@ define([], function() {
      */
     kariShoot.manage = function() {};
 
-    require(['manage/turn']);
+    require(['manage/turn', 'manage/status']);
 });

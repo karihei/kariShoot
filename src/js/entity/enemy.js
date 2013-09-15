@@ -23,16 +23,21 @@ define(['entity/entity'], function() {
 
             /**
              * ATB的なパラメータ。100で行動開始
-             * @type {Number}
-             * @private
+             * @type {number}
              */
-            this.activeGauge_ = Math.random() * 10;
+            this.activeGauge = Math.random() * 10;
 
             /**
              * 行動中か
              * @type {boolean}
              */
             this.isAction = false;
+
+            /**
+             * AGとかHPバーとか
+             * @type {kariShoot.manage.Status.Item}
+             */
+            this.status = core.rootScene.status.createAndAddItem(this);
         },
 
         onenterframe: function() {
@@ -44,18 +49,28 @@ define(['entity/entity'], function() {
         },
 
         /**
+         * @override
+         */
+        hit: function(entity) {
+            kariShoot.Entity.prototype.hit.call(this, entity);
+            this.status.updateHp();
+        },
+
+        /**
          * AGをすすめる
          * @private
          */
         processActiveGauge_: function() {
             if (!this.isAction) {
-                this.activeGauge_ += this.agi * 1;
+                this.activeGauge += this.agi * 0.5;
             }
 
-            if (this.activeGauge_ > kariShoot.manage.Turn.MAX_ACTIVE_GAUGE) {
-                this.activeGauge_ = 0;
+            if (this.activeGauge > kariShoot.manage.Turn.MAX_ACTIVE_GAUGE) {
+                this.activeGauge = 0;
                 this.turn_.addEntity(this);
             }
+
+            this.status.updateActiveGauge();
         },
 
         /**

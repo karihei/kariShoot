@@ -81,6 +81,8 @@ define([
                     var tiles = this.buildStage();
                     var tilesWidth = tiles[0].length * GRID_SIZE;
                     var stage = new Group();
+                    core.rootScene.status = new kariShoot.manage.Status();
+
                     for (var i = 0; i < tiles.length; i++) {
                         for (var j = 0; j < tiles[i].length; j++) {
                             var tile;

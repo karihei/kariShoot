@@ -94,7 +94,7 @@ define([], function() {
 
         onenterframe: function() {
             if (this.hp <= 0) {
-                this.destroyEffect_();
+                this.handleDestroy_();
             }
         },
 
@@ -217,7 +217,8 @@ define([], function() {
             core.rootScene.mainStage.addChild(effect);
         },
 
-        destroyEffect_: function() {
+        handleDestroy_: function() {
+            core.rootScene.status.removeItem(this);
             kariShoot.manage.Turn.getInstance().removeEntity(this);
             this.tl.fadeOut(30).then($.proxy(function() {
                 this.destroy();

@@ -13,7 +13,7 @@ define([], function() {
             this.frame = 1;
             this.speed = 1;
             this.direction = 0;
-            this.multipleAtk = 2; // 最大多段ヒット数
+            this.multipleAtk = 10; // 最大多段ヒット数
 
             /**
              * 発射済みか
