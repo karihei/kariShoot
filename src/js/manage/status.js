@@ -95,6 +95,13 @@ define(['manage/manage'], function() {
              */
             this.activeGauge_ = null;
 
+            /**
+             * 吹き出し
+             * @type {Group}
+             * @private
+             */
+            this.balloon_ = null;
+
             this.create_();
         },
 
@@ -172,9 +179,30 @@ define(['manage/manage'], function() {
 
         /**
          * 吹出し的なサムシングを表示する
+         * @param {number} text
+         * @param {number=} opt_autoHideTime
          */
-        showBalloon: function(name) {
+        showBalloon: function(text, opt_autoHideTime) {
+            if (this.balloon_) {
+                this.removeBalloon();
+            }
 
+            var width = 15 * text.length;
+            this.balloon_ = kariShoot.util.canvas.makeBalloon(width, 30, text);
+            this.balloon_.x = -1 * width - 10;
+            this.addChild(this.balloon_);
+
+            var autoHideTime = opt_autoHideTime || 3000;
+            setTimeout($.proxy(function(){
+                this.removeBalloon();
+            }, this), autoHideTime);
+        },
+
+        removeBalloon: function() {
+            if (this.balloon_) {
+                this.removeChild(this.balloon_);
+                this.balloon_ = null;
+            }
         },
 
         /**

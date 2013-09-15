@@ -224,53 +224,6 @@ define([], function() {
                 this.destroy();
             }, this));
 
-        },
-
-        /**
-         * ようすをみる
-         */
-        nothingToDo: function() {
-            var consoleWindow = new Group();
-            var windowOuter =new Sprite(STAGE_WIDTH, STAGE_HEIGHT);
-            var outer = new Surface(STAGE_WIDTH, STAGE_HEIGHT);
-            var context = outer.context;
-            var windowWidth = 128;
-            var windowHeight = 35;
-            windowOuter.image = outer;
-
-            var windowRect = {
-                x: this.x - ((this.x + windowWidth / 2) - this.centerX),
-                y: this.y - windowHeight
-            };
-
-            context.strokeStyle = 'rgb(0, 0 ,0)';
-            context.beginPath();
-            context.fillRect(windowRect.x, windowRect.y, windowWidth, windowHeight);
-
-            var windowInner = new Sprite(STAGE_WIDTH, STAGE_HEIGHT);
-            var inner = new Surface(STAGE_WIDTH, STAGE_HEIGHT);
-            var innerContext = inner.context;
-            windowInner.image = inner;
-
-            innerContext.strokeStyle = 'rgb(255, 255, 255)';
-            innerContext.lineWidth = 2;
-            innerContext.beginPath();
-            innerContext.strokeRect(windowRect.x+5, windowRect.y+5, windowWidth-10, windowHeight-10);
-
-            var text = new Label('ようすをみている。');
-            var fontSize = 12;
-            text.font = fontSize + 'px';
-            text.color = 'white';
-            text.x = windowRect.x + 10;
-            text.y = windowRect.y + windowHeight / 2 - fontSize / 2 + 1;
-
-            consoleWindow.addChild(windowOuter);
-            consoleWindow.addChild(windowInner);
-            consoleWindow.addChild(text);
-            core.rootScene.mainStage.addChild(consoleWindow);
-            setTimeout(function() {
-                core.rootScene.mainStage.removeChild(consoleWindow);
-            }, 3000);
         }
     });
 

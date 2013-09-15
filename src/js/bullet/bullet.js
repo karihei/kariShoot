@@ -13,7 +13,7 @@ define([], function() {
             this.frame = 1;
             this.speed = 1;
             this.direction = 0;
-            this.multipleAtk = 5; // 最大多段ヒット数
+            this.multipleAtk = 1; // 最大多段ヒット数
 
             /**
              * 発射済みか
@@ -79,6 +79,13 @@ define([], function() {
              * @type {Group}
              */
             this.lineGroup = new Group();
+
+            /**
+             * 奇跡を描くか
+             * @type {boolean}
+             */
+            this.lineDraw = false;
+
             core.rootScene.mainStage.addChild(this.lineGroup);
         },
 
@@ -165,7 +172,7 @@ define([], function() {
                 }
             }
 
-            if (this.movingFrame_++ % 3 == 0) {
+            if (this.lineDraw && this.movingFrame_++ % 3 == 0) {
                 this.drawLine_();
             }
         },

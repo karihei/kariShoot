@@ -1,5 +1,6 @@
 define([
     'manage/manage',
+    'util/util',
     'bullet/bullet',
     'bullet/gravity',
     'bullet/arc',
@@ -76,11 +77,12 @@ define([
                     var backGround = new Sprite(STAGE_WIDTH, STAGE_HEIGHT);
                     backGround.backGroundColor = '#4ebafa';
                     core.rootScene.addChild(backGround);
+                    var stage = new Group();
+                    this.setClouds(stage);
                     var turn = kariShoot.manage.Turn.getInstance();
                     // ステージ設定
                     var tiles = this.buildStage();
                     var tilesWidth = tiles[0].length * GRID_SIZE;
-                    var stage = new Group();
                     core.rootScene.status = new kariShoot.manage.Status();
 
                     for (var i = 0; i < tiles.length; i++) {
@@ -110,7 +112,6 @@ define([
                         }
                     }
 
-                    this.setClouds(stage);
                     stage.y = 0;
                     var player = new kariShoot.Entity.Player();
                     player.position = {x: 40, y: STAGE_HEIGHT - GRID_SIZE - player.height};

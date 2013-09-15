@@ -36,6 +36,7 @@ define(['entity/enemy'], function() {
             var p = Math.floor(Math.random() * 100);
             if (p > 50) {
                 this.attack(core.rootScene.player);
+                this.status.showBalloon('かえんだま')
             } else {
                 this.nothingToDo();
             }

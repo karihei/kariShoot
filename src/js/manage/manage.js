@@ -7,5 +7,6 @@ define([], function() {
      */
     kariShoot.manage = function() {};
 
+    // manage以下にクラスを追加したらここにも追記する
     require(['manage/turn', 'manage/status']);
 });
