@@ -172,8 +172,6 @@ define([], function() {
             var hpRatio = this.hp / this.maxHp;
             var barWidth = 100;
             var barHeight = 10;
-            var outerX = this.x;
-            var outerY = this.y - 20;
             var borderSize = 1;
             var innerWidth = hpRatio > 0 ? barWidth * hpRatio - (borderSize * 2) : 0;
             var innerHeight = hpRatio > 0 ? barHeight - (borderSize * 2) : 0;
@@ -188,22 +186,27 @@ define([], function() {
             }
 
             // HPバーの外側の描写
-            this.hpBarOuter_ = new Sprite(STAGE_WIDTH, STAGE_HEIGHT);
-            var surfaceOuter = new Surface(STAGE_WIDTH, STAGE_HEIGHT);
+            this.hpBarOuter_ = new Sprite(barWidth, barHeight);
+            var surfaceOuter = new Surface(barWidth, barHeight);
             var contextOuter = surfaceOuter.context;
             this.hpBarOuter_.image = surfaceOuter;
             contextOuter.strokeStyle = 'rgb(0, 0, 0)';
             contextOuter.beginPath();
-            contextOuter.strokeRect(outerX, outerY, barWidth, barHeight);
+            contextOuter.strokeRect(0, 0, barWidth, barHeight);
 
             // HPバーの可変部分の描写
-            this.hpBarInner_ = new Sprite(STAGE_WIDTH, STAGE_HEIGHT);
-            var surfaceInner = new Surface(STAGE_WIDTH, STAGE_HEIGHT);
+            this.hpBarInner_ = new Sprite(barWidth, barHeight);
+            var surfaceInner = new Surface(barWidth, barHeight);
             var contextInner = surfaceInner.context;
             this.hpBarInner_.image = surfaceInner;
             contextInner.fillStyle = 'rgb(255, 0, 0)';
             contextInner.beginPath();
-            contextInner.fillRect(outerX + borderSize, outerY + borderSize, innerWidth, innerHeight);
+            contextInner.fillRect(borderSize, borderSize, innerWidth, innerHeight);
+
+            this.hpBarOuter_.x = this.x - 100;
+            this.hpBarOuter_.y = this.centerY;
+            this.hpBarInner_.x = this.x - 100;
+            this.hpBarInner_.y = this.centerY;
 
             core.rootScene.mainStage.addChild(this.hpBarOuter_);
             core.rootScene.mainStage.addChild(this.hpBarInner_);
