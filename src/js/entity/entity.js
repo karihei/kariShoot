@@ -240,7 +240,7 @@ define([], function() {
             this.tl.fadeOut(30).then($.proxy(function() {
                 this.destroy();
             }, this));
-
+            this.miniMapTile_.remove();
         }
     });
 

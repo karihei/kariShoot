@@ -103,7 +103,7 @@ define([
                                     break;
                                 case kariShoot.EntityType.SLIME:
                                     tile = new kariShoot.Entity.Slime();
-                                    tile.position = {x: j * GRID_SIZE + (GRID_SIZE / 2) + 300, y: i * GRID_SIZE + 105};
+                                    tile.position = {x: j * GRID_SIZE + (GRID_SIZE / 2) + 300, y: i * GRID_SIZE + 5};
                                     stage.addChild(tile);
                                     tile.setMiniMapTile(miniMap.createTile(tile, 'red'));
                                     break;
