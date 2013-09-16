@@ -101,43 +101,41 @@ define(['entity/entity'], function() {
          */
         nothingToDo: function() {
             var consoleWindow = new Group();
-            var windowOuter = new Sprite(WORLD_WIDTH, WORLD_HEIGHT);
-            var outer = new Surface(WORLD_WIDTH, WORLD_HEIGHT);
-            var context = outer.context;
             var windowWidth = 128;
             var windowHeight = 35;
-            windowOuter.image = outer;
+            var windowOuter = new Sprite(windowWidth, windowHeight);
+            var outer = new Surface(windowWidth, windowHeight);
+            var context = outer.context;
 
-            var windowRect = {
-                x: this.x - ((this.x + windowWidth / 2) - this.centerX),
-                y: this.y - windowHeight
-            };
+            windowOuter.image = outer;
 
             context.strokeStyle = 'rgb(0, 0 ,0)';
             context.beginPath();
-            context.fillRect(windowRect.x, windowRect.y, windowWidth, windowHeight);
+            context.fillRect(0, 0, windowWidth, windowHeight);
 
-            var windowInner = new Sprite(WORLD_WIDTH, WORLD_HEIGHT);
-            var inner = new Surface(WORLD_WIDTH, WORLD_HEIGHT);
+            var windowInner = new Sprite(windowWidth, windowHeight);
+            var inner = new Surface(windowWidth, windowHeight);
             var innerContext = inner.context;
             windowInner.image = inner;
 
             innerContext.strokeStyle = 'rgb(255, 255, 255)';
             innerContext.lineWidth = 2;
             innerContext.beginPath();
-            innerContext.strokeRect(windowRect.x+5, windowRect.y+5, windowWidth-10, windowHeight-10);
+            innerContext.strokeRect(5, 5, windowWidth-10, windowHeight-10);
 
             var text = new Label('ようすをみている');
             var fontSize = 12;
             text.font = fontSize + 'px';
             text.color = 'white';
             text.font = '10px famania';
-            text.x = windowRect.x + 10;
-            text.y = windowRect.y + windowHeight / 2 - fontSize / 2 + 1;
+            text.x = 10;
+            text.y = windowHeight / 2 - fontSize / 2 + 1;
 
             consoleWindow.addChild(windowOuter);
             consoleWindow.addChild(windowInner);
             consoleWindow.addChild(text);
+            consoleWindow.x = this.x - ((this.x + windowWidth / 2) - this.centerX);
+            consoleWindow.y = this.y - windowHeight;
             core.rootScene.mainStage.addChild(consoleWindow);
             setTimeout(function() {
                 core.rootScene.mainStage.removeChild(consoleWindow);
