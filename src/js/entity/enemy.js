@@ -101,8 +101,8 @@ define(['entity/entity'], function() {
          */
         nothingToDo: function() {
             var consoleWindow = new Group();
-            var windowOuter = new Sprite(STAGE_WIDTH, STAGE_HEIGHT);
-            var outer = new Surface(STAGE_WIDTH, STAGE_HEIGHT);
+            var windowOuter = new Sprite(WORLD_WIDTH, WORLD_HEIGHT);
+            var outer = new Surface(WORLD_WIDTH, WORLD_HEIGHT);
             var context = outer.context;
             var windowWidth = 128;
             var windowHeight = 35;
@@ -117,8 +117,8 @@ define(['entity/entity'], function() {
             context.beginPath();
             context.fillRect(windowRect.x, windowRect.y, windowWidth, windowHeight);
 
-            var windowInner = new Sprite(STAGE_WIDTH, STAGE_HEIGHT);
-            var inner = new Surface(STAGE_WIDTH, STAGE_HEIGHT);
+            var windowInner = new Sprite(WORLD_WIDTH, WORLD_HEIGHT);
+            var inner = new Surface(WORLD_WIDTH, WORLD_HEIGHT);
             var innerContext = inner.context;
             windowInner.image = inner;
 

@@ -124,6 +124,7 @@ define([
                     player.setMiniMapTile(miniMap.createTile(player, 'yellow', true));
                     player.position = {x: 40, y: STAGE_HEIGHT - GRID_SIZE - player.height};
                     stage.addChild(player);
+                    core.rootScene.miniMap = miniMap;
                     core.rootScene.player = player;
                     core.rootScene.addChild(stage);
                     core.rootScene.mainStage = stage;

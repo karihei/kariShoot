@@ -51,7 +51,7 @@ define(['manage/manage'], function() {
          */
         repositionY_: function() {
             $.each(this.items_, function(index, item) {
-                item.y = STAGE_HEIGHT / 4 + (50 * index);
+                item.y = STAGE_HEIGHT / 6 + (40 * index);
             });
         }
     });

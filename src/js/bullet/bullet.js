@@ -92,6 +92,13 @@ define([], function() {
              */
             this.lineDraw = false;
 
+            /**
+             * ミニマップ上のタイル
+             * @type {kariShoot.manage.MiniMap.Tile}
+             * @private
+             */
+            this.miniMapTile_ = core.rootScene.miniMap.createTile(this, 'white');
+
             core.rootScene.mainStage.addChild(this.lineGroup);
         },
 
@@ -181,6 +188,10 @@ define([], function() {
             if (this.lineDraw && this.movingFrame_++ % 3 == 0) {
                 this.drawLine_();
             }
+
+            if (this.miniMapTile_) {
+                this.miniMapTile_.reposition(this);
+            }
         },
 
         /**
@@ -221,6 +232,8 @@ define([], function() {
                 this.dispatchEvent(evt);
             }
             this.destroy();
+
+            this.miniMapTile_.remove();
         },
 
         /**
