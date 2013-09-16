@@ -27,6 +27,7 @@ require(['jquery', 'enchant', 'box2dweb', 'box2d'], function() {
     STAGE_WIDTH = 640;
     STAGE_HEIGHT = 480;
     WORLD_WIDTH = STAGE_GRID_WIDTH * BLOCK_SIZE;
+    WORLD_HEIGHT = STAGE_GRID_HEIGHT * BLOCK_SIZE;
 
     // enchant.js 初期化
     enchant();

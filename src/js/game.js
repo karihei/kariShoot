@@ -74,16 +74,20 @@ define([
             kariShoot.prototype.run = function() {
                 core.onload = $.proxy(function() {
                     core.physicsWorld = new PhysicsWorld(0, 9.8);
-                    var backGround = new Sprite(STAGE_WIDTH, STAGE_HEIGHT);
-                    backGround.backGroundColor = '#4ebafa';
-                    core.rootScene.addChild(backGround);
                     var stage = new Group();
-                    this.setClouds(stage);
                     var turn = kariShoot.manage.Turn.getInstance();
+
+                    // ミニマップ設定
+                    var miniMap = new kariShoot.manage.MiniMap();
+                    miniMap.x = STAGE_WIDTH - miniMap.width;
+                    core.rootScene.addChild(miniMap);
+
                     // ステージ設定
                     var tiles = this.buildStage();
-                    var tilesWidth = tiles[0].length * GRID_SIZE;
                     core.rootScene.status = new kariShoot.manage.Status();
+
+                    // 雲を配置
+  //                  this.setClouds(stage, miniMap);
 
                     for (var i = 0; i < tiles.length; i++) {
                         for (var j = 0; j < tiles[i].length; j++) {
@@ -95,16 +99,19 @@ define([
                                     tile.frame = 3; // 上草付きの土
                                     tile.position = {x: j * BLOCK_SIZE, y: i * GRID_SIZE + 105};
                                     stage.addChild(tile);
+                                    miniMap.createTile(tile, 'green');
                                     break;
                                 case kariShoot.EntityType.SLIME:
                                     tile = new kariShoot.Entity.Slime();
-                                    tile.position = {x: j * GRID_SIZE + (GRID_SIZE / 2), y: i * GRID_SIZE + 105};
+                                    tile.position = {x: j * GRID_SIZE + (GRID_SIZE / 2) + 300, y: i * GRID_SIZE + 105};
                                     stage.addChild(tile);
+                                    tile.setMiniMapTile(miniMap.createTile(tile, 'red'));
                                     break;
                                 case kariShoot.EntityType.DRAGON:
                                     tile = new kariShoot.Entity.Dragon();
-                                    tile.position = {x: j * GRID_SIZE + (GRID_SIZE / 2) + 100, y: i * GRID_SIZE + 105};
+                                    tile.position = {x: j * GRID_SIZE + (GRID_SIZE / 2) + 500, y: i * GRID_SIZE + 105};
                                     stage.addChild(tile);
+                                    tile.setMiniMapTile(miniMap.createTile(tile, 'red'));
                                     break;
                                 default:
                                     break;
@@ -114,10 +121,10 @@ define([
 
                     stage.y = 0;
                     var player = new kariShoot.Entity.Player();
+                    player.setMiniMapTile(miniMap.createTile(player, 'yellow', true));
                     player.position = {x: 40, y: STAGE_HEIGHT - GRID_SIZE - player.height};
                     stage.addChild(player);
                     core.rootScene.player = player;
-
                     core.rootScene.addChild(stage);
                     core.rootScene.mainStage = stage;
                     core.rootScene.addEventListener('enterframe', function() {

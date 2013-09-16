@@ -89,12 +89,22 @@ define([], function() {
              */
             this.frameCount = 0;
 
+            /**
+             * ミニマップに表示するタイル
+             * @type {kariShoot.manage.MiniMap.Tile}
+             * @private
+             */
+            this.miniMapTile_ = null;
+
             this.account;
         },
 
         onenterframe: function() {
             if (this.hp <= 0) {
                 this.handleDestroy_();
+            }
+            if (this.miniMapTile_) {
+                this.miniMapTile_.reposition(this);
             }
         },
 
@@ -137,6 +147,13 @@ define([], function() {
                     this.acount = 0;
                 }
             }
+        },
+
+        /**
+         * @param {Sprite} tile
+         */
+        setMiniMapTile: function(tile) {
+            this.miniMapTile_ = tile;
         },
 
         /**
