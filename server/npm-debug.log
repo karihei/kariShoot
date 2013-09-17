@@ -1,0 +1,1514 @@
+info it worked if it ends with ok
+verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'sqlite3' ]
+info using npm@1.1.16
+info using node@v0.6.15
+verbose config file /root/.npmrc
+verbose config file /usr/local/etc/npmrc
+verbose config file /usr/local/lib/node_modules/npm/npmrc
+verbose caching /home/karihei/Dropbox/apps/kariShoot/server/node_modules/socket.io/package.json
+verbose cache add [ 'sqlite3', null ]
+silly cache add: name, spec, args [ undefined, 'sqlite3', [ 'sqlite3', null ] ]
+verbose parsed url { pathname: 'sqlite3', path: 'sqlite3', href: 'sqlite3' }
+verbose addNamed [ 'sqlite3', '' ]
+verbose addNamed [ null, '' ]
+silly name, range, hasData [ 'sqlite3', '', false ]
+verbose raw, before any munging sqlite3
+verbose url resolving [ 'https://registry.npmjs.org/', './sqlite3' ]
+verbose url resolved https://registry.npmjs.org/sqlite3
+verbose etag "3I1FNDXG7PZCP8JFAC5E50UBU"
+http GET https://registry.npmjs.org/sqlite3
+http 304 https://registry.npmjs.org/sqlite3
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.3.1 (Erlang OTP/R15B03)',
+silly get cb     etag: '"3I1FNDXG7PZCP8JFAC5E50UBU"',
+silly get cb     date: 'Tue, 17 Sep 2013 12:43:09 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag sqlite3 from cache
+silly name, range, hasData 2 [ 'sqlite3', '', true ]
+silly versions [ 'sqlite3',
+silly versions   [ '2.0.0',
+silly versions     '2.0.1',
+silly versions     '2.0.2',
+silly versions     '2.0.3',
+silly versions     '2.0.4',
+silly versions     '2.0.5',
+silly versions     '2.0.6',
+silly versions     '2.0.7',
+silly versions     '2.0.8',
+silly versions     '2.0.9',
+silly versions     '2.0.10',
+silly versions     '2.0.11',
+silly versions     '2.0.12',
+silly versions     '2.0.13',
+silly versions     '2.0.14',
+silly versions     '2.0.15',
+silly versions     '2.1.0',
+silly versions     '2.1.1',
+silly versions     '2.1.2',
+silly versions     '2.1.3',
+silly versions     '2.1.4',
+silly versions     '2.1.5',
+silly versions     '2.1.7',
+silly versions     '2.1.8',
+silly versions     '2.1.9',
+silly versions     '2.1.10',
+silly versions     '2.1.11',
+silly versions     '2.1.12',
+silly versions     '2.1.13',
+silly versions     '2.1.14',
+silly versions     '2.1.15',
+silly versions     '2.1.16',
+silly versions     '2.1.17' ] ]
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl1.0.0-fips-v83.6.6.24-linux-ia32-2.6.32-71.el6.i686',
+verbose bin dist   { shasum: '6092c6115929fc918b95dbdc2704ee1752ca96f6',
+verbose bin dist     tarball: 'http://registry.npmjs.org/sqlite3/-/sqlite3-2.1.17.tgz' } ]
+verbose has bindings.gyp [ undefined,
+verbose has bindings.gyp   { file: '/root/.npm/sqlite3/2.1.17/package/package.json',
+verbose has bindings.gyp     gypfile: true,
+verbose has bindings.gyp     wscript: false,
+verbose has bindings.gyp     contributors: false,
+verbose has bindings.gyp     serverjs: false } ]
+verbose caching /root/.npm/sqlite3/2.1.17/package/package.json
+verbose loadDefaults sqlite3@2.1.17
+silly resolved [ { name: 'sqlite3',
+silly resolved     description: 'Asynchronous, non-blocking SQLite3 bindings',
+silly resolved     version: '2.1.17',
+silly resolved     abi: 'a',
+silly resolved     homepage: 'http://github.com/developmentseed/node-sqlite3',
+silly resolved     author: 
+silly resolved      { name: 'Development Seed',
+silly resolved        email: 'info@developmentseed.org',
+silly resolved        url: 'http://developmentseed.org/' },
+silly resolved     contributors: 
+silly resolved      [ { name: 'Konstantin Käfer', email: 'mail@kkaefer.com' },
+silly resolved        { name: 'Dane Springmeyer', email: 'dane@developmentseed.org' },
+silly resolved        { name: 'Will White', email: 'will@developmentseed.org' },
+silly resolved        { name: 'Orlando Vazquez', email: 'ovazquez@gmail.com' },
+silly resolved        { name: 'Artem Kustikov', email: 'kustikoff@gmail.com' },
+silly resolved        { name: 'Eric Fredricksen', email: 'efredricksen@gmail.com' },
+silly resolved        { name: 'John Wright', email: 'mrjjwright@gmail.com' },
+silly resolved        { name: 'Ryan Dahl', email: 'ry@tinyclouds.org' },
+silly resolved        { name: 'Tom MacWright', email: 'tom@developmentseed.org' },
+silly resolved        { name: 'Carter Thaxton', email: 'carter.thaxton@gmail.com' },
+silly resolved        { name: 'Audrius Kažukauskas', email: 'audrius@neutrino.lt' },
+silly resolved        { name: 'Johannes Schauer', email: 'josch@pyneo.org' },
+silly resolved        { name: 'Nathan Rajlich', email: 'nathan@tootallnate.net' },
+silly resolved        { name: 'AJ ONeal', email: 'coolaj86@gmail.com' },
+silly resolved        { name: 'Mithgol' } ],
+silly resolved     repository: 
+silly resolved      { type: 'git',
+silly resolved        url: 'git://github.com/developmentseed/node-sqlite3.git' },
+silly resolved     dependencies: { progress: '~1.0.1', mkdirp: '~0.3.5', 'tar.gz': '~0.1.1' },
+silly resolved     engines: { node: '>= 0.6.13 < 0.11.0' },
+silly resolved     scripts: 
+silly resolved      { install: 'node build.js',
+silly resolved        pretest: 'node test/support/createdb.js',
+silly resolved        test: 'mocha -R spec --timeout 200000' },
+silly resolved     licenses: [ { type: 'BSD' } ],
+silly resolved     main: './lib/sqlite3',
+silly resolved     _id: 'sqlite3@2.1.17',
+silly resolved     bundleDependencies: [ 'mkdirp', 'tar.gz', 'progress' ],
+silly resolved     devDependencies: {},
+silly resolved     optionalDependencies: {},
+silly resolved     _engineSupported: true,
+silly resolved     _npmVersion: '1.1.16',
+silly resolved     _nodeVersion: 'v0.6.15',
+silly resolved     _defaultsLoaded: true,
+silly resolved     _from: 'sqlite3' } ]
+info into /home/karihei/Dropbox/apps/kariShoot/server sqlite3@2.1.17
+info installOne sqlite3@2.1.17
+verbose from cache /root/.npm/sqlite3/2.1.17/package/package.json
+info unbuild /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3
+verbose unpack /root/.npm/sqlite3/2.1.17/package.tgz
+silly gunzTarPerm modes [ '755', '644' ]
+silly extracting entry package.json
+silly extracting entry .npmignore
+silly extracting entry README.md
+silly extracting entry LICENSE
+silly extracting entry sqlite3.js
+silly extracting entry build.js
+silly extracting entry examples/simple-chaining.js
+silly extracting entry deps/common-sqlite.gypi
+silly extracting entry deps/binding.gyp
+silly extracting entry deps/extract.py
+silly extracting entry deps/sqlite-autoconf-3071700.tar.gz
+silly extracting entry test/unicode.test.js
+silly extracting entry test/trace.test.js
+silly extracting entry test/affected.test.js
+silly extracting entry test/exec.test.js
+silly extracting entry test/other_objects.test.js
+silly extracting entry test/each.test.js
+silly extracting entry test/named_columns.test.js
+silly extracting entry test/open_close.test.js
+silly extracting entry test/profile.test.js
+silly extracting entry test/null_error.test.js
+silly extracting entry test/fts-content.test.js
+silly extracting entry test/serialization.test.js
+silly extracting entry test/scheduling.test.js
+silly extracting entry test/map.test.js
+silly extracting entry test/prepare.test.js
+silly extracting entry test/database_fail.test.js
+silly extracting entry test/rerun.test.js
+silly extracting entry test/extension.test.js
+silly extracting entry test/parallel_insert.test.js
+silly extracting entry test/named_params.test.js
+silly extracting entry test/blob.test.js
+silly extracting entry test/cache.test.js
+silly extracting entry test/constants.test.js
+silly extracting entry test/support/helper.js
+silly extracting entry test/support/createdb.js
+silly extracting entry test/support/script.sql
+silly extracting entry test/support/elmo.png
+silly extracting entry test/support/prepare.db
+silly extracting entry build-util/crosswalk-semver-to-module.js
+silly extracting entry build-util/tools.js
+silly extracting entry build-util/remake.sh
+silly extracting entry build-util/upload.sh
+silly extracting entry Makefile
+silly extracting entry .travis.yml
+silly extracting entry binding.gyp
+silly extracting entry configure
+silly extracting entry benchmark/insert.js
+silly extracting entry benchmark/insert-transaction.sql
+silly extracting entry src/statement.h
+silly extracting entry src/statement.cc
+silly extracting entry src/node_sqlite3.cc
+silly extracting entry src/threading.h
+silly extracting entry src/async.h
+silly extracting entry src/macros.h
+silly extracting entry src/database.h
+silly extracting entry src/database.cc
+silly extracting entry CHANGELOG.md
+silly extracting entry lib/sqlite3.js
+silly extracting entry lib/trace.js
+silly extracting entry lib/index.js
+silly extracting entry lib/binary_name.js
+verbose has bindings.gyp [ undefined,
+verbose has bindings.gyp   { file: '/home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/package.json',
+verbose has bindings.gyp     gypfile: true,
+verbose has bindings.gyp     wscript: false,
+verbose has bindings.gyp     contributors: false,
+verbose has bindings.gyp     serverjs: false } ]
+verbose caching /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/package.json
+verbose loadDefaults sqlite3@2.1.17
+info preinstall sqlite3@2.1.17
+verbose from cache /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/package.json
+verbose readDependencies: using package.json deps
+verbose from cache /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/package.json
+verbose readDependencies: using package.json deps
+verbose cache add [ 'progress@~1.0.1', null ]
+silly cache add: name, spec, args [ undefined, 'progress@~1.0.1', [ 'progress@~1.0.1', null ] ]
+verbose parsed url { pathname: 'progress@~1.0.1',
+verbose parsed url   path: 'progress@~1.0.1',
+verbose parsed url   href: 'progress@~1.0.1' }
+silly cache add: name, spec, args [ 'progress', '~1.0.1', [ 'progress', '~1.0.1' ] ]
+verbose parsed url { pathname: '~1.0.1', path: '~1.0.1', href: '~1.0.1' }
+verbose addNamed [ 'progress', '~1.0.1' ]
+verbose addNamed [ null, '>=1.0.1- <1.1.0-' ]
+silly name, range, hasData [ 'progress', '>=1.0.1- <1.1.0-', false ]
+verbose cache add [ 'mkdirp@~0.3.5', null ]
+silly cache add: name, spec, args [ undefined, 'mkdirp@~0.3.5', [ 'mkdirp@~0.3.5', null ] ]
+verbose parsed url { pathname: 'mkdirp@~0.3.5',
+verbose parsed url   path: 'mkdirp@~0.3.5',
+verbose parsed url   href: 'mkdirp@~0.3.5' }
+silly cache add: name, spec, args [ 'mkdirp', '~0.3.5', [ 'mkdirp', '~0.3.5' ] ]
+verbose parsed url { pathname: '~0.3.5', path: '~0.3.5', href: '~0.3.5' }
+verbose addNamed [ 'mkdirp', '~0.3.5' ]
+verbose addNamed [ null, '>=0.3.5- <0.4.0-' ]
+silly name, range, hasData [ 'mkdirp', '>=0.3.5- <0.4.0-', false ]
+verbose cache add [ 'tar.gz@~0.1.1', null ]
+silly cache add: name, spec, args [ undefined, 'tar.gz@~0.1.1', [ 'tar.gz@~0.1.1', null ] ]
+verbose parsed url { pathname: 'tar.gz@~0.1.1',
+verbose parsed url   path: 'tar.gz@~0.1.1',
+verbose parsed url   href: 'tar.gz@~0.1.1' }
+silly cache add: name, spec, args [ 'tar.gz', '~0.1.1', [ 'tar.gz', '~0.1.1' ] ]
+verbose parsed url { pathname: '~0.1.1', path: '~0.1.1', href: '~0.1.1' }
+verbose addNamed [ 'tar.gz', '~0.1.1' ]
+verbose addNamed [ null, '>=0.1.1- <0.2.0-' ]
+silly name, range, hasData [ 'tar.gz', '>=0.1.1- <0.2.0-', false ]
+verbose raw, before any munging progress
+verbose url resolving [ 'https://registry.npmjs.org/', './progress' ]
+verbose url resolved https://registry.npmjs.org/progress
+verbose etag "C6S06HUECK1GTECLTKTKS90B2"
+http GET https://registry.npmjs.org/progress
+verbose raw, before any munging mkdirp
+verbose url resolving [ 'https://registry.npmjs.org/', './mkdirp' ]
+verbose url resolved https://registry.npmjs.org/mkdirp
+verbose etag "A3251S0G3NT2AB7LYIM1NH7UK"
+http GET https://registry.npmjs.org/mkdirp
+verbose raw, before any munging tar.gz
+verbose url resolving [ 'https://registry.npmjs.org/', './tar.gz' ]
+verbose url resolved https://registry.npmjs.org/tar.gz
+verbose etag "5X0Y4LDUPTDLVWXA3AGWGS029"
+http GET https://registry.npmjs.org/tar.gz
+http 304 https://registry.npmjs.org/progress
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.3.1 (Erlang OTP/R15B03)',
+silly get cb     etag: '"C6S06HUECK1GTECLTKTKS90B2"',
+silly get cb     date: 'Tue, 17 Sep 2013 12:43:10 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag progress from cache
+silly name, range, hasData 2 [ 'progress', '>=1.0.1- <1.1.0-', true ]
+silly versions [ 'progress', [ '0.0.4', '0.0.5', '0.1.0', '1.0.0', '1.0.1' ] ]
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl1.0.0-fips-v83.6.6.24-linux-ia32-2.6.32-71.el6.i686',
+verbose bin dist   { shasum: '5bbef5d227896754f40ada2c38c3146336140a62',
+verbose bin dist     tarball: 'http://registry.npmjs.org/progress/-/progress-1.0.1.tgz' } ]
+verbose caching /root/.npm/progress/1.0.1/package/package.json
+verbose loadDefaults progress@1.0.1
+http 304 https://registry.npmjs.org/tar.gz
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.3.1 (Erlang OTP/R15B03)',
+silly get cb     etag: '"5X0Y4LDUPTDLVWXA3AGWGS029"',
+silly get cb     date: 'Tue, 17 Sep 2013 12:43:10 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag tar.gz from cache
+http 304 https://registry.npmjs.org/mkdirp
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.3.1 (Erlang OTP/R15B03)',
+silly get cb     etag: '"A3251S0G3NT2AB7LYIM1NH7UK"',
+silly get cb     date: 'Tue, 17 Sep 2013 12:43:10 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag mkdirp from cache
+silly name, range, hasData 2 [ 'tar.gz', '>=0.1.1- <0.2.0-', true ]
+silly versions [ 'tar.gz', [ '0.1.1' ] ]
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl1.0.0-fips-v83.6.6.24-linux-ia32-2.6.32-71.el6.i686',
+verbose bin dist   { shasum: 'e914ce23b2fdc627575fbdb3485a5b228ed59947',
+verbose bin dist     tarball: 'http://registry.npmjs.org/tar.gz/-/tar.gz-0.1.1.tgz' } ]
+silly name, range, hasData 2 [ 'mkdirp', '>=0.3.5- <0.4.0-', true ]
+silly versions [ 'mkdirp',
+silly versions   [ '0.0.1',
+silly versions     '0.0.2',
+silly versions     '0.0.3',
+silly versions     '0.0.4',
+silly versions     '0.0.5',
+silly versions     '0.0.6',
+silly versions     '0.0.7',
+silly versions     '0.1.0',
+silly versions     '0.2.0',
+silly versions     '0.2.1',
+silly versions     '0.2.2',
+silly versions     '0.3.0',
+silly versions     '0.3.1',
+silly versions     '0.3.2',
+silly versions     '0.3.3',
+silly versions     '0.3.4',
+silly versions     '0.3.5' ] ]
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl1.0.0-fips-v83.6.6.24-linux-ia32-2.6.32-71.el6.i686',
+verbose bin dist   { shasum: 'de3e5f8961c88c787ee1368df849ac4413eca8d7',
+verbose bin dist     tarball: 'http://registry.npmjs.org/mkdirp/-/mkdirp-0.3.5.tgz' } ]
+verbose caching /root/.npm/tar.gz/0.1.1/package/package.json
+verbose loadDefaults tar.gz@0.1.1
+verbose caching /root/.npm/mkdirp/0.3.5/package/package.json
+verbose loadDefaults mkdirp@0.3.5
+silly resolved [ { name: 'progress',
+silly resolved     version: '1.0.1',
+silly resolved     description: 'Flexible ascii progress bar',
+silly resolved     keywords: [ 'cli', 'progress' ],
+silly resolved     author: { name: 'TJ Holowaychuk', email: 'tj@vision-media.ca' },
+silly resolved     dependencies: {},
+silly resolved     main: 'index',
+silly resolved     engines: { node: '>=0.4.0' },
+silly resolved     _id: 'progress@1.0.1',
+silly resolved     devDependencies: {},
+silly resolved     optionalDependencies: {},
+silly resolved     _engineSupported: true,
+silly resolved     _npmVersion: '1.1.16',
+silly resolved     _nodeVersion: 'v0.6.15',
+silly resolved     _defaultsLoaded: true,
+silly resolved     _from: 'progress@~1.0.1',
+silly resolved     scripts: {} },
+silly resolved   { name: 'tar.gz',
+silly resolved     version: '0.1.1',
+silly resolved     description: 'Native gzip compression and decompression utility for Node.js.',
+silly resolved     keywords: 
+silly resolved      [ 'compression',
+silly resolved        'decompression',
+silly resolved        'compress',
+silly resolved        'decompress',
+silly resolved        'tar',
+silly resolved        'tape archive',
+silly resolved        'tape',
+silly resolved        'archive',
+silly resolved        'gzip',
+silly resolved        'gz' ],
+silly resolved     repository: { type: 'git', url: 'git://github.com/cranic/node-tar.gz.git' },
+silly resolved     author: { name: 'Cranic Tecnologia', email: 'contato@cranic.com.br' },
+silly resolved     contributors: [ { name: 'Alan Hoffmeister', email: 'alan@cranic.com.br' } ],
+silly resolved     dependencies: { fstream: '0.1.x', tar: '0.1.x', commander: '1.1.x' },
+silly resolved     devDependencies: 
+silly resolved      { 'coffee-script': '1.4.x',
+silly resolved        walk: '2.2.x',
+silly resolved        wrench: '1.4.x',
+silly resolved        vows: '0.7.x' },
+silly resolved     main: './lib/targz',
+silly resolved     engines: { node: '>=0.6.0' },
+silly resolved     'maint.me': true,
+silly resolved     scripts: { prepublish: 'cake build' },
+silly resolved     bin: { targz: './bin/targz' },
+silly resolved     bugs: { url: 'http://github.com/cranic/node-tar.gz/issues' },
+silly resolved     license: 'MIT <http://opensource.org/licenses/MIT>',
+silly resolved     _id: 'tar.gz@0.1.1',
+silly resolved     optionalDependencies: {},
+silly resolved     _engineSupported: true,
+silly resolved     _npmVersion: '1.1.16',
+silly resolved     _nodeVersion: 'v0.6.15',
+silly resolved     _defaultsLoaded: true,
+silly resolved     _from: 'tar.gz@~0.1.1' },
+silly resolved   { name: 'mkdirp',
+silly resolved     description: 'Recursively mkdir, like `mkdir -p`',
+silly resolved     version: '0.3.5',
+silly resolved     author: 
+silly resolved      { name: 'James Halliday',
+silly resolved        email: 'mail@substack.net',
+silly resolved        url: 'http://substack.net' },
+silly resolved     main: './index',
+silly resolved     keywords: [ 'mkdir', 'directory' ],
+silly resolved     repository: 
+silly resolved      { type: 'git',
+silly resolved        url: 'git://github.com/substack/node-mkdirp.git' },
+silly resolved     scripts: { test: 'tap test/*.js' },
+silly resolved     devDependencies: { tap: '~0.4.0' },
+silly resolved     license: 'MIT',
+silly resolved     _id: 'mkdirp@0.3.5',
+silly resolved     dependencies: {},
+silly resolved     optionalDependencies: {},
+silly resolved     engines: { node: '*' },
+silly resolved     _engineSupported: true,
+silly resolved     _npmVersion: '1.1.16',
+silly resolved     _nodeVersion: 'v0.6.15',
+silly resolved     _defaultsLoaded: true,
+silly resolved     _from: 'mkdirp@~0.3.5' } ]
+info into /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3 progress@1.0.1
+info into /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3 tar.gz@0.1.1
+info into /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3 mkdirp@0.3.5
+info installOne progress@1.0.1
+info installOne tar.gz@0.1.1
+info installOne mkdirp@0.3.5
+verbose from cache /root/.npm/progress/1.0.1/package/package.json
+info unbuild /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/progress
+verbose from cache /root/.npm/tar.gz/0.1.1/package/package.json
+info unbuild /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz
+verbose from cache /root/.npm/mkdirp/0.3.5/package/package.json
+info unbuild /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/mkdirp
+verbose unpack /root/.npm/progress/1.0.1/package.tgz
+verbose unpack /root/.npm/tar.gz/0.1.1/package.tgz
+verbose unpack /root/.npm/mkdirp/0.3.5/package.tgz
+silly gunzTarPerm modes [ '755', '644' ]
+silly gunzTarPerm modes [ '755', '644' ]
+silly gunzTarPerm modes [ '755', '644' ]
+silly extracting entry package.json
+silly extracting entry package.json
+silly extracting entry package.json
+silly extracting entry .npmignore
+silly extracting entry index.js
+silly extracting entry .npmignore
+silly extracting entry README.md
+silly extracting entry .npmignore
+silly extracting entry LICENSE
+silly extracting entry LICENSE
+silly extracting entry Readme.md
+silly extracting entry History.md
+silly extracting entry index.js
+silly extracting entry readme.markdown
+silly extracting entry test/compress/test.txt
+silly extracting entry test/extract/placeholder
+silly extracting entry lib/node-progress.js
+silly extracting entry Makefile
+silly extracting entry test/mkdirp.js
+silly extracting entry test/clobber.js
+silly extracting entry lib/targz.js
+silly extracting entry Cakefile
+silly extracting entry test/root.js
+silly extracting entry example/example.js
+silly extracting entry example/example.coffee
+silly extracting entry bin/targz
+silly extracting entry src/targz.coffee
+silly extracting entry test/chmod.js
+silly extracting entry test/umask_sync.js
+silly extracting entry test/return_sync.js
+silly extracting entry test/umask.js
+silly extracting entry test/perm.js
+silly extracting entry test/sync.js
+silly extracting entry test/rel.js
+silly extracting entry test/return.js
+silly extracting entry test/race.js
+silly extracting entry test/perm_sync.js
+silly extracting entry .travis.yml
+silly extracting entry examples/pow.js
+verbose caching /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/progress/package.json
+verbose loadDefaults progress@1.0.1
+info preinstall progress@1.0.1
+verbose from cache /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/progress/package.json
+verbose readDependencies: using package.json deps
+verbose from cache /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/progress/package.json
+verbose readDependencies: using package.json deps
+silly resolved []
+verbose about to build /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/progress
+info build /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/progress
+verbose from cache /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/progress/package.json
+verbose linkStuff [ false,
+verbose linkStuff   false,
+verbose linkStuff   false,
+verbose linkStuff   '/home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules' ]
+info linkStuff progress@1.0.1
+verbose linkBins progress@1.0.1
+verbose linkMans progress@1.0.1
+verbose rebuildBundles progress@1.0.1
+info install progress@1.0.1
+info postinstall progress@1.0.1
+verbose caching /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/package.json
+verbose loadDefaults tar.gz@0.1.1
+info preinstall tar.gz@0.1.1
+verbose from cache /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/package.json
+verbose readDependencies: using package.json deps
+verbose from cache /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/package.json
+verbose readDependencies: using package.json deps
+verbose cache add [ 'commander@1.1.x', null ]
+silly cache add: name, spec, args [ undefined, 'commander@1.1.x', [ 'commander@1.1.x', null ] ]
+verbose parsed url { pathname: 'commander@1.1.x',
+verbose parsed url   path: 'commander@1.1.x',
+verbose parsed url   href: 'commander@1.1.x' }
+silly cache add: name, spec, args [ 'commander', '1.1.x', [ 'commander', '1.1.x' ] ]
+verbose parsed url { pathname: '1.1.x', path: '1.1.x', href: '1.1.x' }
+verbose addNamed [ 'commander', '1.1.x' ]
+verbose addNamed [ null, '>=1.1.0- <1.2.0-' ]
+silly name, range, hasData [ 'commander', '>=1.1.0- <1.2.0-', false ]
+verbose raw, before any munging commander
+verbose url resolving [ 'https://registry.npmjs.org/', './commander' ]
+verbose url resolved https://registry.npmjs.org/commander
+verbose etag "COAKXLWLA8HNB5V417W0DLBKZ"
+http GET https://registry.npmjs.org/commander
+verbose cache add [ 'fstream@0.1.x', null ]
+silly cache add: name, spec, args [ undefined, 'fstream@0.1.x', [ 'fstream@0.1.x', null ] ]
+verbose parsed url { pathname: 'fstream@0.1.x',
+verbose parsed url   path: 'fstream@0.1.x',
+verbose parsed url   href: 'fstream@0.1.x' }
+silly cache add: name, spec, args [ 'fstream', '0.1.x', [ 'fstream', '0.1.x' ] ]
+verbose parsed url { pathname: '0.1.x', path: '0.1.x', href: '0.1.x' }
+verbose addNamed [ 'fstream', '0.1.x' ]
+verbose addNamed [ null, '>=0.1.0- <0.2.0-' ]
+silly name, range, hasData [ 'fstream', '>=0.1.0- <0.2.0-', false ]
+verbose cache add [ 'tar@0.1.x', null ]
+silly cache add: name, spec, args [ undefined, 'tar@0.1.x', [ 'tar@0.1.x', null ] ]
+verbose parsed url { pathname: 'tar@0.1.x', path: 'tar@0.1.x', href: 'tar@0.1.x' }
+silly cache add: name, spec, args [ 'tar', '0.1.x', [ 'tar', '0.1.x' ] ]
+verbose parsed url { pathname: '0.1.x', path: '0.1.x', href: '0.1.x' }
+verbose addNamed [ 'tar', '0.1.x' ]
+verbose addNamed [ null, '>=0.1.0- <0.2.0-' ]
+silly name, range, hasData [ 'tar', '>=0.1.0- <0.2.0-', false ]
+verbose caching /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/mkdirp/package.json
+verbose loadDefaults mkdirp@0.3.5
+info preinstall mkdirp@0.3.5
+verbose raw, before any munging tar
+verbose url resolving [ 'https://registry.npmjs.org/', './tar' ]
+verbose url resolved https://registry.npmjs.org/tar
+verbose etag "COY2XZDBERUPVA4VTZR9ISQSZ"
+http GET https://registry.npmjs.org/tar
+verbose raw, before any munging fstream
+verbose url resolving [ 'https://registry.npmjs.org/', './fstream' ]
+verbose url resolved https://registry.npmjs.org/fstream
+verbose etag "B1GWZ0I5TV5WXCK4TP0J5RJVQ"
+http GET https://registry.npmjs.org/fstream
+verbose from cache /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/mkdirp/package.json
+verbose readDependencies: using package.json deps
+verbose from cache /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/mkdirp/package.json
+verbose readDependencies: using package.json deps
+silly resolved []
+verbose about to build /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/mkdirp
+info build /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/mkdirp
+verbose from cache /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/mkdirp/package.json
+verbose linkStuff [ false,
+verbose linkStuff   false,
+verbose linkStuff   false,
+verbose linkStuff   '/home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules' ]
+info linkStuff mkdirp@0.3.5
+verbose linkBins mkdirp@0.3.5
+verbose linkMans mkdirp@0.3.5
+verbose rebuildBundles mkdirp@0.3.5
+info install mkdirp@0.3.5
+info postinstall mkdirp@0.3.5
+http 304 https://registry.npmjs.org/commander
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.3.1 (Erlang OTP/R15B03)',
+silly get cb     etag: '"COAKXLWLA8HNB5V417W0DLBKZ"',
+silly get cb     date: 'Tue, 17 Sep 2013 12:43:11 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag commander from cache
+silly name, range, hasData 2 [ 'commander', '>=1.1.0- <1.2.0-', true ]
+silly versions [ 'commander',
+silly versions   [ '0.2.1',
+silly versions     '0.3.0',
+silly versions     '0.3.1',
+silly versions     '0.3.2',
+silly versions     '0.3.3',
+silly versions     '0.4.0',
+silly versions     '0.4.1',
+silly versions     '0.4.2',
+silly versions     '0.4.3',
+silly versions     '0.5.0',
+silly versions     '0.5.1',
+silly versions     '0.6.0',
+silly versions     '0.6.1',
+silly versions     '0.5.2',
+silly versions     '1.0.0',
+silly versions     '1.0.1',
+silly versions     '1.0.2',
+silly versions     '1.0.3',
+silly versions     '1.0.4',
+silly versions     '1.0.5',
+silly versions     '1.1.0',
+silly versions     '1.1.1',
+silly versions     '1.2.0',
+silly versions     '1.3.0',
+silly versions     '1.3.1',
+silly versions     '1.3.2',
+silly versions     '2.0.0' ] ]
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl1.0.0-fips-v83.6.6.24-linux-ia32-2.6.32-71.el6.i686',
+verbose bin dist   { shasum: '50d1651868ae60eccff0a2d9f34595376bc6b041',
+verbose bin dist     tarball: 'http://registry.npmjs.org/commander/-/commander-1.1.1.tgz' } ]
+verbose caching /root/.npm/commander/1.1.1/package/package.json
+verbose loadDefaults commander@1.1.1
+http 304 https://registry.npmjs.org/tar
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.3.1 (Erlang OTP/R15B03)',
+silly get cb     etag: '"COY2XZDBERUPVA4VTZR9ISQSZ"',
+silly get cb     date: 'Tue, 17 Sep 2013 12:43:11 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag tar from cache
+http 304 https://registry.npmjs.org/fstream
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.3.1 (Erlang OTP/R15B03)',
+silly get cb     etag: '"B1GWZ0I5TV5WXCK4TP0J5RJVQ"',
+silly get cb     date: 'Tue, 17 Sep 2013 12:43:11 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag fstream from cache
+silly name, range, hasData 2 [ 'tar', '>=0.1.0- <0.2.0-', true ]
+silly versions [ 'tar',
+silly versions   [ '0.0.1',
+silly versions     '0.1.0',
+silly versions     '0.1.2',
+silly versions     '0.1.3',
+silly versions     '0.1.4',
+silly versions     '0.1.5',
+silly versions     '0.1.6',
+silly versions     '0.1.7',
+silly versions     '0.1.8',
+silly versions     '0.1.9',
+silly versions     '0.1.10',
+silly versions     '0.1.11',
+silly versions     '0.1.12',
+silly versions     '0.1.13',
+silly versions     '0.1.14',
+silly versions     '0.1.15',
+silly versions     '0.1.16',
+silly versions     '0.1.17',
+silly versions     '0.1.18' ] ]
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl1.0.0-fips-v83.6.6.24-linux-ia32-2.6.32-71.el6.i686',
+verbose bin dist   { shasum: 'b76c3b23c5e90f9e3e344462f537047c695ba635',
+verbose bin dist     tarball: 'http://registry.npmjs.org/tar/-/tar-0.1.18.tgz' } ]
+silly name, range, hasData 2 [ 'fstream', '>=0.1.0- <0.2.0-', true ]
+silly versions [ 'fstream',
+silly versions   [ '0.0.0',
+silly versions     '0.0.1',
+silly versions     '0.1.0',
+silly versions     '0.1.1',
+silly versions     '0.1.2',
+silly versions     '0.1.3',
+silly versions     '0.1.5',
+silly versions     '0.1.6',
+silly versions     '0.1.7',
+silly versions     '0.1.8',
+silly versions     '0.1.9',
+silly versions     '0.1.10',
+silly versions     '0.1.11',
+silly versions     '0.1.12',
+silly versions     '0.1.13',
+silly versions     '0.1.14',
+silly versions     '0.1.15',
+silly versions     '0.1.16',
+silly versions     '0.1.17',
+silly versions     '0.1.18',
+silly versions     '0.1.19',
+silly versions     '0.1.20',
+silly versions     '0.1.21',
+silly versions     '0.1.22',
+silly versions     '0.1.23',
+silly versions     '0.1.24' ] ]
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl1.0.0-fips-v83.6.6.24-linux-ia32-2.6.32-71.el6.i686',
+verbose bin dist   { shasum: '267fe9d034f46bc99f824789d38b987ad01be884',
+verbose bin dist     tarball: 'http://registry.npmjs.org/fstream/-/fstream-0.1.24.tgz' } ]
+verbose caching /root/.npm/tar/0.1.18/package/package.json
+verbose loadDefaults tar@0.1.18
+verbose caching /root/.npm/fstream/0.1.24/package/package.json
+verbose loadDefaults fstream@0.1.24
+silly resolved [ { name: 'commander',
+silly resolved     version: '1.1.1',
+silly resolved     description: 'the complete solution for node.js command-line programs',
+silly resolved     keywords: [ 'command', 'option', 'parser', 'prompt', 'stdin' ],
+silly resolved     author: { name: 'TJ Holowaychuk', email: 'tj@vision-media.ca' },
+silly resolved     repository: 
+silly resolved      { type: 'git',
+silly resolved        url: 'git://github.com/visionmedia/commander.js.git' },
+silly resolved     dependencies: { keypress: '0.1.x' },
+silly resolved     devDependencies: { should: '>= 0.0.1' },
+silly resolved     scripts: { test: 'make test' },
+silly resolved     main: 'index',
+silly resolved     engines: { node: '>= 0.6.x' },
+silly resolved     _id: 'commander@1.1.1',
+silly resolved     optionalDependencies: {},
+silly resolved     _engineSupported: true,
+silly resolved     _npmVersion: '1.1.16',
+silly resolved     _nodeVersion: 'v0.6.15',
+silly resolved     _defaultsLoaded: true,
+silly resolved     _from: 'commander@1.1.x' },
+silly resolved   { author: 
+silly resolved      { name: 'Isaac Z. Schlueter',
+silly resolved        email: 'i@izs.me',
+silly resolved        url: 'http://blog.izs.me/' },
+silly resolved     name: 'tar',
+silly resolved     description: 'tar for node',
+silly resolved     version: '0.1.18',
+silly resolved     repository: { type: 'git', url: 'git://github.com/isaacs/node-tar.git' },
+silly resolved     main: 'tar.js',
+silly resolved     scripts: { test: 'tap test/*.js' },
+silly resolved     dependencies: { inherits: '2', 'block-stream': '*', fstream: '~0.1.8' },
+silly resolved     devDependencies: { tap: '0.x', rimraf: '1.x' },
+silly resolved     license: 'BSD',
+silly resolved     _id: 'tar@0.1.18',
+silly resolved     optionalDependencies: {},
+silly resolved     engines: { node: '*' },
+silly resolved     _engineSupported: true,
+silly resolved     _npmVersion: '1.1.16',
+silly resolved     _nodeVersion: 'v0.6.15',
+silly resolved     _defaultsLoaded: true,
+silly resolved     _from: 'tar@0.1.x' },
+silly resolved   { author: 
+silly resolved      { name: 'Isaac Z. Schlueter',
+silly resolved        email: 'i@izs.me',
+silly resolved        url: 'http://blog.izs.me/' },
+silly resolved     name: 'fstream',
+silly resolved     description: 'Advanced file system stream things',
+silly resolved     version: '0.1.24',
+silly resolved     repository: { type: 'git', url: 'git://github.com/isaacs/fstream.git' },
+silly resolved     main: 'fstream.js',
+silly resolved     engines: { node: '>=0.6' },
+silly resolved     dependencies: 
+silly resolved      { rimraf: '2',
+silly resolved        mkdirp: '0.3',
+silly resolved        'graceful-fs': '~2.0.0',
+silly resolved        inherits: '~2.0.0' },
+silly resolved     devDependencies: { tap: '' },
+silly resolved     scripts: { test: 'tap examples/*.js' },
+silly resolved     license: 'BSD',
+silly resolved     _id: 'fstream@0.1.24',
+silly resolved     optionalDependencies: {},
+silly resolved     _engineSupported: true,
+silly resolved     _npmVersion: '1.1.16',
+silly resolved     _nodeVersion: 'v0.6.15',
+silly resolved     _defaultsLoaded: true,
+silly resolved     _from: 'fstream@0.1.x' } ]
+info into /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz commander@1.1.1
+info into /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz tar@0.1.18
+info into /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz fstream@0.1.24
+info installOne commander@1.1.1
+info installOne tar@0.1.18
+info installOne fstream@0.1.24
+verbose from cache /root/.npm/commander/1.1.1/package/package.json
+info unbuild /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/commander
+verbose from cache /root/.npm/tar/0.1.18/package/package.json
+info unbuild /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/tar
+verbose from cache /root/.npm/fstream/0.1.24/package/package.json
+info unbuild /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/fstream
+verbose unpack /root/.npm/commander/1.1.1/package.tgz
+verbose unpack /root/.npm/tar/0.1.18/package.tgz
+verbose unpack /root/.npm/fstream/0.1.24/package.tgz
+silly gunzTarPerm modes [ '755', '644' ]
+silly gunzTarPerm modes [ '755', '644' ]
+silly gunzTarPerm modes [ '755', '644' ]
+silly extracting entry package.json
+silly extracting entry package.json
+silly extracting entry package.json
+silly extracting entry .npmignore
+silly extracting entry index.js
+silly extracting entry .npmignore
+silly extracting entry README.md
+silly extracting entry .npmignore
+silly extracting entry README.md
+silly extracting entry Readme.md
+silly extracting entry History.md
+silly extracting entry LICENCE
+silly extracting entry tar.js
+silly extracting entry LICENSE
+silly extracting entry fstream.js
+silly extracting entry Makefile
+silly extracting entry .travis.yml
+silly extracting entry test/zz-cleanup.js
+silly extracting entry test/extract.js
+silly extracting entry lib/file-writer.js
+silly extracting entry lib/file-reader.js
+silly extracting entry test/parse.js
+silly extracting entry lib/dir-reader.js
+silly extracting entry lib/socket-reader.js
+silly extracting entry lib/get-type.js
+silly extracting entry test/00-setup-fixtures.js
+silly extracting entry test/pack.js
+silly extracting entry test/pack-no-proprietary.js
+silly extracting entry lib/link-reader.js
+silly extracting entry lib/abstract.js
+silly extracting entry lib/writer.js
+silly extracting entry test/header.js
+silly extracting entry test/fixtures.tgz
+silly extracting entry lib/entry.js
+silly extracting entry lib/buffer-entry.js
+silly extracting entry lib/proxy-reader.js
+silly extracting entry lib/collect.js
+silly extracting entry lib/extract.js
+silly extracting entry lib/parse.js
+silly extracting entry lib/proxy-writer.js
+silly extracting entry lib/pack.js
+silly extracting entry lib/extended-header-writer.js
+silly extracting entry lib/header.js
+silly extracting entry lib/dir-writer.js
+silly extracting entry lib/link-writer.js
+silly extracting entry lib/reader.js
+silly extracting entry .travis.yml
+silly extracting entry lib/extended-header.js
+silly extracting entry examples/filter-pipe.js
+silly extracting entry lib/entry-writer.js
+silly extracting entry lib/global-header-writer.js
+silly extracting entry .travis.yml
+silly extracting entry examples/reader.js
+silly extracting entry examples/symlink-write.js
+silly extracting entry examples/extracter.js
+silly extracting entry examples/reader.js
+silly extracting entry examples/pipe.js
+verbose caching /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/commander/package.json
+verbose loadDefaults commander@1.1.1
+info preinstall commander@1.1.1
+verbose from cache /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/commander/package.json
+verbose readDependencies: using package.json deps
+verbose from cache /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/commander/package.json
+verbose readDependencies: using package.json deps
+verbose cache add [ 'keypress@0.1.x', null ]
+silly cache add: name, spec, args [ undefined, 'keypress@0.1.x', [ 'keypress@0.1.x', null ] ]
+verbose parsed url { pathname: 'keypress@0.1.x',
+verbose parsed url   path: 'keypress@0.1.x',
+verbose parsed url   href: 'keypress@0.1.x' }
+silly cache add: name, spec, args [ 'keypress', '0.1.x', [ 'keypress', '0.1.x' ] ]
+verbose parsed url { pathname: '0.1.x', path: '0.1.x', href: '0.1.x' }
+verbose addNamed [ 'keypress', '0.1.x' ]
+verbose addNamed [ null, '>=0.1.0- <0.2.0-' ]
+silly name, range, hasData [ 'keypress', '>=0.1.0- <0.2.0-', false ]
+verbose raw, before any munging keypress
+verbose url resolving [ 'https://registry.npmjs.org/', './keypress' ]
+verbose url resolved https://registry.npmjs.org/keypress
+verbose etag "ZU2AWLYGEBSRDNMY2BPQXH2A"
+http GET https://registry.npmjs.org/keypress
+verbose caching /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/fstream/package.json
+verbose loadDefaults fstream@0.1.24
+info preinstall fstream@0.1.24
+verbose from cache /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/fstream/package.json
+verbose readDependencies: using package.json deps
+verbose from cache /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/fstream/package.json
+verbose readDependencies: using package.json deps
+verbose cache add [ 'rimraf@2', null ]
+silly cache add: name, spec, args [ undefined, 'rimraf@2', [ 'rimraf@2', null ] ]
+verbose parsed url { pathname: 'rimraf@2', path: 'rimraf@2', href: 'rimraf@2' }
+silly cache add: name, spec, args [ 'rimraf', '2', [ 'rimraf', '2' ] ]
+verbose parsed url { pathname: '2', path: '2', href: '2' }
+verbose addNamed [ 'rimraf', '2' ]
+verbose addNamed [ null, '>=2.0.0- <3.0.0-' ]
+silly name, range, hasData [ 'rimraf', '>=2.0.0- <3.0.0-', false ]
+verbose raw, before any munging rimraf
+verbose url resolving [ 'https://registry.npmjs.org/', './rimraf' ]
+verbose url resolved https://registry.npmjs.org/rimraf
+verbose etag "50X3LWQDSY1SAULXQ7QRKW4PE"
+http GET https://registry.npmjs.org/rimraf
+verbose cache add [ 'graceful-fs@~2.0.0', null ]
+silly cache add: name, spec, args [ undefined,
+silly cache add: name, spec, args   'graceful-fs@~2.0.0',
+silly cache add: name, spec, args   [ 'graceful-fs@~2.0.0', null ] ]
+verbose parsed url { pathname: 'graceful-fs@~2.0.0',
+verbose parsed url   path: 'graceful-fs@~2.0.0',
+verbose parsed url   href: 'graceful-fs@~2.0.0' }
+silly cache add: name, spec, args [ 'graceful-fs', '~2.0.0', [ 'graceful-fs', '~2.0.0' ] ]
+verbose parsed url { pathname: '~2.0.0', path: '~2.0.0', href: '~2.0.0' }
+verbose addNamed [ 'graceful-fs', '~2.0.0' ]
+verbose addNamed [ null, '>=2.0.0- <2.1.0-' ]
+silly name, range, hasData [ 'graceful-fs', '>=2.0.0- <2.1.0-', false ]
+verbose raw, before any munging graceful-fs
+verbose url resolving [ 'https://registry.npmjs.org/', './graceful-fs' ]
+verbose url resolved https://registry.npmjs.org/graceful-fs
+verbose etag "8VTIGE3KHXX4861152PVTWGF8"
+http GET https://registry.npmjs.org/graceful-fs
+verbose cache add [ 'inherits@~2.0.0', null ]
+silly cache add: name, spec, args [ undefined, 'inherits@~2.0.0', [ 'inherits@~2.0.0', null ] ]
+verbose parsed url { pathname: 'inherits@~2.0.0',
+verbose parsed url   path: 'inherits@~2.0.0',
+verbose parsed url   href: 'inherits@~2.0.0' }
+silly cache add: name, spec, args [ 'inherits', '~2.0.0', [ 'inherits', '~2.0.0' ] ]
+verbose parsed url { pathname: '~2.0.0', path: '~2.0.0', href: '~2.0.0' }
+verbose addNamed [ 'inherits', '~2.0.0' ]
+verbose addNamed [ null, '>=2.0.0- <2.1.0-' ]
+silly name, range, hasData [ 'inherits', '>=2.0.0- <2.1.0-', false ]
+verbose raw, before any munging inherits
+verbose url resolving [ 'https://registry.npmjs.org/', './inherits' ]
+verbose url resolved https://registry.npmjs.org/inherits
+verbose etag "DOPV80KRXW9892OY8IW4CKYQ2"
+http GET https://registry.npmjs.org/inherits
+verbose caching /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/tar/package.json
+verbose loadDefaults tar@0.1.18
+info preinstall tar@0.1.18
+verbose from cache /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/tar/package.json
+verbose readDependencies: using package.json deps
+verbose from cache /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/tar/package.json
+verbose readDependencies: using package.json deps
+verbose cache add [ 'inherits@2', null ]
+silly cache add: name, spec, args [ undefined, 'inherits@2', [ 'inherits@2', null ] ]
+verbose parsed url { pathname: 'inherits@2',
+verbose parsed url   path: 'inherits@2',
+verbose parsed url   href: 'inherits@2' }
+silly cache add: name, spec, args [ 'inherits', '2', [ 'inherits', '2' ] ]
+verbose parsed url { pathname: '2', path: '2', href: '2' }
+verbose addNamed [ 'inherits', '2' ]
+verbose addNamed [ null, '>=2.0.0- <3.0.0-' ]
+silly name, range, hasData [ 'inherits', '>=2.0.0- <3.0.0-', false ]
+verbose cache add [ 'block-stream@*', null ]
+silly cache add: name, spec, args [ undefined, 'block-stream@*', [ 'block-stream@*', null ] ]
+verbose parsed url { pathname: 'block-stream@*',
+verbose parsed url   path: 'block-stream@*',
+verbose parsed url   href: 'block-stream@*' }
+silly cache add: name, spec, args [ 'block-stream', '*', [ 'block-stream', '*' ] ]
+verbose parsed url { pathname: '*', path: '*', href: '*' }
+verbose addNamed [ 'block-stream', '*' ]
+verbose addNamed [ null, '' ]
+silly name, range, hasData [ 'block-stream', '', false ]
+verbose raw, before any munging inherits
+verbose url resolving [ 'https://registry.npmjs.org/', './inherits' ]
+verbose url resolved https://registry.npmjs.org/inherits
+verbose etag "DOPV80KRXW9892OY8IW4CKYQ2"
+http GET https://registry.npmjs.org/inherits
+verbose raw, before any munging block-stream
+verbose url resolving [ 'https://registry.npmjs.org/', './block-stream' ]
+verbose url resolved https://registry.npmjs.org/block-stream
+verbose etag "3BGWNK3TS2ITZ70L2TC5ORDY0"
+http GET https://registry.npmjs.org/block-stream
+http 304 https://registry.npmjs.org/keypress
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.3.1 (Erlang OTP/R15B03)',
+silly get cb     etag: '"ZU2AWLYGEBSRDNMY2BPQXH2A"',
+silly get cb     date: 'Tue, 17 Sep 2013 12:43:12 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag keypress from cache
+silly name, range, hasData 2 [ 'keypress', '>=0.1.0- <0.2.0-', true ]
+silly versions [ 'keypress', [ '0.0.1', '0.0.2', '0.1.0', '0.2.0', '0.2.1' ] ]
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl1.0.0-fips-v83.6.6.24-linux-ia32-2.6.32-71.el6.i686',
+verbose bin dist   { shasum: '4a3188d4291b66b4f65edb99f806aa9ae293592a',
+verbose bin dist     tarball: 'http://registry.npmjs.org/keypress/-/keypress-0.1.0.tgz' } ]
+verbose caching /root/.npm/keypress/0.1.0/package/package.json
+verbose loadDefaults keypress@0.1.0
+silly resolved [ { name: 'keypress',
+silly resolved     version: '0.1.0',
+silly resolved     description: 'Make any Node ReadableStream emit "keypress" events',
+silly resolved     author: 
+silly resolved      { name: 'Nathan Rajlich',
+silly resolved        email: 'nathan@tootallnate.net',
+silly resolved        url: 'http://tootallnate.net' },
+silly resolved     main: 'index.js',
+silly resolved     scripts: { test: 'echo "Error: no test specified" && exit 1' },
+silly resolved     repository: 
+silly resolved      { type: 'git',
+silly resolved        url: 'git://github.com/TooTallNate/keypress.git' },
+silly resolved     keywords: [ 'keypress', 'readline', 'core' ],
+silly resolved     license: 'MIT',
+silly resolved     _id: 'keypress@0.1.0',
+silly resolved     dependencies: {},
+silly resolved     devDependencies: {},
+silly resolved     optionalDependencies: {},
+silly resolved     engines: { node: '*' },
+silly resolved     _engineSupported: true,
+silly resolved     _npmVersion: '1.1.16',
+silly resolved     _nodeVersion: 'v0.6.15',
+silly resolved     _defaultsLoaded: true,
+silly resolved     _from: 'keypress@0.1.x' } ]
+info into /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/commander keypress@0.1.0
+info installOne keypress@0.1.0
+verbose from cache /root/.npm/keypress/0.1.0/package/package.json
+info unbuild /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/commander/node_modules/keypress
+verbose unpack /root/.npm/keypress/0.1.0/package.tgz
+silly gunzTarPerm modes [ '755', '644' ]
+silly extracting entry package.json
+silly extracting entry README.md
+silly extracting entry index.js
+silly extracting entry test.js
+verbose caching /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/commander/node_modules/keypress/package.json
+verbose loadDefaults keypress@0.1.0
+info preinstall keypress@0.1.0
+verbose from cache /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/commander/node_modules/keypress/package.json
+verbose readDependencies: using package.json deps
+verbose from cache /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/commander/node_modules/keypress/package.json
+verbose readDependencies: using package.json deps
+silly resolved []
+verbose about to build /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/commander/node_modules/keypress
+info build /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/commander/node_modules/keypress
+verbose from cache /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/commander/node_modules/keypress/package.json
+verbose linkStuff [ false,
+verbose linkStuff   false,
+verbose linkStuff   false,
+verbose linkStuff   '/home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/commander/node_modules' ]
+info linkStuff keypress@0.1.0
+verbose linkBins keypress@0.1.0
+verbose linkMans keypress@0.1.0
+verbose rebuildBundles keypress@0.1.0
+info install keypress@0.1.0
+info postinstall keypress@0.1.0
+verbose about to build /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/commander
+info build /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/commander
+verbose from cache /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/commander/package.json
+verbose linkStuff [ false,
+verbose linkStuff   false,
+verbose linkStuff   false,
+verbose linkStuff   '/home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules' ]
+info linkStuff commander@1.1.1
+verbose linkBins commander@1.1.1
+verbose linkMans commander@1.1.1
+verbose rebuildBundles commander@1.1.1
+verbose rebuildBundles [ 'keypress' ]
+info install commander@1.1.1
+info postinstall commander@1.1.1
+http 304 https://registry.npmjs.org/rimraf
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.3.1 (Erlang OTP/R15B03)',
+silly get cb     etag: '"50X3LWQDSY1SAULXQ7QRKW4PE"',
+silly get cb     date: 'Tue, 17 Sep 2013 12:43:12 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag rimraf from cache
+silly name, range, hasData 2 [ 'rimraf', '>=2.0.0- <3.0.0-', true ]
+silly versions [ 'rimraf',
+silly versions   [ '1.0.0',
+silly versions     '1.0.1',
+silly versions     '1.0.2',
+silly versions     '1.0.4',
+silly versions     '1.0.5',
+silly versions     '1.0.6',
+silly versions     '1.0.7',
+silly versions     '1.0.8',
+silly versions     '1.0.9',
+silly versions     '2.0.0',
+silly versions     '2.0.1',
+silly versions     '2.0.2',
+silly versions     '2.0.3',
+silly versions     '2.1.0',
+silly versions     '2.1.1',
+silly versions     '2.1.2',
+silly versions     '2.1.3',
+silly versions     '2.1.4',
+silly versions     '2.2.0',
+silly versions     '2.2.1',
+silly versions     '2.2.2' ] ]
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl1.0.0-fips-v83.6.6.24-linux-ia32-2.6.32-71.el6.i686',
+verbose bin dist   { shasum: 'd99ec41dc646e55bf7a7a44a255c28bef33a8abf',
+verbose bin dist     tarball: 'http://registry.npmjs.org/rimraf/-/rimraf-2.2.2.tgz' } ]
+verbose caching /root/.npm/rimraf/2.2.2/package/package.json
+verbose loadDefaults rimraf@2.2.2
+http 304 https://registry.npmjs.org/inherits
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.3.1 (Erlang OTP/R15B03)',
+silly get cb     etag: '"DOPV80KRXW9892OY8IW4CKYQ2"',
+silly get cb     date: 'Tue, 17 Sep 2013 12:43:12 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag inherits from cache
+silly name, range, hasData 2 [ 'inherits', '>=2.0.0- <3.0.0-', true ]
+silly versions [ 'inherits', [ '1.0.0', '2.0.0', '2.0.1' ] ]
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl1.0.0-fips-v83.6.6.24-linux-ia32-2.6.32-71.el6.i686',
+verbose bin dist   { shasum: 'b17d08d326b4423e568eff719f91b0b1cbdf69f1',
+verbose bin dist     tarball: 'http://registry.npmjs.org/inherits/-/inherits-2.0.1.tgz' } ]
+verbose caching /root/.npm/inherits/2.0.1/package/package.json
+verbose loadDefaults inherits@2.0.1
+http 304 https://registry.npmjs.org/graceful-fs
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.3.1 (Erlang OTP/R15B03)',
+silly get cb     etag: '"8VTIGE3KHXX4861152PVTWGF8"',
+silly get cb     date: 'Tue, 17 Sep 2013 12:43:12 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag graceful-fs from cache
+silly name, range, hasData 2 [ 'graceful-fs', '>=2.0.0- <2.1.0-', true ]
+silly versions [ 'graceful-fs',
+silly versions   [ '1.0.2',
+silly versions     '1.1.0',
+silly versions     '1.1.1',
+silly versions     '1.1.2',
+silly versions     '1.1.3',
+silly versions     '1.1.4',
+silly versions     '1.1.5',
+silly versions     '1.1.6',
+silly versions     '1.1.7',
+silly versions     '1.1.8',
+silly versions     '1.1.9',
+silly versions     '1.1.10',
+silly versions     '1.1.11',
+silly versions     '1.1.12',
+silly versions     '1.1.13',
+silly versions     '1.1.14',
+silly versions     '1.2.0',
+silly versions     '1.2.1',
+silly versions     '1.2.2',
+silly versions     '1.2.3',
+silly versions     '2.0.0',
+silly versions     '2.0.1' ] ]
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl1.0.0-fips-v83.6.6.24-linux-ia32-2.6.32-71.el6.i686',
+verbose bin dist   { shasum: '7fd6e0a4837c35d0cc15330294d9584a3898cf84',
+verbose bin dist     tarball: 'http://registry.npmjs.org/graceful-fs/-/graceful-fs-2.0.1.tgz' } ]
+verbose caching /root/.npm/graceful-fs/2.0.1/package/package.json
+verbose loadDefaults graceful-fs@2.0.1
+http 304 https://registry.npmjs.org/inherits
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.3.1 (Erlang OTP/R15B03)',
+silly get cb     etag: '"DOPV80KRXW9892OY8IW4CKYQ2"',
+silly get cb     date: 'Tue, 17 Sep 2013 12:43:12 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag inherits from cache
+silly name, range, hasData 2 [ 'inherits', '>=2.0.0- <2.1.0-', true ]
+silly versions [ 'inherits', [ '1.0.0', '2.0.0', '2.0.1' ] ]
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl1.0.0-fips-v83.6.6.24-linux-ia32-2.6.32-71.el6.i686',
+verbose bin dist   { shasum: 'b17d08d326b4423e568eff719f91b0b1cbdf69f1',
+verbose bin dist     tarball: 'http://registry.npmjs.org/inherits/-/inherits-2.0.1.tgz' } ]
+verbose from cache /root/.npm/inherits/2.0.1/package/package.json
+silly resolved [ { name: 'rimraf',
+silly resolved     version: '2.2.2',
+silly resolved     main: 'rimraf.js',
+silly resolved     description: 'A deep deletion module for node (like `rm -rf`)',
+silly resolved     author: 
+silly resolved      { name: 'Isaac Z. Schlueter',
+silly resolved        email: 'i@izs.me',
+silly resolved        url: 'http://blog.izs.me/' },
+silly resolved     license: 
+silly resolved      { type: 'MIT',
+silly resolved        url: 'https://github.com/isaacs/rimraf/raw/master/LICENSE' },
+silly resolved     optionalDependencies: { 'graceful-fs': '~2' },
+silly resolved     repository: { type: 'git', url: 'git://github.com/isaacs/rimraf.git' },
+silly resolved     scripts: { test: 'cd test && bash run.sh' },
+silly resolved     bin: { rimraf: './bin.js' },
+silly resolved     _id: 'rimraf@2.2.2',
+silly resolved     contributors: 
+silly resolved      [ { name: 'Isaac Z. Schlueter',
+silly resolved          email: 'i@izs.me',
+silly resolved          url: 'http://blog.izs.me' },
+silly resolved        { name: 'Wayne Larsen',
+silly resolved          email: 'wayne@larsen.st',
+silly resolved          url: 'http://github.com/wvl' },
+silly resolved        { name: 'ritch', email: 'skawful@gmail.com' },
+silly resolved        { name: 'Marcel Laverdet' },
+silly resolved        { name: 'Yosef Dinerstein', email: 'yosefd@microsoft.com' } ],
+silly resolved     dependencies: { 'graceful-fs': '~2' },
+silly resolved     devDependencies: {},
+silly resolved     engines: { node: '*' },
+silly resolved     _engineSupported: true,
+silly resolved     _npmVersion: '1.1.16',
+silly resolved     _nodeVersion: 'v0.6.15',
+silly resolved     _defaultsLoaded: true,
+silly resolved     _from: 'rimraf@2' },
+silly resolved   { author: 
+silly resolved      { name: 'Isaac Z. Schlueter',
+silly resolved        email: 'i@izs.me',
+silly resolved        url: 'http://blog.izs.me' },
+silly resolved     name: 'graceful-fs',
+silly resolved     description: 'A drop-in replacement for fs, making various improvements.',
+silly resolved     version: '2.0.1',
+silly resolved     repository: 
+silly resolved      { type: 'git',
+silly resolved        url: 'git://github.com/isaacs/node-graceful-fs.git' },
+silly resolved     main: 'graceful-fs.js',
+silly resolved     engines: { node: '>=0.4.0' },
+silly resolved     directories: { test: 'test' },
+silly resolved     scripts: { test: 'tap test/*.js' },
+silly resolved     keywords: 
+silly resolved      [ 'fs',
+silly resolved        'module',
+silly resolved        'reading',
+silly resolved        'retry',
+silly resolved        'retries',
+silly resolved        'queue',
+silly resolved        'error',
+silly resolved        'errors',
+silly resolved        'handling',
+silly resolved        'EMFILE',
+silly resolved        'EAGAIN',
+silly resolved        'EINVAL',
+silly resolved        'EPERM',
+silly resolved        'EACCESS' ],
+silly resolved     license: 'BSD',
+silly resolved     _id: 'graceful-fs@2.0.1',
+silly resolved     dependencies: {},
+silly resolved     devDependencies: {},
+silly resolved     optionalDependencies: {},
+silly resolved     _engineSupported: true,
+silly resolved     _npmVersion: '1.1.16',
+silly resolved     _nodeVersion: 'v0.6.15',
+silly resolved     _defaultsLoaded: true,
+silly resolved     _from: 'graceful-fs@~2.0.0' },
+silly resolved   { name: 'inherits',
+silly resolved     description: 'Browser-friendly inheritance fully compatible with standard node.js inherits()',
+silly resolved     version: '2.0.1',
+silly resolved     keywords: 
+silly resolved      [ 'inheritance',
+silly resolved        'class',
+silly resolved        'klass',
+silly resolved        'oop',
+silly resolved        'object-oriented',
+silly resolved        'inherits',
+silly resolved        'browser',
+silly resolved        'browserify' ],
+silly resolved     main: './inherits.js',
+silly resolved     browser: './inherits_browser.js',
+silly resolved     repository: { type: 'git', url: 'git://github.com/isaacs/inherits.git' },
+silly resolved     license: 'ISC',
+silly resolved     scripts: { test: 'node test' },
+silly resolved     _id: 'inherits@2.0.1',
+silly resolved     dependencies: {},
+silly resolved     devDependencies: {},
+silly resolved     optionalDependencies: {},
+silly resolved     engines: { node: '*' },
+silly resolved     _engineSupported: true,
+silly resolved     _npmVersion: '1.1.16',
+silly resolved     _nodeVersion: 'v0.6.15',
+silly resolved     _defaultsLoaded: true,
+silly resolved     _from: 'inherits@~2.0.0' } ]
+info into /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/fstream rimraf@2.2.2
+info into /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/fstream graceful-fs@2.0.1
+info into /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/fstream inherits@2.0.1
+info installOne rimraf@2.2.2
+info installOne graceful-fs@2.0.1
+info installOne inherits@2.0.1
+verbose from cache /root/.npm/rimraf/2.2.2/package/package.json
+info unbuild /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/fstream/node_modules/rimraf
+verbose from cache /root/.npm/graceful-fs/2.0.1/package/package.json
+info unbuild /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/fstream/node_modules/graceful-fs
+verbose from cache /root/.npm/inherits/2.0.1/package/package.json
+info unbuild /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/fstream/node_modules/inherits
+verbose unpack /root/.npm/rimraf/2.2.2/package.tgz
+verbose unpack /root/.npm/graceful-fs/2.0.1/package.tgz
+verbose unpack /root/.npm/inherits/2.0.1/package.tgz
+silly gunzTarPerm modes [ '755', '644' ]
+silly extracting entry package.json
+silly gunzTarPerm modes [ '755', '644' ]
+silly gunzTarPerm modes [ '755', '644' ]
+silly extracting entry README.md
+silly extracting entry LICENSE
+silly extracting entry package.json
+silly extracting entry package.json
+silly extracting entry .npmignore
+silly extracting entry README.md
+silly extracting entry README.md
+silly extracting entry LICENSE
+silly extracting entry bin.js
+silly extracting entry rimraf.js
+silly extracting entry inherits_browser.js
+silly extracting entry inherits.js
+silly extracting entry LICENSE
+silly extracting entry polyfills.js
+silly extracting entry AUTHORS
+silly extracting entry test/test-sync.js
+silly extracting entry test.js
+silly extracting entry test/test-async.js
+silly extracting entry graceful-fs.js
+silly extracting entry test/open.js
+silly extracting entry test/run.sh
+silly extracting entry test/setup.sh
+verbose caching /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/fstream/node_modules/inherits/package.json
+verbose loadDefaults inherits@2.0.1
+info preinstall inherits@2.0.1
+verbose from cache /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/fstream/node_modules/inherits/package.json
+verbose readDependencies: using package.json deps
+verbose from cache /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/fstream/node_modules/inherits/package.json
+verbose readDependencies: using package.json deps
+silly resolved []
+verbose about to build /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/fstream/node_modules/inherits
+info build /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/fstream/node_modules/inherits
+verbose from cache /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/fstream/node_modules/inherits/package.json
+verbose linkStuff [ false,
+verbose linkStuff   false,
+verbose linkStuff   false,
+verbose linkStuff   '/home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/fstream/node_modules' ]
+info linkStuff inherits@2.0.1
+verbose linkBins inherits@2.0.1
+verbose linkMans inherits@2.0.1
+verbose rebuildBundles inherits@2.0.1
+info install inherits@2.0.1
+info postinstall inherits@2.0.1
+verbose caching /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/fstream/node_modules/graceful-fs/package.json
+verbose loadDefaults graceful-fs@2.0.1
+info preinstall graceful-fs@2.0.1
+verbose from cache /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/fstream/node_modules/graceful-fs/package.json
+verbose readDependencies: using package.json deps
+verbose from cache /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/fstream/node_modules/graceful-fs/package.json
+verbose readDependencies: using package.json deps
+silly resolved []
+verbose about to build /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/fstream/node_modules/graceful-fs
+info build /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/fstream/node_modules/graceful-fs
+verbose from cache /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/fstream/node_modules/graceful-fs/package.json
+verbose linkStuff [ false,
+verbose linkStuff   false,
+verbose linkStuff   false,
+verbose linkStuff   '/home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/fstream/node_modules' ]
+info linkStuff graceful-fs@2.0.1
+verbose linkBins graceful-fs@2.0.1
+verbose linkMans graceful-fs@2.0.1
+verbose rebuildBundles graceful-fs@2.0.1
+info install graceful-fs@2.0.1
+info postinstall graceful-fs@2.0.1
+verbose caching /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/fstream/node_modules/rimraf/package.json
+verbose loadDefaults rimraf@2.2.2
+info preinstall rimraf@2.2.2
+verbose from cache /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/fstream/node_modules/rimraf/package.json
+verbose readDependencies: using package.json deps
+verbose from cache /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/fstream/node_modules/rimraf/package.json
+verbose readDependencies: using package.json deps
+silly resolved []
+verbose about to build /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/fstream/node_modules/rimraf
+info build /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/fstream/node_modules/rimraf
+verbose from cache /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/fstream/node_modules/rimraf/package.json
+verbose linkStuff [ false,
+verbose linkStuff   false,
+verbose linkStuff   false,
+verbose linkStuff   '/home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/fstream/node_modules' ]
+info linkStuff rimraf@2.2.2
+verbose linkBins rimraf@2.2.2
+verbose bins linking [ { rimraf: './bin.js' },
+verbose bins linking   '/home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/fstream/node_modules/.bin',
+verbose bins linking   false ]
+verbose linkMans rimraf@2.2.2
+verbose rebuildBundles rimraf@2.2.2
+info install rimraf@2.2.2
+info postinstall rimraf@2.2.2
+verbose about to build /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/fstream
+info build /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/fstream
+verbose from cache /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/fstream/package.json
+verbose linkStuff [ false,
+verbose linkStuff   false,
+verbose linkStuff   false,
+verbose linkStuff   '/home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules' ]
+info linkStuff fstream@0.1.24
+verbose linkBins fstream@0.1.24
+verbose linkMans fstream@0.1.24
+verbose rebuildBundles fstream@0.1.24
+verbose rebuildBundles [ '.bin', 'graceful-fs', 'inherits', 'rimraf' ]
+info install fstream@0.1.24
+info postinstall fstream@0.1.24
+http 304 https://registry.npmjs.org/block-stream
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.3.1 (Erlang OTP/R15B03)',
+silly get cb     etag: '"3BGWNK3TS2ITZ70L2TC5ORDY0"',
+silly get cb     date: 'Tue, 17 Sep 2013 12:43:12 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag block-stream from cache
+silly name, range, hasData 2 [ 'block-stream', '', true ]
+silly versions [ 'block-stream',
+silly versions   [ '0.0.3', '0.0.4', '0.0.5', '0.0.6', '0.0.7' ] ]
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl1.0.0-fips-v83.6.6.24-linux-ia32-2.6.32-71.el6.i686',
+verbose bin dist   { shasum: '9088ab5ae1e861f4d81b176b4a8046080703deed',
+verbose bin dist     tarball: 'http://registry.npmjs.org/block-stream/-/block-stream-0.0.7.tgz' } ]
+verbose caching /root/.npm/block-stream/0.0.7/package/package.json
+verbose loadDefaults block-stream@0.0.7
+silly resolved [ { name: 'inherits',
+silly resolved     description: 'Browser-friendly inheritance fully compatible with standard node.js inherits()',
+silly resolved     version: '2.0.1',
+silly resolved     keywords: 
+silly resolved      [ 'inheritance',
+silly resolved        'class',
+silly resolved        'klass',
+silly resolved        'oop',
+silly resolved        'object-oriented',
+silly resolved        'inherits',
+silly resolved        'browser',
+silly resolved        'browserify' ],
+silly resolved     main: './inherits.js',
+silly resolved     browser: './inherits_browser.js',
+silly resolved     repository: { type: 'git', url: 'git://github.com/isaacs/inherits.git' },
+silly resolved     license: 'ISC',
+silly resolved     scripts: { test: 'node test' },
+silly resolved     _id: 'inherits@2.0.1',
+silly resolved     dependencies: {},
+silly resolved     devDependencies: {},
+silly resolved     optionalDependencies: {},
+silly resolved     engines: { node: '*' },
+silly resolved     _engineSupported: true,
+silly resolved     _npmVersion: '1.1.16',
+silly resolved     _nodeVersion: 'v0.6.15',
+silly resolved     _defaultsLoaded: true,
+silly resolved     _from: 'inherits@~2.0.0' },
+silly resolved   { author: 
+silly resolved      { name: 'Isaac Z. Schlueter',
+silly resolved        email: 'i@izs.me',
+silly resolved        url: 'http://blog.izs.me/' },
+silly resolved     name: 'block-stream',
+silly resolved     description: 'a stream of blocks',
+silly resolved     version: '0.0.7',
+silly resolved     repository: { type: 'git', url: 'git://github.com/isaacs/block-stream.git' },
+silly resolved     engines: { node: '0.4 || >=0.5.8' },
+silly resolved     main: 'block-stream.js',
+silly resolved     dependencies: { inherits: '~2.0.0' },
+silly resolved     devDependencies: { tap: '0.x' },
+silly resolved     scripts: { test: 'tap test/' },
+silly resolved     license: 'BSD',
+silly resolved     _id: 'block-stream@0.0.7',
+silly resolved     optionalDependencies: {},
+silly resolved     _engineSupported: true,
+silly resolved     _npmVersion: '1.1.16',
+silly resolved     _nodeVersion: 'v0.6.15',
+silly resolved     _defaultsLoaded: true,
+silly resolved     _from: 'block-stream@*' } ]
+info into /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/tar inherits@2.0.1
+info into /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/tar block-stream@0.0.7
+info installOne inherits@2.0.1
+info installOne block-stream@0.0.7
+verbose from cache /root/.npm/inherits/2.0.1/package/package.json
+info unbuild /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/tar/node_modules/inherits
+verbose from cache /root/.npm/block-stream/0.0.7/package/package.json
+info unbuild /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/tar/node_modules/block-stream
+verbose unpack /root/.npm/inherits/2.0.1/package.tgz
+verbose unpack /root/.npm/block-stream/0.0.7/package.tgz
+silly gunzTarPerm modes [ '755', '644' ]
+silly gunzTarPerm modes [ '755', '644' ]
+silly extracting entry package.json
+silly extracting entry package.json
+silly extracting entry README.md
+silly extracting entry LICENSE
+silly extracting entry README.md
+silly extracting entry LICENCE
+silly extracting entry inherits_browser.js
+silly extracting entry inherits.js
+silly extracting entry block-stream.js
+silly extracting entry bench/block-stream-pause.js
+silly extracting entry test.js
+silly extracting entry bench/dropper.js
+silly extracting entry bench/dropper-pause.js
+silly extracting entry bench/block-stream.js
+silly extracting entry test/thorough.js
+silly extracting entry test/basic.js
+silly extracting entry test/two-stream.js
+silly extracting entry test/nopad.js
+silly extracting entry test/pause-resume.js
+silly extracting entry test/nopad-thorough.js
+verbose caching /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/tar/node_modules/inherits/package.json
+verbose loadDefaults inherits@2.0.1
+info preinstall inherits@2.0.1
+verbose from cache /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/tar/node_modules/inherits/package.json
+verbose readDependencies: using package.json deps
+verbose from cache /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/tar/node_modules/inherits/package.json
+verbose readDependencies: using package.json deps
+silly resolved []
+verbose about to build /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/tar/node_modules/inherits
+info build /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/tar/node_modules/inherits
+verbose from cache /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/tar/node_modules/inherits/package.json
+verbose linkStuff [ false,
+verbose linkStuff   false,
+verbose linkStuff   false,
+verbose linkStuff   '/home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/tar/node_modules' ]
+info linkStuff inherits@2.0.1
+verbose linkBins inherits@2.0.1
+verbose linkMans inherits@2.0.1
+verbose rebuildBundles inherits@2.0.1
+info install inherits@2.0.1
+info postinstall inherits@2.0.1
+verbose caching /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/tar/node_modules/block-stream/package.json
+verbose loadDefaults block-stream@0.0.7
+info preinstall block-stream@0.0.7
+verbose from cache /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/tar/node_modules/block-stream/package.json
+verbose readDependencies: using package.json deps
+verbose from cache /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/tar/node_modules/block-stream/package.json
+verbose readDependencies: using package.json deps
+silly resolved []
+verbose about to build /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/tar/node_modules/block-stream
+info build /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/tar/node_modules/block-stream
+verbose from cache /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/tar/node_modules/block-stream/package.json
+verbose linkStuff [ false,
+verbose linkStuff   false,
+verbose linkStuff   false,
+verbose linkStuff   '/home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/tar/node_modules' ]
+info linkStuff block-stream@0.0.7
+verbose linkBins block-stream@0.0.7
+verbose linkMans block-stream@0.0.7
+verbose rebuildBundles block-stream@0.0.7
+info install block-stream@0.0.7
+info postinstall block-stream@0.0.7
+verbose about to build /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/tar
+info build /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/tar
+verbose from cache /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules/tar/package.json
+verbose linkStuff [ false,
+verbose linkStuff   false,
+verbose linkStuff   false,
+verbose linkStuff   '/home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/node_modules' ]
+info linkStuff tar@0.1.18
+verbose linkBins tar@0.1.18
+verbose linkMans tar@0.1.18
+verbose rebuildBundles tar@0.1.18
+verbose rebuildBundles [ 'inherits', 'block-stream' ]
+info install tar@0.1.18
+info postinstall tar@0.1.18
+verbose about to build /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz
+info build /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz
+verbose from cache /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/tar.gz/package.json
+verbose linkStuff [ false,
+verbose linkStuff   false,
+verbose linkStuff   false,
+verbose linkStuff   '/home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules' ]
+info linkStuff tar.gz@0.1.1
+verbose linkBins tar.gz@0.1.1
+verbose bins linking [ { targz: './bin/targz' },
+verbose bins linking   '/home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/node_modules/.bin',
+verbose bins linking   false ]
+verbose linkMans tar.gz@0.1.1
+verbose rebuildBundles tar.gz@0.1.1
+verbose rebuildBundles [ 'tar', 'fstream', 'commander' ]
+info install tar.gz@0.1.1
+info postinstall tar.gz@0.1.1
+verbose about to build /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3
+info build /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3
+verbose from cache /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/package.json
+verbose linkStuff [ false,
+verbose linkStuff   false,
+verbose linkStuff   false,
+verbose linkStuff   '/home/karihei/Dropbox/apps/kariShoot/server/node_modules' ]
+info linkStuff sqlite3@2.1.17
+verbose linkBins sqlite3@2.1.17
+verbose linkMans sqlite3@2.1.17
+verbose rebuildBundles sqlite3@2.1.17
+verbose rebuildBundles [ '.bin', 'progress', 'tar.gz', 'mkdirp' ]
+info install sqlite3@2.1.17
+verbose unsafe-perm in lifecycle false
+silly exec sh "-c" "node build.js"
+silly spawning [ 'sh',
+silly spawning   [ '-c', 'node build.js' ],
+silly spawning   '/home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3' ]
+info sqlite3@2.1.17 Failed to exec install script
+info unbuild /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3
+verbose from cache /home/karihei/Dropbox/apps/kariShoot/server/node_modules/sqlite3/package.json
+info preuninstall sqlite3@2.1.17
+info uninstall sqlite3@2.1.17
+verbose unbuild sqlite3@2.1.17 [ true,
+verbose unbuild sqlite3@2.1.17   '/home/karihei/Dropbox/apps/kariShoot/server/node_modules',
+verbose unbuild sqlite3@2.1.17   '/home/karihei/Dropbox/apps/kariShoot/server/node_modules' ]
+info postuninstall sqlite3@2.1.17
+ERR! sqlite3@2.1.17 install: `node build.js`
+ERR! `sh "-c" "node build.js"` failed with 1
+ERR! 
+ERR! Failed at the sqlite3@2.1.17 install script.
+ERR! This is most likely a problem with the sqlite3 package,
+ERR! not with npm itself.
+ERR! Tell the author that this fails on your system:
+ERR!     node build.js
+ERR! You can get their info via:
+ERR!     npm owner ls sqlite3
+ERR! There is likely additional logging output above.
+ERR! 
+ERR! System Linux 2.6.32-71.el6.i686
+ERR! command "node" "/usr/local/bin/npm" "install" "sqlite3"
+ERR! cwd /home/karihei/Dropbox/apps/kariShoot/server
+ERR! node -v v0.6.15
+ERR! npm -v 1.1.16
+ERR! code ELIFECYCLE
+ERR! message sqlite3@2.1.17 install: `node build.js`
+ERR! message `sh "-c" "node build.js"` failed with 1
+ERR! errno {}
+verbose exit [ 1, true ]
