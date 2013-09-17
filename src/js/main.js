@@ -5,6 +5,7 @@ requirejs.config({
         }
     },
     paths: {
+        'socketio': 'lib/socket.io',
         'jquery': 'lib/jquery-1.7.1.min',
         'enchant': 'lib/enchant.js/dev/enchant',
         'ui': 'lib/enchant.js/dev/plugins/ui.enchant',
@@ -13,7 +14,19 @@ requirejs.config({
     }
 });
 
-require(['jquery', 'enchant', 'box2dweb', 'box2d'], function() {
+require(['socketio', 'jquery', 'enchant', 'box2dweb', 'box2d'], function() {
+    /**
+     * @constructor
+     */
+    kariShoot = function() {
+    };
+
+    // サーバ側設定
+    SERVER_URI = 'http://localhost:8762';
+    kariShoot.socket = io.connect(SERVER_URI);
+
+    // kariShoot.socket.emit('signup', {'id': 1234, 'name': 'てすと太郎'});
+
     // 各種定数
     PLAYER_IMG_PATH = 'src/js/lib/enchant.js/images/chara1.png';
     STAGE_IMG_PATH = 'img/stage.png';
@@ -36,11 +49,5 @@ require(['jquery', 'enchant', 'box2dweb', 'box2d'], function() {
     core.preload(PLAYER_IMG_PATH, STAGE_IMG_PATH, CLOUD_MID_IMG_PATH, CLOUD_SMALL_IMG_PATH);
 
 
-    /**
-     * @constructor
-     */
-    kariShoot = function() {
-    };
-
-    require(['ui', 'game']);
+      require(['ui', 'game']);
 });
