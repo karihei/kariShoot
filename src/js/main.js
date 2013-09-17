@@ -10,7 +10,8 @@ requirejs.config({
         'enchant': 'lib/enchant.js/dev/enchant',
         'ui': 'lib/enchant.js/dev/plugins/ui.enchant',
         'box2dweb': 'lib/enchant.js/libs/Box2dWeb-2.1.a.3',
-        'box2d': 'lib/enchant.js/dev/plugins/box2d.enchant'
+        'box2d': 'lib/enchant.js/dev/plugins/box2d.enchant',
+        'index': 'view/index'
     }
 });
 
@@ -42,12 +43,37 @@ require(['socketio', 'jquery', 'enchant', 'box2dweb', 'box2d'], function() {
     WORLD_WIDTH = STAGE_GRID_WIDTH * BLOCK_SIZE;
     WORLD_HEIGHT = STAGE_GRID_HEIGHT * BLOCK_SIZE;
 
-    // enchant.js 初期化
-    enchant();
-    core = new Core(STAGE_WIDTH, STAGE_HEIGHT);
-    core.fps = 32;
-    core.preload(PLAYER_IMG_PATH, STAGE_IMG_PATH, CLOUD_MID_IMG_PATH, CLOUD_SMALL_IMG_PATH);
+
+    // ゲーム開始
+    var run = function() {
+        // enchant.js 初期化
+        enchant();
+        core = new Core(STAGE_WIDTH, STAGE_HEIGHT);
+        core.fps = 32;
+        core.preload(PLAYER_IMG_PATH, STAGE_IMG_PATH, CLOUD_MID_IMG_PATH, CLOUD_SMALL_IMG_PATH);
+        require(['ui', 'game', 'index']);
+    };
+
+    // ログインユーザをセット
+    // とりあえずダミー
+    kariShoot.LOGIN_USER = {
+        'id': 1234,
+        'name': 'dummy',
+        'level': 1,
+        'hp': 1000,
+        'atk': 10,
+        'def': 10,
+        'agi': 1,
+        'exp': 0,
+        'skp': 0
+    };
 
 
-      require(['ui', 'game']);
+    kariShoot.socket.emit('getuser', {id: 1234});
+    kariShoot.socket.on('getuser result', function(result) {
+        if (result.length > 0) {
+            kariShoot.LOGIN_USER = result[0];
+            run();
+        }
+    });
 });

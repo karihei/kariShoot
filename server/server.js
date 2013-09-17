@@ -19,4 +19,14 @@ io.sockets.on('connection', function(socket){
         ')';
         db.run(inSql);
     });
+
+    /**
+     * @param {Object.<number>}
+     */
+    socket.on('getuser', function(data) {
+        var sql = 'SELECT * FROM user WHERE id=' + data.id;
+        db.all(sql, function(err, row) {
+            socket.emit('getuser result', row);
+        });
+    });
 });
