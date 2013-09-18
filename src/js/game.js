@@ -60,11 +60,11 @@ define([
                     var smallCloud = new Sprite(32, 15);
                     midCloud.image = core.assets[CLOUD_MID_IMG_PATH];
                     midCloud.x = i * 100 + (Math.random() * 50);
-                    midCloud.y = i * 2 + (Math.random() * 60);
+                    midCloud.y = i * 2 + (Math.random() * 60) - 70;
                     midCloud.opacity = '0.5';
                     smallCloud.image = core.assets[CLOUD_SMALL_IMG_PATH];
                     smallCloud.x = i * 80 + (Math.random() * 50);
-                    smallCloud.y = i * 2 + (Math.random() * 100);
+                    smallCloud.y = i * 2 + (Math.random() * 100) - 50;
                     smallCloud.opacity = '0.5';
                     stage.addChild(midCloud);
                     stage.addChild(smallCloud);
@@ -87,7 +87,7 @@ define([
                     core.rootScene.status = new kariShoot.manage.Status();
 
                     // 雲を配置
-  //                  this.setClouds(stage, miniMap);
+                    this.setClouds(stage, miniMap);
 
                     for (var i = 0; i < tiles.length; i++) {
                         for (var j = 0; j < tiles[i].length; j++) {
@@ -103,13 +103,13 @@ define([
                                     break;
                                 case kariShoot.EntityType.SLIME:
                                     tile = new kariShoot.Entity.Slime();
-                                    tile.position = {x: j * GRID_SIZE + (GRID_SIZE / 2) + 300, y: i * GRID_SIZE + 5};
+                                    tile.position = {x: j * GRID_SIZE + (GRID_SIZE / 2) + 100, y: i * GRID_SIZE + 5};
                                     stage.addChild(tile);
                                     tile.setMiniMapTile(miniMap.createTile(tile, 'red'));
                                     break;
                                 case kariShoot.EntityType.DRAGON:
                                     tile = new kariShoot.Entity.Dragon();
-                                    tile.position = {x: j * GRID_SIZE + (GRID_SIZE / 2) + 500, y: i * GRID_SIZE + 105};
+                                    tile.position = {x: j * GRID_SIZE + (GRID_SIZE / 2) + 100, y: i * GRID_SIZE + 105};
                                     stage.addChild(tile);
                                     tile.setMiniMapTile(miniMap.createTile(tile, 'red'));
                                     break;
