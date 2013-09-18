@@ -35,6 +35,12 @@ define([], function() {
             this.hp = this.maxHp;
 
             /**
+             * 攻撃力
+             * @type {number}
+             */
+            this.atk = 1;
+
+            /**
              * 防御力 ( ダメージ = 弾の速さ * 弾の攻撃力 / deffence )
              * @type {number}
              */

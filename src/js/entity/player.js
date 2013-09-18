@@ -10,8 +10,8 @@ define(['entity/entity'], function() {
     kariShoot.Entity.Player = Class.create(kariShoot.Entity, {
         initialize: function() {
             var status = {
-                hp: 30000,
-                deffence: 1
+                hp: kariShoot.LOGIN_USER.hp,
+                deffence: kariShoot.LOGIN_USER.def
             };
             kariShoot.Entity.call(this, 32, 64, status, IMAGE_PATH);
 

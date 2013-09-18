@@ -115,6 +115,9 @@ define([], function() {
             this.isShot_ = true;
             this.shooter = shooter;
             this.needScroll = !!opt_needScroll;
+
+            // 弾を撃った人の攻撃力を加算
+            this.attack += this.shooter.atk;
         },
 
         isMove: function() {
