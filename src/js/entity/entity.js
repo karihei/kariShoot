@@ -152,7 +152,7 @@ define([], function() {
                 this.totalDamageLabel_.font = '14px famania'
                 this.totalDamageLabel_.color = 'black';
                 core.rootScene.mainStage.addChild(this.totalDamageLabel_);
-                this.totalDamageLabel_.tl.fadeIn(10).wait(40).fadeOut(30).then($.proxy(function() { this.totalDamage_ = 0;}, this));
+                this.totalDamageLabel_.tl.fadeIn(10).delay(40).fadeOut(30).then($.proxy(function() { this.totalDamage_ = 0;}, this));
 
                 this.showHpBar_();
 

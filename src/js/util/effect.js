@@ -13,9 +13,7 @@ define([], function() {
                 x: 10,
                 y: 10,
                 rotation: 5,
-                speed: 10,
-                opacity: true,
-                opacityMin: .001
+                speed: 10
             });
             stageEl.trigger('startRumble');
             kariShoot.util.effect.shake.isShake_ = true;

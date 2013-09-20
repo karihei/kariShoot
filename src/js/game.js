@@ -84,6 +84,11 @@ define([
                     miniMap.x = STAGE_WIDTH - miniMap.width;
                     core.rootScene.addChild(miniMap);
 
+                    // mainStageよりも上に表示させたいものがあるときはこれにaddChildする
+                    var upperLayer = new Group();
+                    core.rootScene.addChild(upperLayer);
+                    core.rootScene.upperLayer = upperLayer;
+
                     // ステージ設定
                     var tiles = this.buildStage();
                     core.rootScene.status = new kariShoot.manage.Status();
@@ -120,17 +125,24 @@ define([
                             }
                         }
                     }
-var hoge = new kariShoot.structure.SkpCoin(16);
-                    hoge.x = 200;
-hoge.y = 200;                    stage.addChild(hoge);
+
+                    // 射幸心コインを仮配置
+                    for (var i=0;i < 10; i++) {
+                        var hoge = new kariShoot.structure.SkpCoin(16);
+                        hoge.x = 200 + (hoge.width + 10) * i;
+                        hoge.y = 100 + Math.random() * 100;
+                        stage.addChild(hoge);
+                    }
+
                     stage.y = 0;
                     var player = new kariShoot.Entity.Player();
                     player.setMiniMapTile(miniMap.createTile(player, 'yellow', true));
                     player.position = {x: 40, y: STAGE_HEIGHT - GRID_SIZE - player.height};
                     stage.addChild(player);
+
                     core.rootScene.miniMap = miniMap;
                     core.rootScene.player = player;
-                    core.rootScene.addChild(stage);
+                    core.rootScene.insertBefore(stage, core.rootScene.upperLayer);
                     core.rootScene.mainStage = stage;
                     core.rootScene.addEventListener('enterframe', function() {
                         turn.tick();
