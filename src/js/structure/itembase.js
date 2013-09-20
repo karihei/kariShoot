@@ -9,7 +9,7 @@ define(['structure/structure'], function() {
              */
             this.bulletTouchable = true;
 
-            this.backgroundColor = 'yellow';
+            this.account = 0;
         },
 
         /**

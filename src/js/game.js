@@ -8,7 +8,7 @@ define([
     'entity/slime',
     'entity/dragon',
     'entity/player',
-    'structure/itembase'],
+    'structure/skpcoin'],
     function() {
         $(document).ready(function() {
             /**
@@ -120,7 +120,7 @@ define([
                             }
                         }
                     }
-var hoge = new kariShoot.structure.ItemBase(6);
+var hoge = new kariShoot.structure.SkpCoin(16);
                     hoge.x = 200;
 hoge.y = 200;                    stage.addChild(hoge);
                     stage.y = 0;
