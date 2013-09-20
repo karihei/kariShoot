@@ -7,7 +7,8 @@ define([
     'entity/enemy',
     'entity/slime',
     'entity/dragon',
-    'entity/player'],
+    'entity/player',
+    'structure/itembase'],
     function() {
         $(document).ready(function() {
             /**
@@ -25,6 +26,7 @@ define([
             /**
              * ステージを作って返す
              * @return {Array}
+             * TODO: 最終的にステージは外部ファイルに書いて読み込みたい
              */
             kariShoot.prototype.buildStage = function() {
                 var stage = [];
@@ -34,7 +36,7 @@ define([
                     for (var j = 0;j < STAGE_GRID_WIDTH;j++) {
                         if (i == 20 && j == 20) {
                             row[j] = kariShoot.EntityType.SLIME;
-                        } else if (i == 20 && j == 30) {
+                        } else if ((i == 20 && j == 30) || (i == 20 && j == 60)) {
                             row[j] = kariShoot.EntityType.DRAGON;
                         } else if (i === STAGE_GRID_HEIGHT - 1) {
                             row[j] = kariShoot.EntityType.GROUND;
@@ -118,7 +120,9 @@ define([
                             }
                         }
                     }
-
+var hoge = new kariShoot.structure.ItemBase(6);
+                    hoge.x = 200;
+hoge.y = 200;                    stage.addChild(hoge);
                     stage.y = 0;
                     var player = new kariShoot.Entity.Player();
                     player.setMiniMapTile(miniMap.createTile(player, 'yellow', true));

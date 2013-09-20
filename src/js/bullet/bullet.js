@@ -20,7 +20,7 @@ define([], function() {
              * @type {boolean}
              * @private
              */
-           this.isShot_ = false
+           this.isShot_ = false;
 
             /**
              * 弾が動いているか
@@ -73,6 +73,12 @@ define([], function() {
              * @private
              */
             this.destroyCount_ = -1;
+
+            /**
+             * 弾に触れても弾の耐久値を減らさない
+             * @type {boolean}
+             */
+            this.bulletTouchable = true;
 
             /**
              * 弾を中心にスクロールするか
@@ -152,8 +158,8 @@ define([], function() {
          * 球の軌道を決める。
          * 継承クラスはこれを実装する
          */
-        handleShot: function(shooter) {
-            this.applyImpulse(this.calcVector(this.vX, this.vY, this.centerX, this.centerY));
+        handleShot: function() {
+            this.applyImpulse(this.calcVector_(this.vX, this.vY, this.centerX, this.centerY));
         },
 
         onenterframe: function(e) {
@@ -172,20 +178,11 @@ define([], function() {
             }
 
             this.contact($.proxy(function(sprite) {
-                if (sprite instanceof kariShoot.Entity && sprite !== this.shooter) {
-                    sprite.hit(this);
-                }
+                this.handleContact_(sprite);
             }, this));
 
             if (this.x < -1 * this.width || this.x > WORLD_WIDTH + this.width) {
                 this.handleDestroy()
-            }
-
-            if (this.destroyCount_ > 0) {
-                this.destroyCount_--;
-                if (this.destroyCount_ == 0) {
-                    this.handleDestroy();
-                }
             }
 
             if (this.lineDraw && this.movingFrame_++ % 3 == 0) {
@@ -198,11 +195,34 @@ define([], function() {
         },
 
         /**
+         * Spriteと衝突した時の処理
+         * @param {Sprite} sprite
+         * @private
+         */
+        handleContact_: function(sprite) {
+            // キャラに当たった時
+            if (sprite instanceof kariShoot.Entity && sprite !== this.shooter) {
+                sprite.hit(this);
+            } else if (sprite instanceof kariShoot.structure.ItemBase) {
+                // コイン的なアイテムに当たった時
+                sprite.hit(this);
+            }
+
+            // 弾が触れると消滅するSprite（地面とか敵とか）に当たると弾の耐久値を減らす。
+            if (!sprite.bulletTouchable && this.destroyCount_ > 0) {
+                this.destroyCount_--;
+                if (this.destroyCount_ == 0) {
+                    this.handleDestroy();
+                }
+            }
+        },
+
+        /**
          * 飛び過ぎないように弾速に制限をかけてベクトルを返す
          * @return {b2Vec2}
          * @private
          */
-        calcVector: function(touchX, touchY, bulletX, bulletY) {
+        calcVector_: function(touchX, touchY, bulletX, bulletY) {
             var maxX = 150;
             var maxY = 75;
             var fy = function(x) {
