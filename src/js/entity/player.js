@@ -1,6 +1,7 @@
 define(['entity/entity'], function() {
     var IMAGE_PATH = 'img/entity/player.png';
-    core.preload(IMAGE_PATH);
+    var WAITING_IMAGE_PATH = 'img/waitingforshot.png';
+    core.preload([IMAGE_PATH, WAITING_IMAGE_PATH]);
 
     /**
      * 自機クラス
@@ -55,6 +56,13 @@ define(['entity/entity'], function() {
             this.isHeal_ = false;
             this.animWait = 7;
 
+            /**
+             * SP回復中に表示されるリング
+             * @type {Sprite}
+             * @private
+             */
+            this.waitingRing_;
+
             core.rootScene.addEventListener('touchend', $.proxy(this.handleTouchEnd, this));
         },
 
@@ -72,12 +80,18 @@ define(['entity/entity'], function() {
                     this.sp = this.maxSp;
                     this.isHeal_ = false;
                 } else {
-                    this.sp += 10;
+                    this.sp += 20;
                 }
             }
 
+            if (this.sp < this.maxSp) {
+                this.waitingForShot_();
+            } else {
+                this.readyToShot_();
+            }
+
             if (core.input.right && this.sp > 0) {
-                this.x += 10;
+                this.x += 3;
                 this.sp -= 10;
                 this.isHeal_ = false;
                 if (this.scaleX < 0) {
@@ -86,7 +100,7 @@ define(['entity/entity'], function() {
             }
 
             if (core.input.left && this.sp > 0) {
-                this.x -= 1;
+                this.x -= 3;
                 this.sp -= 10;
                 this.isHeal_ = false;
                 if (this.scaleX > 0) {
@@ -99,7 +113,6 @@ define(['entity/entity'], function() {
 
         handleTouchEnd: function(e) {
             if (this.sp < this.maxSp) {
-                this.ikigire();
                 return;
             } else {
                 if (this.bullets_.length > 0) {
@@ -178,10 +191,53 @@ define(['entity/entity'], function() {
         },
 
         /**
-         * SPが足りない時とかに息切れしちゃう
+         * 息切れ中に表示されるリングを作る
+         * @private
          */
-        ikigire: function() {
+        createWaitingRing_: function() {
+            var ring = new Sprite(128, 128);
+            ring.image = core.assets[WAITING_IMAGE_PATH];
+            ring.opacity = 0;
+            ring.tl.clear().fadeTo(0.7, 20).and().rotateBy(180, 100).rotateBy(180, 100).loop();
 
+            var reposition = $.proxy(function() {
+                ring.x = this.x - 50;
+                ring.y = this.y - 30;
+            }, this);
+            reposition();
+            ring.addEventListener('enterframe', reposition);
+
+            return ring;
+        },
+
+        /**
+         * SPが足りない時とかに息切れしちゃう
+         * @private
+         */
+        waitingForShot_: function() {
+            if (!this.waitingRing_) {
+                this.waitingRing_ = this.createWaitingRing_();
+                core.rootScene.mainStage.addChild(this.waitingRing_);
+            }
+        },
+
+        /**
+         * SPが100％になったらこれを呼ぶ
+         * @private
+         */
+        readyToShot_: function() {
+            if (this.waitingRing_) {
+                this.waitingRing_.tl.clear().fadeOut(10).removeFromScene();
+                this.waitingRing_ = null;
+
+                var ok = new Label('じゅんびOK');
+                ok.color = 'red';
+                ok.font = '12px famania';
+                ok.x = this.centerX - 40;
+                ok.y = this.centerY - 40;
+                ok.tl.moveTo(ok.x, ok.y - 20, 20).and().delay(30).fadeOut(10).removeFromScene();
+                core.rootScene.mainStage.addChild(ok);
+            }
         }
     });
 });

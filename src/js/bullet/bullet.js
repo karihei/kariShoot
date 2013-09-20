@@ -226,8 +226,8 @@ define([], function() {
          * @private
          */
         calcVector_: function(touchX, touchY, bulletX, bulletY) {
-            var maxX = 150;
-            var maxY = 75;
+            var maxX = 1500;
+            var maxY = 750;
             var fy = function(x) {
                 var y = (bulletY - touchY) / (touchX - bulletX) * x;
                 return y;
