@@ -9,17 +9,9 @@ define(['entity/enemy'], function() {
                 deffence: 10
             };
             kariShoot.Entity.Enemy.call(this, 128, 128, status, IMAGE_PATH);
-            this.account = 0;
             this.name = 'ドラゴン';
             this.agi = 1;
-        },
-
-        onenterframe: function() {
-            kariShoot.Entity.Enemy.prototype.onenterframe.call(this);
-            if (this.account++ > (core.fps / 9)) {
-                this.frame = this.frameCount++;
-                this.account = 0;
-            }
+            this.animWait = 9;
         },
 
         /**

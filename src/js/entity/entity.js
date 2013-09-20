@@ -54,6 +54,12 @@ define([], function() {
             this.agi = 1;
 
             /**
+             * フレームアニメーションのウェイト。大きいほどゆっくりになる
+             * @type {number}
+             */
+            this.animWait = 5;
+
+            /**
              * HPバーの枠
              * @type {Sprite}
              * @private
@@ -101,8 +107,6 @@ define([], function() {
              * @private
              */
             this.miniMapTile_ = null;
-
-            this.account;
         },
 
         onenterframe: function() {
@@ -111,6 +115,10 @@ define([], function() {
             }
             if (this.miniMapTile_) {
                 this.miniMapTile_.reposition(this);
+            }
+
+            if (core.frame % this.animWait == 0) {
+                this.frame++;
             }
         },
 
@@ -148,9 +156,8 @@ define([], function() {
 
                 this.showHpBar_();
 
-                if (this.acount++ > core.fps / 3) {
+                if (core.frame % 3 == 0) {
                     this.hitEffect_(entity);
-                    this.acount = 0;
                 }
             }
         },

@@ -45,7 +45,6 @@ define(['entity/entity'], function() {
             this.prevHp_ = this.maxHp;
             this.prevSp_ = this.maxSp;
 
-            this.acount = 0;
             this.spcount = 0;
 
             /**
@@ -54,17 +53,13 @@ define(['entity/entity'], function() {
              * @private
              */
             this.isHeal_ = false;
+            this.animWait = 7;
 
             core.rootScene.addEventListener('touchend', $.proxy(this.handleTouchEnd, this));
         },
 
         onenterframe: function() {
             kariShoot.Entity.prototype.onenterframe.call(this);
-            // フレームアニメーション設定
-            if (this.acount++ > (core.fps / 7)) {
-                this.frame = this.frameCount++;
-                this.acount = 0;
-            }
 
             // 何もせずに3秒待てばSPが回復する的な
             if (!this.isHeal_ && (this.prevSp_ == this.sp) && (this.spcount++ > core.fps * 3)) {

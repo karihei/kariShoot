@@ -10,12 +10,6 @@ define(['entity/entity'], function() {
             kariShoot.Entity.call(this, width, height, status, imagePath);
 
             /**
-             * フレーム管理用変数
-             * @type {Number}
-             */
-            this.acount = 0;
-
-            /**
              * @type {kariShoot.manage.Turn}
              * @private
              */
@@ -43,9 +37,6 @@ define(['entity/entity'], function() {
         onenterframe: function() {
             kariShoot.Entity.prototype.onenterframe.call(this);
             this.processActiveGauge_();
-            if (this.acount++ > core.fps) {
-                this.acount = 0;
-            }
         },
 
         /**
