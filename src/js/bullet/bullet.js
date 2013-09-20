@@ -196,12 +196,15 @@ define([], function() {
 
         /**
          * Spriteと衝突した時の処理
-         * @param {Sprite} sprite
+         * @param {Sprite} sprite 衝突したSprite
          * @private
          */
         handleContact_: function(sprite) {
             // キャラに当たった時
             if (sprite instanceof kariShoot.Entity && sprite !== this.shooter) {
+                if (this.shooter == core.rootScene.player) {
+                    kariShoot.util.effect.shake();
+                }
                 sprite.hit(this);
             } else if (sprite instanceof kariShoot.structure.ItemBase) {
                 // コイン的なアイテムに当たった時

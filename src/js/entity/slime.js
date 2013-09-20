@@ -11,7 +11,7 @@ define(['entity/enemy'], function() {
             kariShoot.Entity.Enemy.call(this, 48, 48, status, IMAGE_PATH);
             this.name = 'スライム';
             this.agi = 2;
-            this.animWait = 20;
+            this.animWait = 5;
         },
 
         /**

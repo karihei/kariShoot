@@ -5,5 +5,5 @@ define([], function() {
     kariShoot.util = function() {};
 
     // util以下にクラスを追加したらここにも追記する
-    require(['util/canvas']);
+    require(['util/canvas', 'util/effect']);
 });

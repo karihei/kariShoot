@@ -2,11 +2,15 @@ requirejs.config({
     shim: {
         'box2d': {
             deps: ['box2dweb']
+        },
+        'jrumble' :{
+            deps: ['jquery']
         }
     },
     paths: {
         'socketio': 'lib/socket.io',
         'jquery': 'lib/jquery-1.7.1.min',
+        'jrumble': 'lib/jquery.jrumble.1.3.min',
         'enchant': 'lib/enchant.js/dev/enchant',
         'ui': 'lib/enchant.js/dev/plugins/ui.enchant',
         'box2dweb': 'lib/enchant.js/libs/Box2dWeb-2.1.a.3',
@@ -15,7 +19,7 @@ requirejs.config({
     }
 });
 
-require(['socketio', 'jquery', 'enchant', 'box2dweb', 'box2d'], function() {
+require(['socketio', 'jquery', 'jrumble', 'enchant', 'box2dweb', 'box2d'], function() {
     /**
      * @constructor
      */
