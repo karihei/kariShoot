@@ -204,8 +204,10 @@ define([], function() {
             if (sprite instanceof kariShoot.Entity && sprite !== this.shooter) {
                 if (this.shooter == core.rootScene.player) {
                     kariShoot.util.effect.shake();
+                    sprite.hit(this);
+                } else if (sprite == core.rootScene.player) {
+                    sprite.hit(this);
                 }
-                sprite.hit(this);
             } else if (sprite instanceof kariShoot.structure.ItemBase && this.shooter == core.rootScene.player) {
                 // コイン的なアイテムに当たった時
                 sprite.hit(this);

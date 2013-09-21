@@ -68,6 +68,4 @@ define([], function() {
     kariShoot.manage.Message.getInstance = function() {
         return kariShoot.manage.Message.instance_;
     };
-
-    kariShoot.manage.Message.getInstance().sendGrobalMsg('ほげ');
 });
