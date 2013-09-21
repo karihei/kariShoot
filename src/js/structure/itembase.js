@@ -8,6 +8,8 @@ define(['structure/structure'], function() {
              * @type {boolean}
              */
             this.bulletTouchable = true;
+
+            this.isHit_ = false;
         },
 
         /**
@@ -15,8 +17,11 @@ define(['structure/structure'], function() {
          * @param {Sprite}
          */
         hit: function(sprite) {
-            this.applyImpulse(new b2Vec2(Math.random() * 2 - 1, -1));
-            this.tl.delay(50).fadeOut(10).then(this.destroy)
+            if (!this.isHit_) {
+                this.applyImpulse(new b2Vec2(Math.random() * 2 - 1, -7));
+                this.tl.delay(50).fadeOut(10).then(this.destroy);
+                this.isHit_ = true;
+            }
         }
     });
 });

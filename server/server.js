@@ -8,14 +8,14 @@ io.sockets.on('connection', function(socket){
     socket.on('signup', function(data) {
         var inSql = 'INSERT INTO user VALUES("' +
             data.id +'","'+
-            data.name+'",'+ // 名前
-            1 +','+ // レベル
-            3000 +','+ // HP
-            10 +','+ // 攻撃力
-            10 +','+ // 守備力
-            1 +','+ // 素早さ
-            0 +','+ // 経験値
-            0 + // 射幸心ポイント
+            data.name+'",'+ // name:名前
+            1 +','+ // level:レベル
+            3000 +','+ // hp:HP
+            10 +','+ // atk:攻撃力
+            10 +','+ // def:守備力
+            1 +','+ // agi:素早さ
+            0 +','+ // exp:経験値
+            0 + // skp:射幸心ポイント
         ')';
         db.run(inSql);
     });
@@ -28,5 +28,10 @@ io.sockets.on('connection', function(socket){
         db.all(sql, function(err, row) {
             socket.emit('getuser result', row);
         });
+    });
+
+    socket.on('addskp', function(data) {
+        var sql = 'UPDATE user SET skp=skp+' + data.value + ' WHERE id=' + data.id;
+        db.run(sql);
     });
 });

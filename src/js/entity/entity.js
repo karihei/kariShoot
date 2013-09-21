@@ -254,6 +254,7 @@ define([], function() {
             core.rootScene.status.removeItem(this);
             kariShoot.manage.Turn.getInstance().removeEntity(this);
             this.tl.fadeOut(30).then($.proxy(function() {
+                core.rootScene.mainStage.removeChild(this);
                 this.destroy();
             }, this));
             this.miniMapTile_.remove();
