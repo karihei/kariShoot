@@ -88,6 +88,17 @@ define(['entity/entity'], function() {
         },
 
         /**
+         * @override
+         */
+        handleDestroy: function() {
+            var playerName = core.rootScene.player.name + ' Lv' + core.rootScene.player.level;
+            var msg = playerName + ' が ' + this.name + ' Lv' + this.level +' を倒した！';
+            kariShoot.manage.Message.getInstance().sendGrobalMsg(msg);
+
+            kariShoot.Entity.prototype.handleDestroy.call(this);
+        },
+
+        /**
          * ようすをみる
          */
         nothingToDo: function() {

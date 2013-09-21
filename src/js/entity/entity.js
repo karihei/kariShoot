@@ -116,8 +116,9 @@ define([], function() {
         },
 
         onenterframe: function() {
-            if (this.hp <= 0) {
-                this.handleDestroy_();
+            if (this.hp <= 0 && !this.isDestroy_) {
+                this.isDestroy_ = true;
+                this.handleDestroy();
             }
             if (this.miniMapTile_) {
                 this.miniMapTile_.reposition(this);
@@ -174,10 +175,18 @@ define([], function() {
          * @private
          */
         handleTotalDamage_: function(entity) {
-            var msg = entity.shooter.name + ' Lv' + entity.shooter.level + ' が ' +
-                this.name + ' Lv' + this.level +' に ' +
-                this.totalDamage_ + ' ポイントのダメージを与えた！';
-            kariShoot.manage.Message.getInstance().sendGrobalMsg(msg);
+            if (!this.isDestroy_) {
+                var isPlayer = (entity.shooter == core.rootScene.player);
+                var shooterName = entity.shooter.name + ' Lv' + entity.shooter.level;
+                var thisName = this.name + ' Lv' + this.level;
+                var msg = (isPlayer ? shooterName : thisName) +
+                    (isPlayer ? ' が ' : ' は ')  +
+                    (isPlayer ? thisName : shooterName) +
+                    (isPlayer ? ' に ' : ' から ') +
+                    this.totalDamage_ + ' ポイントのダメージを' +
+                    (isPlayer ? '与えた！' : '受けた!');
+                kariShoot.manage.Message.getInstance().sendGrobalMsg(msg);
+            }
             this.totalDamage_ = 0;
         },
 
@@ -269,7 +278,10 @@ define([], function() {
             core.rootScene.mainStage.addChild(effect);
         },
 
-        handleDestroy_: function() {
+        /**
+         * @protected
+         */
+        handleDestroy: function() {
             core.rootScene.status.removeItem(this);
             kariShoot.manage.Turn.getInstance().removeEntity(this);
             this.tl.fadeOut(30).then($.proxy(function() {

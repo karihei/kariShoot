@@ -147,6 +147,16 @@ define(['entity/entity'], function() {
         },
 
         /**
+         * @override
+         */
+        handleDestroy: function() {
+            var msg = this.name + ' Lv' + this.level + ' は死んでしまった！';
+            kariShoot.manage.Message.getInstance().sendGrobalMsg(msg);
+
+            kariShoot.Entity.prototype.handleDestroy.call(this);
+        },
+
+        /**
          * ガイドラインを引く
          */
         drawGideLine: function(e) {
