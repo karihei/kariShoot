@@ -127,7 +127,7 @@ define([
                     }
 
                     // 射幸心コインを仮配置
-                    for (var i=0;i < 10; i++) {
+                    for (var i=0;i < 50; i++) {
                         var hoge = new kariShoot.structure.SkpCoin(16);
                         hoge.x = 200 + (hoge.width + 10) * i;
                         hoge.y = 100 + Math.random() * 100;

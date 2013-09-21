@@ -32,6 +32,20 @@ io.sockets.on('connection', function(socket){
 
     socket.on('addskp', function(data) {
         var sql = 'UPDATE user SET skp=skp+' + data.value + ' WHERE id=' + data.id;
-        db.run(sql);
+        db.run(sql, function(err) {
+            if (!err) {
+                updateUser(data.id);
+            }
+        });
     });
+
+    /**
+     * ユーザ情報を更新する
+     */
+    function updateUser(userId) {
+        var sql = 'SELECT * FROM user WHERE id=' + userId;
+        db.all(sql, function(err, row) {
+            socket.emit('updateuser result ' + userId, row);
+        });
+    };
 });
