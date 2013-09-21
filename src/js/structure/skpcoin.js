@@ -17,8 +17,11 @@ define(['structure/itembase'], function() {
          * @override
          */
         hit: function() {
+            if (!this.isHit) {
+                kariShoot.manage.Client.getInstance().addSkp(1);
+            }
             kariShoot.structure.ItemBase.prototype.hit.call(this);
-            kariShoot.manage.Client.getInstance().addSkp(1);
+
         }
     });
 

@@ -9,7 +9,11 @@ define(['structure/structure'], function() {
              */
             this.bulletTouchable = true;
 
-            this.isHit_ = false;
+            /**
+             * 初回ヒット時にtrue
+             * @type {Boolean}
+             */
+            this.isHit = false;
         },
 
         /**
@@ -17,10 +21,10 @@ define(['structure/structure'], function() {
          * @param {Sprite}
          */
         hit: function(sprite) {
-            if (!this.isHit_) {
+            if (!this.isHit) {
                 this.applyImpulse(new b2Vec2(Math.random() * 2 - 1, -7));
                 this.tl.delay(50).fadeOut(10).then(this.destroy);
-                this.isHit_ = true;
+                this.isHit = true;
             }
         }
     });
