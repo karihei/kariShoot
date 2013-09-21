@@ -40,6 +40,31 @@ io.sockets.on('connection', function(socket){
     });
 
     /**
+     * メッセージ一覧を返す
+     */
+    socket.on('listmessage', function(data, a, b) {
+        var size = data.size || 1;
+        var sql = 'SELECT * FROM message ORDER BY id DESC LIMIT 0,' + size;
+        db.all(sql, function(err, row) {
+            if (!err) {
+                socket.emit('listmessage result', row);
+            }
+        });
+    });
+
+    /**
+     * 新着メッセージをDBに保存してクライアントにブロードキャストする
+     */
+    socket.on('sendmessage', function(data) {
+        var sql = 'INSERT INTO message VALUES(null, "' + data.value + '",'+ new Date().getTime() + ')';
+        db.run(sql, function(err) {
+            if (!err) {
+                socket.emit('listmessage result', [data.value]);
+            }
+        });
+    });
+
+    /**
      * ユーザ情報を更新する
      */
     function updateUser(userId) {
