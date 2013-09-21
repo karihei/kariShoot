@@ -21,6 +21,15 @@ body {
 }
 
 /* line 19, ../sass/layout.scss */
+#message-window {
+  font-size: 13px;
+}
+/* line 21, ../sass/layout.scss */
+#message-window .msg-time {
+  padding-right: 10px;
+}
+
+/* line 26, ../sass/layout.scss */
 #status-window {
   height: 50px;
   width: 426px;
@@ -30,36 +39,36 @@ body {
   background: rgba(240, 240, 240, 0.49);
 }
 
-/* line 28, ../sass/layout.scss */
+/* line 35, ../sass/layout.scss */
 .hp-label, .sp-label {
   display: inline-block;
   width: 20px;
   padding: 10px 0;
 }
 
-/* line 34, ../sass/layout.scss */
+/* line 41, ../sass/layout.scss */
 .hp-label {
   background: url("../../img/hp.png") no-repeat 50% 50%;
 }
 
-/* line 38, ../sass/layout.scss */
+/* line 45, ../sass/layout.scss */
 .sp-label {
   background: url("../../img/sp.png") no-repeat 50% 50%;
 }
 
-/* line 42, ../sass/layout.scss */
+/* line 49, ../sass/layout.scss */
 _pos, #hp-bar, #sp-bar, #hp-bar-value, #sp-bar-value {
   display: inline-block;
   width: 200px;
   height: 20px;
 }
 
-/* line 48, ../sass/layout.scss */
+/* line 55, ../sass/layout.scss */
 #hp-bar, #sp-bar {
   border: 1px solid #000000;
 }
 
-/* line 53, ../sass/layout.scss */
+/* line 60, ../sass/layout.scss */
 #hp-bar-value {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f3c5bd), color-stop(50%, #e86c57), color-stop(51%, #ea2803), color-stop(75%, #ff6600), color-stop(100%, #c72200));
   background-image: -webkit-linear-gradient(#f3c5bd 0%, #e86c57 50%, #ea2803 51%, #ff6600 75%, #c72200 100%);
@@ -69,7 +78,7 @@ _pos, #hp-bar, #sp-bar, #hp-bar-value, #sp-bar-value {
   background-image: linear-gradient(#f3c5bd 0%, #e86c57 50%, #ea2803 51%, #ff6600 75%, #c72200 100%);
 }
 
-/* line 58, ../sass/layout.scss */
+/* line 65, ../sass/layout.scss */
 #sp-bar-value {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e6f0a3), color-stop(50%, #d2e638), color-stop(51%, #c3d825), color-stop(100%, #dbf043));
   background-image: -webkit-linear-gradient(#e6f0a3 0%, #d2e638 50%, #c3d825 51%, #dbf043 100%);
@@ -79,18 +88,18 @@ _pos, #hp-bar, #sp-bar, #hp-bar-value, #sp-bar-value {
   background-image: linear-gradient(#e6f0a3 0%, #d2e638 50%, #c3d825 51%, #dbf043 100%);
 }
 
-/* line 66, ../sass/layout.scss */
+/* line 73, ../sass/layout.scss */
 .login-container {
   text-align: center;
   margin-top: 50px;
 }
 
-/* line 71, ../sass/layout.scss */
+/* line 78, ../sass/layout.scss */
 #jintai {
   display: inline-block;
 }
 
-/* line 75, ../sass/layout.scss */
+/* line 82, ../sass/layout.scss */
 #status-box {
   margin-top: 70px;
   vertical-align: top;

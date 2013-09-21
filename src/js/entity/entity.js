@@ -23,6 +23,12 @@ define([], function() {
             this.name = 'Entity';
 
             /**
+             * レベル
+             * @type {number}
+             */
+            this.level = 1;
+
+            /**
              * 最大体力
              * @type {number}
              */
@@ -152,7 +158,7 @@ define([], function() {
                 this.totalDamageLabel_.font = '14px famania'
                 this.totalDamageLabel_.color = 'black';
                 core.rootScene.mainStage.addChild(this.totalDamageLabel_);
-                this.totalDamageLabel_.tl.fadeIn(10).delay(40).fadeOut(30).then($.proxy(this.handleTotalDamage_, this, entity));
+                this.totalDamageLabel_.tl.fadeIn(10).delay(10).fadeOut(10).then($.proxy(this.handleTotalDamage_, this, entity));
 
                 this.showHpBar_();
 
@@ -168,7 +174,9 @@ define([], function() {
          * @private
          */
         handleTotalDamage_: function(entity) {
-            var msg = entity.shooter.name + ' が ' + this.name + ' に ' + this.totalDamage_ + ' ポイントのダメージを与えた！';
+            var msg = entity.shooter.name + ' Lv' + entity.shooter.level + ' が ' +
+                this.name + ' Lv' + this.level +' に ' +
+                this.totalDamage_ + ' ポイントのダメージを与えた！';
             kariShoot.manage.Message.getInstance().sendGrobalMsg(msg);
             this.totalDamage_ = 0;
         },

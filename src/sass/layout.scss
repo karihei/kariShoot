@@ -16,6 +16,13 @@ body {
 
 }
 
+#message-window {
+  font-size: 13px;
+  .msg-time {
+    padding-right: 10px;
+  }
+}
+
 #status-window {
   height: 50px;
   width: 426px;

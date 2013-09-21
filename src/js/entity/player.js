@@ -16,7 +16,8 @@ define(['entity/entity'], function() {
             };
             kariShoot.Entity.call(this, 32, 64, status, IMAGE_PATH);
 
-            this.name = 'プレイヤー';
+            this.name = kariShoot.LOGIN_USER.name;
+            this.level = kariShoot.LOGIN_USER.level;
 
             /**
              * 自弾グループ
