@@ -44,7 +44,7 @@ io.sockets.on('connection', function(socket){
      */
     socket.on('listmessage', function(data, a, b) {
         var size = data.size || 1;
-        var sql = 'SELECT * FROM message ORDER BY id DESC LIMIT 0,' + size;
+        var sql = 'SELECT * FROM ( SELECT * FROM message ORDER BY id DESC LIMIT 0,' + size +') AS T1 ORDER BY id ASC';
         db.all(sql, function(err, row) {
             if (!err) {
                 socket.emit('listmessage result', row);
@@ -56,10 +56,11 @@ io.sockets.on('connection', function(socket){
      * 新着メッセージをDBに保存してクライアントにブロードキャストする
      */
     socket.on('sendmessage', function(data) {
-        var sql = 'INSERT INTO message VALUES(null, "' + data.value + '",'+ new Date().getTime() + ')';
+        var datetime = new Date().getTime();
+        var sql = 'INSERT INTO message VALUES(null, "' + data.value + '",'+ datetime + ')';
         db.run(sql, function(err) {
             if (!err) {
-                socket.emit('listmessage result', [data.value]);
+                io.sockets.emit('listmessage result', [{'body': data.value, 'created': datetime}]);
             }
         });
     });

@@ -152,7 +152,7 @@ define([], function() {
                 this.totalDamageLabel_.font = '14px famania'
                 this.totalDamageLabel_.color = 'black';
                 core.rootScene.mainStage.addChild(this.totalDamageLabel_);
-                this.totalDamageLabel_.tl.fadeIn(10).delay(40).fadeOut(30).then($.proxy(function() { this.totalDamage_ = 0;}, this));
+                this.totalDamageLabel_.tl.fadeIn(10).delay(40).fadeOut(30).then($.proxy(this.handleTotalDamage_, this, entity));
 
                 this.showHpBar_();
 
@@ -160,6 +160,17 @@ define([], function() {
                     this.hitEffect_(entity);
                 }
             }
+        },
+
+        /**
+         * 連続ヒットダメージが落ち着いた頃に実行される
+         * @param {Sprite} entity
+         * @private
+         */
+        handleTotalDamage_: function(entity) {
+            var msg = entity.shooter.name + ' が ' + this.name + ' に ' + this.totalDamage_ + ' ポイントのダメージを与えた！';
+            kariShoot.manage.Message.getInstance().sendGrobalMsg(msg);
+            this.totalDamage_ = 0;
         },
 
         /**
