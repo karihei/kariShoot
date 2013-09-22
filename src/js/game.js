@@ -109,10 +109,10 @@ define([
                                     miniMap.createTile(tile, 'green');
                                     break;
                                 case kariShoot.EntityType.SLIME:
-                                    tile = new kariShoot.Entity.Slime();
-                                    tile.position = {x: j * GRID_SIZE + (GRID_SIZE / 2) + 100, y: i * GRID_SIZE + 5};
-                                    stage.addChild(tile);
-                                    tile.setMiniMapTile(miniMap.createTile(tile, 'red'));
+                                    //tile = new kariShoot.Entity.Slime();
+                                    //tile.position = {x: j * GRID_SIZE + (GRID_SIZE / 2) + 100, y: i * GRID_SIZE + 5};
+                                   // stage.addChild(tile);
+                                    //tile.setMiniMapTile(miniMap.createTile(tile, 'red'));
                                     break;
                                 case kariShoot.EntityType.DRAGON:
                                     tile = new kariShoot.Entity.Dragon();

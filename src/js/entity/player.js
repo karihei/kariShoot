@@ -1,7 +1,8 @@
 define(['entity/entity'], function() {
     var IMAGE_PATH = 'img/entity/player.png';
     var WAITING_IMAGE_PATH = 'img/waitingforshot.png';
-    core.preload([IMAGE_PATH, WAITING_IMAGE_PATH]);
+    var GUARD_IMAGE_PATH = 'img/guardring.png';
+    core.preload([IMAGE_PATH, WAITING_IMAGE_PATH, GUARD_IMAGE_PATH]);
 
     /**
      * 自機クラス
@@ -64,6 +65,27 @@ define(['entity/entity'], function() {
              */
             this.waitingRing_;
 
+            /**
+             * 防御中に表示されるリング
+             * @type {Sprite}
+             * @private
+             */
+            this.guardRing_;
+
+            /**
+             * 防御時の継続フレーム数
+             * @type {number}
+             * @private
+             */
+            this.guardFrame_ = 0;
+
+            /**
+             * 何フレームまで防御できるか
+             * @type {number}
+             * @private
+             */
+            this.maxGuardFrame_ = 10;
+
             core.rootScene.addEventListener('touchend', $.proxy(this.handleTouchEnd, this));
         },
 
@@ -109,6 +131,19 @@ define(['entity/entity'], function() {
                 }
             }
 
+            // スペースキーでジャストガード
+            if (core.input.space && !this.isGuard) {
+                this.isGuard = true;
+                this.guard_();
+            }
+
+            if (this.isGuard) {
+                this.guardFrame_++;
+                if (this.guardFrame_ > this.maxGuardFrame_) {
+                    this.noGuard_();
+                }
+            }
+
             this.showStatus();
         },
 
@@ -144,6 +179,50 @@ define(['entity/entity'], function() {
                     kariShoot.manage.Turn.getInstance().scrollTo(this);
                 }, this), 1000);
             }, this));
+        },
+
+        /**
+         * ガードを展開した時に呼ばれる
+         * @private
+         */
+        guard_: function() {
+            if (!this.guardRing_) {
+                this.guardRing_ = this.createGuardRing_();
+                core.rootScene.mainStage.addChild(this.guardRing_);
+            }
+        },
+
+        /**
+         * ガード解除時に呼ばれる
+         * @private
+         */
+        noGuard_: function() {
+            if (this.guardRing_) {
+                core.rootScene.mainStage.removeChild(this.guardRing_);
+                this.guardRing_ = null;
+            }
+            this.isGuard = false;
+            this.guardFrame_ = 0;
+        },
+
+        /**
+         * あらゆる攻撃を防ぐバリアを張る
+         * @private
+         */
+        createGuardRing_: function() {
+            var ring = new Sprite(128, 128);
+            ring.image = core.assets[GUARD_IMAGE_PATH];
+            ring.opacity = 0;
+            ring.tl.clear().fadeTo(1, 10);
+
+            var reposition = $.proxy(function() {
+                ring.x = this.x - 50;
+                ring.y = this.y - 30;
+            }, this);
+            reposition();
+            ring.addEventListener('enterframe', reposition);
+
+            return ring;
         },
 
         /**

@@ -81,13 +81,6 @@ define([], function() {
             this.hpBarInner_;
 
             /**
-             * ダメージカウンタのY位置
-             * @type {number}
-             * @private
-             */
-            this.damegeLabelY_ = 0;
-
-            /**
              * ダメージ総数
              * @type {number}
              * @private
@@ -102,10 +95,10 @@ define([], function() {
             this.totalDamaleLabel_;
 
             /**
-             * アニメーションのフレーム番号
-             * @type {number}
+             * 防御中の時true
+             * @type {boolean}
              */
-            this.frameCount = 0;
+            this.isGuard = false;
 
             /**
              * ミニマップに表示するタイル
@@ -134,6 +127,12 @@ define([], function() {
          * @param {Sprite} entity
          */
         hit: function(entity) {
+            // 防御時はノーダメやで
+            if (this.isGuard) {
+                this.handleGuard_();
+                return;
+            }
+
             var velocity = entity.velocity;
             //  ダメージ計算 = 弾の速さ * 弾の攻撃力 / 敵の防御力
             var damage = Math.ceil((Math.abs(velocity.x) + Math.abs(velocity.y) * entity.attack ) / this.deffence);
@@ -204,6 +203,20 @@ define([], function() {
          */
         action: function() {
             console.log(this.name + 'のターン');
+        },
+
+        /**
+         * 防御時の処理を書く
+         * @private
+         */
+        handleGuard_: function() {
+            var ok = new Label('JUST GUARD!!');
+            ok.color = 'blue';
+            ok.font = '12px famania';
+            ok.x = this.centerX - 40;
+            ok.y = this.centerY - 40;
+            ok.tl.moveTo(ok.x, ok.y - 20, 20).and().delay(30).fadeOut(10).removeFromScene();
+            core.rootScene.mainStage.addChild(ok);
         },
 
         /**

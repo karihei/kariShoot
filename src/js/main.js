@@ -54,6 +54,7 @@ require(['socketio', 'jquery', 'jrumble', 'enchant', 'box2dweb', 'box2d'], funct
         enchant();
         core = new Core(STAGE_WIDTH, STAGE_HEIGHT);
         core.fps = 32;
+        core.keybind(32, 'space');
         core.preload(PLAYER_IMG_PATH, STAGE_IMG_PATH, CLOUD_MID_IMG_PATH, CLOUD_SMALL_IMG_PATH);
         require(['ui', 'game', 'index']);
     };
