@@ -17,6 +17,8 @@ body {
 }
 
 #message-window {
+  max-height: 200px;
+  overflow-y: scroll;
   font-size: 13px;
   .msg-time {
     padding-right: 10px;

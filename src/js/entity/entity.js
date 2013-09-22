@@ -184,7 +184,8 @@ define([], function() {
                     (isPlayer ? thisName : shooterName) +
                     (isPlayer ? ' に ' : ' から ') +
                     this.totalDamage_ + ' ポイントのダメージを' +
-                    (isPlayer ? '与えた！' : '受けた!');
+                    (isPlayer ? '与えた！' : '受けた！') +
+                    (isPlayer ? '' : '(残HP:' + this.hp + '/' + this.maxHp + ')');
                 kariShoot.manage.Message.getInstance().sendGrobalMsg(msg);
             }
             this.totalDamage_ = 0;
