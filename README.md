@@ -14,6 +14,13 @@ Prerequisites:
 
 ### Preparation to run!
 
+How to get src.
+
+```bash
+$ git clone --recursive http://github.com/karihei/kariShoot
+$ cd kariShoot
+```
+
 ```bash
 $ cd server
 $ npm install sqlite3 socket.io
