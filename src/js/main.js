@@ -27,7 +27,7 @@ require(['socketio', 'jquery', 'jrumble', 'enchant', 'box2dweb', 'box2d'], funct
     };
 
     // サーバ側設定
-    SERVER_URI = 'http://localhost:8762';
+    SERVER_URI = 'http://' + document.domain + ':8762';
     kariShoot.socket = io.connect(SERVER_URI);
 
     // kariShoot.socket.emit('signup', {'id': 1234, 'name': 'てすと太郎'});
