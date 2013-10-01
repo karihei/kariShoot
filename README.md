@@ -1,5 +1,8 @@
 ## kariShoot
 
+
+[Playable demo (unstable)](http://karix.jp/kariShoot/)
+
 This game is KUSO ge-.
 ![img](img/screenshot.png)
 
