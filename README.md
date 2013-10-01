@@ -17,7 +17,7 @@ Prerequisites:
 How to get src.
 
 ```bash
-$ git clone --recursive http://github.com/karihei/kariShoot
+$ git clone --recursive https://github.com/karihei/kariShoot
 $ cd kariShoot
 ```
 
