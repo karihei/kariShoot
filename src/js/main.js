@@ -74,7 +74,7 @@ require(['jquery', 'jrumble', 'enchant', 'box2dweb', 'box2d'], function() {
     };
 
 
-    kariShoot.socket.emit('getuser', {id: 1234});
+    kariShoot.socket.emit('getuser', {id: 1});
     kariShoot.socket.on('getuser result', function(result) {
         if (result.length > 0) {
             kariShoot.LOGIN_USER = result[0];

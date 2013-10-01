@@ -1,6 +1,20 @@
 var io = require('socket.io').listen(8080);
 var sqlite = require('sqlite3').verbose();
+var path = require("path");
+var isInitDB = !path.existsSync("karishoot.db");
 var db = new sqlite.Database('karishoot.db');
+
+if (isInitDB) {
+  db.serialize(function() {
+    db.run('CREATE TABLE IF NOT EXISTS message (id INTEGER PRIMARY KEY AUTOINCREMENT, body TEXT, created INTEGER)');
+    db.run('CREATE TABLE IF NOT EXISTS user (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL DEFAULT \'\', level INTEGER NOT NULL DEFAULT 1, hp INTEGER NOT NULL DEFAULT 1000, atk INTEGER NOT NULL DEFAULT 2, def INTEGER NOT NULL DEFAULT 1, agi INTEGER NOT NULL DEFAULT 1, exp INTEGER NOT NULL DEFAULT 0, skp INTEGER NOT NULL DEFAULT 0)');
+
+    var stmt = db.prepare('INSERT INTO user (name, level, hp, atk, def, agi, exp, skp) VALUES (?, ?, ?, ?, ?, ?, ?, ?)')
+    // craete dummy user
+    stmt.run('dummy', 1, 1000, 10, 10, 1, 0, 0);
+    stmt.finalize();
+  });
+}
 
 io.sockets.on('connection', function(socket){
 
