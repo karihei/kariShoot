@@ -2,3 +2,4 @@ src/.sass-cache
 .idea
 .DS_STORE
 server/node_modules/
+server/karishoot.db
