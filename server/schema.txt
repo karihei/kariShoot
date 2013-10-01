@@ -4,7 +4,7 @@ userテーブル
 
 * id
 * name キャラ名
-* lebel
+* level
 * hp
 * atk こうげきりょく
 * def しゅびりょく
