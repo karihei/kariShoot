@@ -1,4 +1,4 @@
-var io = require('socket.io').listen(8762);
+var io = require('socket.io').listen(8080);
 var sqlite = require('sqlite3').verbose();
 var db = new sqlite.Database('karishoot.db');
 
